@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dvadf4vbtpmku"]
+[gd_scene load_steps=16 format=3 uid="uid://dvadf4vbtpmku"]
 
 [ext_resource type="Script" path="res://teste_floor.gd" id="1_w1aog"]
 [ext_resource type="Texture2D" uid="uid://o2mlfxpq0p17" path="res://TileMaps/tf_darkdimension_sheet.png" id="2_lmgb2"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bhqldrfmuoirs" path="res://Scenes/door.tscn" id="7_b4nsu"]
 [ext_resource type="PackedScene" uid="uid://bbfs5xndgyrfd" path="res://Scenes/slime.tscn" id="8_yxxdy"]
 [ext_resource type="Texture2D" uid="uid://ckh36ve5svnsr" path="res://Sprites/AWSD.png" id="9_ou6vm"]
+[ext_resource type="FontFile" uid="uid://cfsuudelg6221" path="res://Assets/fontForGame-Regular.ttf" id="10_cjmth"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8p4ce"]
 texture = ExtResource("2_lmgb2")
@@ -2516,10 +2517,22 @@ position = Vector2(484, 241)
 z_index = 1
 position = Vector2(397, 218)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 texture_filter = 1
-position = Vector2(207, 156)
+position = Vector2(168, 370)
+scale = Vector2(0.474014, 0.474014)
 texture = ExtResource("9_ou6vm")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 250.0
+offset_top = 398.0
+offset_right = 602.0
+offset_bottom = 418.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("10_cjmth")
+text = "Botões de movimentação"
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="Player" method="_on_audio_stream_player_2d_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

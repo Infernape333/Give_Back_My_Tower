@@ -1,152 +1,319 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhywk2w2l2ena"]
+[gd_scene load_steps=22 format=3 uid="uid://dyl0w7ou3mken"]
 
 [ext_resource type="Script" path="res://Scripts/hud_melhorias.gd" id="1_j7vfr"]
+[ext_resource type="Texture2D" uid="uid://coxa5wkxkrcki" path="res://ui/UI/RectangleBox_96x96.png" id="1_lt2if"]
 [ext_resource type="Theme" uid="uid://djhcai4p6n8i1" path="res://Assets/tema_butaoha.tres" id="2_2sw7u"]
-[ext_resource type="FontFile" uid="uid://cfsuudelg6221" path="res://Assets/fontForGame-Regular.ttf" id="2_gak4g"]
-[ext_resource type="Texture2D" uid="uid://dvdrrq2myhgr" path="res://Assets/ui_assets/UI_Flat_InputField02a.png" id="2_t73ht"]
-[ext_resource type="Texture2D" uid="uid://b8lo5d8oknaod" path="res://Assets/Fantasy Minimal Pixel Art GUI by eta-commercial-free/UI/BuffIcons(WithoutStroke)_16x16.png" id="5_vt5pp"]
+[ext_resource type="Texture2D" uid="uid://d1w2coi1kgw6j" path="res://ui/UI/Button_52x14.png" id="2_ubhyl"]
+[ext_resource type="Texture2D" uid="uid://dmh573k8gu1r0" path="res://ui/UI/CharacterBox_56x57.png" id="3_giu73"]
+[ext_resource type="Texture2D" uid="uid://c4fpy0rwx2gcl" path="res://ui/UI/QuitIcon.png" id="4_ngm5o"]
+[ext_resource type="Texture2D" uid="uid://qi7je4g33bvc" path="res://ui/UI/TitleBox_64x16.png" id="5_k6mug"]
+[ext_resource type="Texture2D" uid="uid://bmu78duf5lhgq" path="res://ui/UI/BlackBigCircleBoxWithBorder_27x27.png" id="7_kssis"]
+[ext_resource type="Texture2D" uid="uid://qncodmth4jjg" path="res://ui/UI/BuffIcons(WithoutStroke)_16x16.png" id="8_ptp14"]
+[ext_resource type="Texture2D" uid="uid://bygck5p5e7fqh" path="res://Assets/Assets/[4] Full Spritesheet.png" id="8_q4147"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3sqg2"]
-atlas = ExtResource("5_vt5pp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_obp4b"]
+atlas = ExtResource("8_q4147")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tbuxh"]
-atlas = ExtResource("5_vt5pp")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xdbe5"]
-atlas = ExtResource("5_vt5pp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpeef"]
+atlas = ExtResource("8_q4147")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xmjof"]
-atlas = ExtResource("5_vt5pp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fm8t"]
+atlas = ExtResource("8_q4147")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7lsyb"]
-atlas = ExtResource("5_vt5pp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_le6lr"]
+atlas = ExtResource("8_q4147")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ogw6i"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pimlv"]
+atlas = ExtResource("8_q4147")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x77mf"]
+atlas = ExtResource("8_q4147")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqsq2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3sqg2")
+"texture": SubResource("AtlasTexture_obp4b")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tbuxh")
+"texture": SubResource("AtlasTexture_dpeef")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xdbe5")
+"texture": SubResource("AtlasTexture_8fm8t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xmjof")
+"texture": SubResource("AtlasTexture_le6lr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7lsyb")
+"texture": SubResource("AtlasTexture_pimlv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x77mf")
 }],
 "loop": true,
-"name": &"encantamentos",
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ragm"]
+atlas = ExtResource("8_ptp14")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0by8i"]
+atlas = ExtResource("8_ptp14")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e15j4"]
+atlas = ExtResource("8_ptp14")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kny13"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ragm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0by8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e15j4")
+}],
+"loop": true,
+"name": &"default",
 "speed": 1.0
 }]
 
-[node name="hud_melhorias" type="Control"]
+[node name="hud_melhorias" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchor_left = 0.194
-anchor_right = 0.484
-anchor_bottom = 0.296
-offset_left = 0.511993
-offset_right = -0.568054
-offset_bottom = 0.192001
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_force_pass_scroll_events = false
+theme = ExtResource("2_2sw7u")
 script = ExtResource("1_j7vfr")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.565)
+
+[node name="TextureRect" type="TextureRect" parent="Control/ColorRect"]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = -1
-offset_top = 4.0
-offset_right = 331.0
-offset_bottom = 191.0
-mouse_filter = 0
-mouse_force_pass_scroll_events = false
-texture = ExtResource("2_t73ht")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -294.0
+offset_top = -287.0
+offset_right = 295.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lt2if")
 
-[node name="dano_ataque" type="Button" parent="TextureRect"]
-layout_mode = 0
-offset_left = 21.484
-offset_top = 51.0
-offset_right = 169.484
-offset_bottom = 69.0
-theme = ExtResource("2_2sw7u")
-action_mode = 0
-text = "dano de ataque"
-flat = true
-
-[node name="ataque_velocidade" type="Button" parent="TextureRect"]
+[node name="box_title" type="TextureRect" parent="Control/ColorRect/TextureRect"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.055
-anchor_top = 0.358
-anchor_right = 0.726
-anchor_bottom = 0.453
-offset_left = -0.0500011
-offset_top = -0.0200043
-offset_right = -0.0599976
-offset_bottom = -0.0699997
-theme = ExtResource("2_2sw7u")
-text = "velocidade de ataque"
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.5
+offset_top = -91.0
+offset_right = 145.5
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ubhyl")
+
+[node name="title" type="Label" parent="Control/ColorRect/TextureRect/box_title"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 28.0
+offset_right = 258.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 14
+text = "Encantamentos"
+
+[node name="espacamento_1" type="TextureRect" parent="Control/ColorRect/TextureRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.5
+offset_top = -1.0
+offset_right = 227.5
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_giu73")
+
+[node name="espacamento_2" type="TextureRect" parent="Control/ColorRect/TextureRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -233.5
+offset_top = 69.0
+offset_right = 228.5
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_giu73")
+
+[node name="MenuBar" type="MenuBar" parent="Control/ColorRect/TextureRect"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 180.0
+offset_right = 603.0
+offset_bottom = 392.0
+
+[node name="dano_ataque" type="Button" parent="Control/ColorRect/TextureRect/MenuBar"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 28.0
+offset_right = 349.0
+offset_bottom = 66.0
+text = "Dano de Ataque"
 flat = true
 alignment = 0
 
-[node name="price1" type="Label" parent="TextureRect"]
-texture_repeat = 1
+[node name="velocidade_ataque" type="Button" parent="Control/ColorRect/TextureRect/MenuBar"]
 layout_mode = 0
-offset_left = 248.0
-offset_top = 52.0
-offset_right = 308.0
-offset_bottom = 70.0
-theme_override_colors/font_color = Color(0.140447, 0.140447, 0.140447, 1)
-theme_override_fonts/font = ExtResource("2_gak4g")
-theme_override_font_sizes/font_size = 10
-text = "R$: 00"
+offset_left = 62.0
+offset_top = 97.0
+offset_right = 345.0
+offset_bottom = 136.0
+text = "Velocidade de Ataque"
+flat = true
+alignment = 0
 
-[node name="price2" type="Label" parent="TextureRect"]
-texture_repeat = 1
+[node name="label_1" type="Label" parent="Control/ColorRect/TextureRect"]
 layout_mode = 0
-offset_left = 249.0
-offset_top = 73.0
-offset_right = 309.0
-offset_bottom = 91.0
-theme_override_colors/font_color = Color(0.140447, 0.140447, 0.140447, 1)
-theme_override_fonts/font = ExtResource("2_gak4g")
-theme_override_font_sizes/font_size = 10
-text = "R$: 00"
+offset_left = 372.0
+offset_top = 218.0
+offset_right = 500.0
+offset_bottom = 241.0
+text = "R$ 00,00
+"
 
-[node name="melhorias" type="Label" parent="TextureRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.077
-anchor_top = 0.553
-anchor_right = 0.489
-anchor_bottom = 0.765
-offset_left = -2.87
-offset_top = -0.0700073
-offset_right = 0.102005
-offset_bottom = 3.061
-theme_override_colors/font_color = Color(0.721472, 0.410631, 0.23361, 1)
-theme_override_fonts/font = ExtResource("2_gak4g")
-theme_override_font_sizes/font_size = 10
-text = "melhorias"
+[node name="label_2" type="Label" parent="Control/ColorRect/TextureRect"]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 286.0
+offset_right = 501.0
+offset_bottom = 309.0
+text = "R$ 00,00
+"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect"]
+[node name="exit" type="TextureButton" parent="Control/ColorRect/TextureRect"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 38.0
+offset_right = 493.0
+offset_bottom = 59.0
+scale = Vector2(2.67174, 2.81077)
+texture_normal = ExtResource("4_ngm5o")
+
+[node name="box_coins" type="TextureRect" parent="Control/ColorRect/TextureRect"]
 texture_filter = 1
-position = Vector2(160, 22)
-scale = Vector2(2.3, 2.3)
-sprite_frames = SubResource("SpriteFrames_ogw6i")
-animation = &"encantamentos"
-frame_progress = 0.618794
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.5
+offset_top = -415.0
+offset_right = 74.5
+offset_bottom = -349.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_k6mug")
 
-[connection signal="pressed" from="TextureRect/dano_ataque" to="." method="_on_dano_ataque_pressed"]
-[connection signal="pressed" from="TextureRect/ataque_velocidade" to="." method="_on_ataque_velocidade_pressed"]
+[node name="sprit_coins" type="AnimatedSprite2D" parent="Control/ColorRect/TextureRect/box_coins"]
+position = Vector2(49, 32)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_dqsq2")
+autoplay = "default"
+
+[node name="label_coins" type="Label" parent="Control/ColorRect/TextureRect/box_coins"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 25.0
+offset_right = 117.0
+offset_bottom = 48.0
+text = "00"
+
+[node name="box_icon" type="TextureRect" parent="Control/ColorRect/TextureRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.5
+offset_top = -101.0
+offset_right = -63.5
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_kssis")
+
+[node name="icon" type="AnimatedSprite2D" parent="Control/ColorRect/TextureRect/box_icon"]
+position = Vector2(44, 45)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_kny13")
+autoplay = "default"
+frame_progress = 0.166238
+
+[node name="box_melhorias" type="TextureRect" parent="Control/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = 146.0
+offset_right = 272.0
+offset_bottom = 294.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_giu73")
+
+[node name="Label" type="Label" parent="Control/ColorRect/box_melhorias"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 392.0
+offset_bottom = 119.0
+text = "Melhorias"
+
+[connection signal="pressed" from="Control/ColorRect/TextureRect/MenuBar/dano_ataque" to="Control" method="_on_dano_ataque_pressed"]
+[connection signal="pressed" from="Control/ColorRect/TextureRect/MenuBar/velocidade_ataque" to="Control" method="_on_velocidade_ataque_pressed"]
+[connection signal="pressed" from="Control/ColorRect/TextureRect/exit" to="Control" method="_on_exit_pressed"]

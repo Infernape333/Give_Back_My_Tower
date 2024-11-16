@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://gdgbk1vib7um"]
 
 [ext_resource type="Texture2D" uid="uid://dspkca4qhxrfb" path="res://imagem_2024-10-27_192206953-removebg-preview.png" id="1_xavfs"]
-[ext_resource type="FontFile" uid="uid://cfsuudelg6221" path="res://Assets/fontForGame-Regular.ttf" id="2_kuxe7"]
+[ext_resource type="FontFile" uid="uid://cfsuudelg6221" path="res://Assets/Assets/fontForGame-Regular.ttf" id="2_kuxe7"]
 [ext_resource type="Script" path="res://Scripts/Control_inicio.gd" id="2_pqsc4"]
 [ext_resource type="Texture2D" uid="uid://bh2pkbry02b5d" path="res://Assets/Fantasy Minimal Pixel Art GUI by eta-commercial-free/UI/Button_52x14.png" id="3_uc3fr"]
 [ext_resource type="AudioStream" uid="uid://dv7asqkv4x6ki" path="res://Musics/01 Invitation.mp3" id="5_ucw26"]

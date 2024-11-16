@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/hud_armaduras.gd" id="1_n40bl"]
 [ext_resource type="Theme" uid="uid://djhcai4p6n8i1" path="res://Assets/tema_butaoha.tres" id="2_3l1ge"]
 [ext_resource type="Texture2D" uid="uid://dvdrrq2myhgr" path="res://Assets/ui_assets/UI_Flat_InputField02a.png" id="2_f6m1p"]
-[ext_resource type="FontFile" uid="uid://cfsuudelg6221" path="res://Assets/fontForGame-Regular.ttf" id="3_w8heh"]
+[ext_resource type="FontFile" uid="uid://cfsuudelg6221" path="res://Assets/Assets/fontForGame-Regular.ttf" id="3_w8heh"]
 [ext_resource type="Texture2D" uid="uid://d2pk4mpl5mrau" path="res://Assets/Fantasy Minimal Pixel Art GUI by eta-commercial-free/UI/BlankEquipmentIcons_20x17.png" id="5_nfd2q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_28bii"]

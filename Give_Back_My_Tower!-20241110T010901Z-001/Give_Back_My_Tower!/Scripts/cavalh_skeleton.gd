@@ -3,11 +3,13 @@ extends CharacterBody2D
 @export var spd = 40.0
 @export var hp = VariaveisGlobais.BossHp
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var SmashT = $Smash_Timer
+
 
 @export var detection_range_dash: float = 100.0
 @export var detection_range_smash: float = 50.0
 @export var dash_speed: float = 300.0  # Aumentar a velocidade do dash
-@export var wait_time: float = 1.0
+@export var wait_time: float = .7
 @export var dash_duration: float = 0.3  # Aumentar a duração do dash para ir mais longe
 
 @onready var hurt_direction = $ColorRect
@@ -19,6 +21,7 @@ var is_cone_atk = false
 var is_waiting = false
 var is_attacking = false
 var dash_count = 0
+var smash_active = false
 
 var coin_scene = preload("res://Scenes/coins.tscn") 
 var potion_scene = preload("res://Scenes/porcao.tscn")
@@ -47,6 +50,10 @@ func _physics_process(_delta):
 			$cavalhSkeleton_anim.flip_h = false
 			
 		var distance_to_player = position.distance_to(player.position)
+	
+		if dash_count >= 3:
+			SmashT.start()
+			print("aaa")
 		
 		if dash_count >= 3 and distance_to_player <= detection_range_smash:
 			is_waiting = true
@@ -55,18 +62,27 @@ func _physics_process(_delta):
 			_show_attack_warning()
 			await get_tree().create_timer(wait_time).timeout
 			start_cone_atk()
-		elif dash_count < 3 and distance_to_player <= detection_range_dash  :
+			
+		elif dash_count >= 3 and distance_to_player >= detection_range_dash and SmashT.timeout:
+			dash_count = 0
+			is_waiting = true
+			velocity = Vector2.ZERO
+			print("Realizando dash, contador de dash:", dash_count)
+			print("oi")
+			_show_dash_attack_warning()
+			await get_tree().create_timer(wait_time).timeout
+			_start_dash()
+
+		elif dash_count < 3 and distance_to_player <= detection_range_dash:
 			is_waiting = true
 			velocity = Vector2.ZERO
 			print("Realizando dash, contador de dash:", dash_count)
 			_show_dash_attack_warning()
 			await get_tree().create_timer(wait_time).timeout
 			_start_dash()
-			
-
-
 		
 	move_and_slide()
+
 
 func get_direction() -> Vector2:
 	return global_position.direction_to(player.global_position)
@@ -144,6 +160,10 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_2_body_entered(body):
 	if body.is_in_group("player"):
 		body.hurt(VariaveisGlobais.enemy_Orc_Rider_damage)
+		if smash_active:
+			SmashT.stop()
+			smash_active = false
+			is_waiting = false
 
 func _show_dash_attack_warning():
 	if hp <= 0:
@@ -196,6 +216,8 @@ func start_cone_atk():
 	Area_atk.disabled = false
 	Area_atk.visible = true
 	
+	SmashT.start()
+	
 	await get_tree().create_timer(0.2).timeout
 	Area_atk.visible = false
 	Area_atk.disabled = true
@@ -217,4 +239,9 @@ func _perform_cone_attack(delta):
 	is_attacking = false
 	Area_atk.visible = false
 
-
+func _on_smash_timer_timeout():
+	if smash_active:
+		print("Jogador não entrou na área do ataque Smash. Resetando dash_count") 
+		dash_count = 0
+		smash_active = false
+		is_waiting = false

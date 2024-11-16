@@ -2521,15 +2521,15 @@ position = Vector2(397, 218)
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 texture_filter = 1
-position = Vector2(168, 370)
-scale = Vector2(0.474014, 0.474014)
+position = Vector2(152, 661)
+scale = Vector2(0.674014, 0.674014)
 texture = ExtResource("9_ou6vm")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 250.0
-offset_top = 398.0
-offset_right = 602.0
-offset_bottom = 418.0
+offset_left = 262.0
+offset_top = 708.0
+offset_right = 614.0
+offset_bottom = 728.0
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("10_cjmth")
 text = "Botões de movimentação"

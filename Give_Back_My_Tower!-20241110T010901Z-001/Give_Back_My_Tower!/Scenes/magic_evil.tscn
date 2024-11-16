@@ -1,0 +1,96 @@
+[gd_scene load_steps=15 format=3 uid="uid://cu7fj66y6mjws"]
+
+[ext_resource type="Script" path="res://Scenes/magic_evil.gd" id="1_g4dnl"]
+[ext_resource type="Texture2D" uid="uid://c4wclgwq58k2f" path="res://Sprites/Dark VFX 1 (40x32).png" id="2_l7cgp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqwq0"]
+atlas = ExtResource("2_l7cgp")
+region = Rect2(0, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ircsy"]
+atlas = ExtResource("2_l7cgp")
+region = Rect2(40, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a1w5"]
+atlas = ExtResource("2_l7cgp")
+region = Rect2(80, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m46ri"]
+atlas = ExtResource("2_l7cgp")
+region = Rect2(120, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ety14"]
+atlas = ExtResource("2_l7cgp")
+region = Rect2(160, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qjsk"]
+atlas = ExtResource("2_l7cgp")
+region = Rect2(200, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbko4"]
+atlas = ExtResource("2_l7cgp")
+region = Rect2(240, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qo55"]
+atlas = ExtResource("2_l7cgp")
+region = Rect2(280, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwfyw"]
+atlas = ExtResource("2_l7cgp")
+region = Rect2(320, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjy66"]
+atlas = ExtResource("2_l7cgp")
+region = Rect2(360, 0, 40, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dy651"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqwq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ircsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a1w5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m46ri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ety14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qjsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbko4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qo55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwfyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjy66")
+}],
+"loop": true,
+"name": &"DarkSkull",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbjn7"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_g4dnl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dy651")
+animation = &"DarkSkull"
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fbjn7")

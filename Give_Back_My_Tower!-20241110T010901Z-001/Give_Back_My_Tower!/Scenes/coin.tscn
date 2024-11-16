@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://dmaon8bhdyuwb"]
+
+[ext_resource type="Script" path="res://Scripts/coins.gd" id="1_wosai"]
+[ext_resource type="Texture2D" uid="uid://cn4ikolrqp5jy" path="res://Assets/coin.png" id="2_xqsf6"]
+[ext_resource type="AudioStream" uid="uid://tdm165nx2p1d" path="res://Assets/sons/retro-coin-4-236671.mp3" id="3_p80sw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn3nt"]
+atlas = ExtResource("2_xqsf6")
+region = Rect2(0, 0, 100, 151)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bn6t"]
+atlas = ExtResource("2_xqsf6")
+region = Rect2(100, 0, 100, 151)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub6im"]
+atlas = ExtResource("2_xqsf6")
+region = Rect2(200, 0, 100, 151)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7drx"]
+atlas = ExtResource("2_xqsf6")
+region = Rect2(300, 0, 100, 151)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwwwy"]
+atlas = ExtResource("2_xqsf6")
+region = Rect2(400, 0, 100, 151)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk2ct"]
+atlas = ExtResource("2_xqsf6")
+region = Rect2(500, 0, 100, 151)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lmdql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn3nt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bn6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub6im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7drx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwwwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk2ct")
+}],
+"loop": true,
+"name": &"coin",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6lece"]
+radius = 34.2345
+
+[node name="coins" type="Area2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_wosai")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lmdql")
+animation = &"coin"
+frame_progress = 0.152214
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -14)
+shape = SubResource("CircleShape2D_6lece")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_p80sw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

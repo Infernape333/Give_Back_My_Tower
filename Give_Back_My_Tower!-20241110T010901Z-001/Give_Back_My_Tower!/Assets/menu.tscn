@@ -1,0 +1,168 @@
+[gd_scene load_steps=5 format=3 uid="uid://bo55haqc8o34b"]
+
+[ext_resource type="FontFile" uid="uid://br6p4iqh524ev" path="res://Fonts/vinque rg.otf" id="1_eae1h"]
+[ext_resource type="Script" path="res://Scenes/menu.gd" id="1_opw25"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iy4b1"]
+font = ExtResource("1_eae1h")
+font_size = 95
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ghmpq"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_opw25")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0, 0.262745, 0.6)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 23.0
+offset_right = 940.0
+offset_bottom = 138.0
+text = "NOME DO JOGO"
+label_settings = SubResource("LabelSettings_iy4b1")
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = -76.0
+offset_right = 75.5
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewGame" type="Button" parent="ButtonsContainer" groups=["button"]]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.753385, 3.28252e-05, 1.74233e-05, 1)
+theme_override_fonts/font = ExtResource("1_eae1h")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ghmpq")
+text = "Novo jogo"
+flat = true
+alignment = 0
+
+[node name="Shadow" type="Label" parent="ButtonsContainer/NewGame"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -15.0
+offset_right = 71.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_eae1h")
+theme_override_font_sizes/font_size = 32
+text = "Novo jogo"
+vertical_alignment = 1
+
+[node name="Continue" type="Button" parent="ButtonsContainer" groups=["button"]]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.753385, 3.28252e-05, 1.74233e-05, 1)
+theme_override_fonts/font = ExtResource("1_eae1h")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ghmpq")
+text = "Continuar"
+flat = true
+alignment = 0
+
+[node name="Shadow" type="Label" parent="ButtonsContainer/Continue"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -16.0
+offset_right = 71.5
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_eae1h")
+theme_override_font_sizes/font_size = 32
+text = "Continuar"
+vertical_alignment = 1
+
+[node name="Sair" type="Button" parent="ButtonsContainer" groups=["button"]]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.753385, 3.28252e-05, 1.74233e-05, 1)
+theme_override_fonts/font = ExtResource("1_eae1h")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ghmpq")
+text = "Sair"
+flat = true
+alignment = 0
+
+[node name="Shadow" type="Label" parent="ButtonsContainer/Sair"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -16.0
+offset_right = 71.5
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_eae1h")
+theme_override_font_sizes/font_size = 32
+text = "Sair
+"
+vertical_alignment = 1
+
+[node name="Version" type="Label" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = -56.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_eae1h")
+theme_override_font_sizes/font_size = 32
+text = "Versão 1.0"
+vertical_alignment = 1

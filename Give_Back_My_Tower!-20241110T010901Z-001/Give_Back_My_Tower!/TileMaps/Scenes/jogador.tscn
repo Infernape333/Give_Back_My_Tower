@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://crxkx60vxotx"]
+
+[ext_resource type="Script" path="res://Scripts/jogador.gd" id="1_fxaqd"]
+[ext_resource type="Texture2D" uid="uid://4ikl3vchxnd7" path="res://Assets/icon.svg" id="2_4cm8r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2oooi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4cm8r")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxrjr"]
+size = Vector2(122, 118)
+
+[node name="jogador" type="CharacterBody2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_fxaqd")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2oooi")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_yxrjr")

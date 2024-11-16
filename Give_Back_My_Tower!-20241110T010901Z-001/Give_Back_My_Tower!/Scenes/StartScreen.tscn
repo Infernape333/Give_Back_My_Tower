@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://gdgbk1vib7um"]
+
+[ext_resource type="Texture2D" uid="uid://dspkca4qhxrfb" path="res://imagem_2024-10-27_192206953-removebg-preview.png" id="1_xavfs"]
+[ext_resource type="FontFile" uid="uid://cfsuudelg6221" path="res://Assets/fontForGame-Regular.ttf" id="2_kuxe7"]
+[ext_resource type="Script" path="res://Scripts/Control_inicio.gd" id="2_pqsc4"]
+[ext_resource type="Texture2D" uid="uid://bh2pkbry02b5d" path="res://Assets/Fantasy Minimal Pixel Art GUI by eta-commercial-free/UI/Button_52x14.png" id="3_uc3fr"]
+[ext_resource type="AudioStream" uid="uid://dv7asqkv4x6ki" path="res://Musics/01 Invitation.mp3" id="5_ucw26"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_owfkl"]
+texture = ExtResource("3_uc3fr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_30bad"]
+texture = ExtResource("3_uc3fr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ick6"]
+texture = ExtResource("3_uc3fr")
+
+[node name="StartScreen" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -36.0
+offset_right = 59.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.34902, 0.352941, 0.396078, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 75.0
+offset_right = 830.0
+offset_bottom = 383.0
+scale = Vector2(1.48, 1.48)
+texture = ExtResource("1_xavfs")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 82.0
+offset_top = 240.0
+offset_right = 250.0
+offset_bottom = 310.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.735326, 0.735326)
+script = ExtResource("2_pqsc4")
+
+[node name="start" type="Button" parent="Control" groups=["btn"]]
+texture_filter = 1
+layout_mode = 0
+offset_left = 686.0
+offset_top = 461.0
+offset_right = 1021.0
+offset_bottom = 548.0
+theme_override_colors/font_pressed_color = Color(0.534392, 0.291042, 0.150514, 1)
+theme_override_colors/font_hover_color = Color(0.819608, 0.694118, 0.529412, 1)
+theme_override_fonts/font = ExtResource("2_kuxe7")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_owfkl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_30bad")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2ick6")
+text = "Start"
+
+[node name="quit" type="Button" parent="Control" groups=["btn"]]
+texture_filter = 1
+layout_mode = 0
+offset_left = 688.0
+offset_top = 558.0
+offset_right = 1023.0
+offset_bottom = 645.0
+theme_override_colors/font_pressed_color = Color(0.534392, 0.291042, 0.150514, 1)
+theme_override_colors/font_hover_color = Color(0.819608, 0.694118, 0.529412, 1)
+theme_override_fonts/font = ExtResource("2_kuxe7")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_owfkl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_30bad")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2ick6")
+text = "Quit"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ucw26")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="Control/start" to="Control" method="_on_start_pressed"]
+[connection signal="pressed" from="Control/quit" to="Control" method="_on_quit_pressed"]

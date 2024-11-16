@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7tb1tt62sqya"]
+
+[ext_resource type="Script" path="res://Scripts/SpellButton.gd" id="1_7mx3k"]
+[ext_resource type="Texture2D" uid="uid://mf1wndtiqxx0" path="res://Sprites/Captura de tela 2024-10-19 214205.png" id="3_v33hu"]
+[ext_resource type="FontFile" uid="uid://b4emibk4iwlnp" path="res://Assets/fibberish.ttf" id="4_odlfp"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_6esos"]
+
+[sub_resource type="Shortcut" id="Shortcut_g4tw3"]
+events = [SubResource("InputEventKey_6esos")]
+
+[node name="SpellButton" type="TextureButton" groups=["Spell"]]
+texture_filter = 1
+custom_minimum_size = Vector2(68, 0)
+offset_right = 100.0
+offset_bottom = 64.0
+scale = Vector2(0.75, 0.75)
+shortcut = SubResource("Shortcut_g4tw3")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_7mx3k")
+
+[node name="Cooldown" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 145.0
+offset_bottom = 101.0
+scale = Vector2(0.5, 0.5)
+step = 0.01
+fill_mode = 5
+texture_progress = ExtResource("3_v33hu")
+tint_progress = Color(0.188235, 0.168627, 0.168627, 0.835294)
+
+[node name="Key" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 8.0
+offset_bottom = -26.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_odlfp")
+text = "1"
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -27.0
+offset_right = -21.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_odlfp")
+horizontal_alignment = 2
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

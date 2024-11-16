@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://hk068klcxcbh"]
+
+[ext_resource type="Script" path="res://Scripts/DialogueBox.gd" id="1_tv21d"]
+[ext_resource type="Texture2D" uid="uid://bh42wvn2hjfkt" path="res://Assets/panel_alternate.png" id="2_gn34k"]
+[ext_resource type="FontFile" uid="uid://b4emibk4iwlnp" path="res://Assets/fibberish.ttf" id="3_pghip"]
+[ext_resource type="Texture2D" uid="uid://cfbu58emroufv" path="res://Assets/Button_52x14.png" id="4_vqjkk"]
+[ext_resource type="Texture2D" uid="uid://dtjxqqfx5ulrp" path="res://Assets/Button_52x14P.png" id="5_uskav"]
+
+[node name="DialogueBox" type="CanvasLayer"]
+script = ExtResource("1_tv21d")
+d_file = "res://Assets/Dialogo1.json"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 1
+offset_left = 6.0
+offset_top = 432.0
+offset_right = 902.0
+offset_bottom = 649.0
+texture = ExtResource("2_gn34k")
+patch_margin_left = 3
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 103.0
+offset_right = 271.0
+offset_bottom = 127.0
+scale = Vector2(3.5, 3.5)
+theme_override_fonts/normal_font = ExtResource("3_pghip")
+text = "Text
+"
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 32.0
+offset_right = 271.0
+offset_bottom = 53.0
+scale = Vector2(3.5, 3.5)
+theme_override_fonts/normal_font = ExtResource("3_pghip")
+text = "Name"
+
+[node name="TextureButton" type="TextureButton" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 897.0
+offset_top = 106.0
+offset_right = 1133.0
+offset_bottom = 191.0
+texture_normal = ExtResource("4_vqjkk")
+texture_pressed = ExtResource("5_uskav")
+stretch_mode = 0
+
+[node name="TextureButton2" type="TextureButton" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 897.0
+offset_top = 15.0
+offset_right = 1208.0
+offset_bottom = 122.0
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("4_vqjkk")
+texture_pressed = ExtResource("5_uskav")
+stretch_mode = 0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1

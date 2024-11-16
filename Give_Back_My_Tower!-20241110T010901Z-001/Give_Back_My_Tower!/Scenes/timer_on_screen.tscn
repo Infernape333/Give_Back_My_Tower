@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://blbh6y8gt3fn"]
+
+[ext_resource type="Script" path="res://TimerOnScreen.gd" id="1_26cm3"]
+[ext_resource type="FontFile" uid="uid://cfsuudelg6221" path="res://Assets/fontForGame-Regular.ttf" id="2_urlrc"]
+
+[node name="TimerOnScreen" type="CanvasLayer"]
+script = ExtResource("1_26cm3")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 1024.0
+offset_top = 18.0
+offset_right = 1103.0
+offset_bottom = 48.0
+scale = Vector2(4.16, 4.16)
+theme_override_fonts/font = ExtResource("2_urlrc")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,220 @@
+extends CharacterBody2D
+
+@export var spd = 40.0
+@export var hp = VariaveisGlobais.BossHp
+@onready var player = get_tree().get_first_node_in_group("player")
+
+@export var detection_range_dash: float = 100.0
+@export var detection_range_smash: float = 50.0
+@export var dash_speed: float = 300.0  # Aumentar a velocidade do dash
+@export var wait_time: float = 1.0
+@export var dash_duration: float = 0.3  # Aumentar a duração do dash para ir mais longe
+
+@onready var hurt_direction = $ColorRect
+@onready var Area_atk = $Area2D2/AreaAtk
+@onready var Health_bar = $CanvasLayer/HealthBar
+var dir_dash = Vector2.ZERO
+var is_dashing = false
+var is_cone_atk = false
+var is_waiting = false
+var is_attacking = false
+var dash_count = 0
+
+var coin_scene = preload("res://Scenes/coins.tscn") 
+var potion_scene = preload("res://Scenes/porcao.tscn")
+
+var drop_chance = 0.75
+var pDrop_chance = 0.1
+
+func _ready():
+	Health_bar.init_health(hp)
+
+func _physics_process(_delta):
+	if hp <= 0:
+		return
+	if is_dashing:
+		_perform_dash(_delta)
+	elif is_cone_atk:
+		_perform_cone_attack(_delta)
+	elif not is_waiting:
+		var direction = global_position.direction_to(player.global_position)
+		velocity = direction * spd
+		$cavalhSkeleton_anim.play("Walking")
+		
+		if get_direction().x < 0:
+			$cavalhSkeleton_anim.flip_h = true
+		elif get_direction().x > 0:
+			$cavalhSkeleton_anim.flip_h = false
+			
+		var distance_to_player = position.distance_to(player.position)
+		
+		if dash_count >= 3 and distance_to_player <= detection_range_smash:
+			is_waiting = true
+			velocity = Vector2.ZERO
+			print("Ativando ataque em cone")
+			_show_attack_warning()
+			await get_tree().create_timer(wait_time).timeout
+			start_cone_atk()
+		elif dash_count < 3 and distance_to_player <= detection_range_dash  :
+			is_waiting = true
+			velocity = Vector2.ZERO
+			print("Realizando dash, contador de dash:", dash_count)
+			_show_dash_attack_warning()
+			await get_tree().create_timer(wait_time).timeout
+			_start_dash()
+			
+
+
+		
+	move_and_slide()
+
+func get_direction() -> Vector2:
+	return global_position.direction_to(player.global_position)
+
+func hurt():
+	hp -= VariaveisGlobais.dano
+	Health_bar.health = hp
+	print(hp)
+	if hp <= 0:
+		death()
+		return
+	else:
+		spd = 0
+		await get_tree().create_timer(0.5).timeout
+		spd = 20
+
+func death():
+	is_dashing = false
+	is_waiting = true
+	$cavalhSkeleton_anim.play("Death")
+	print($cavalhSkeleton_anim.animation)
+	await  $cavalhSkeleton_anim.animation_finished
+	queue_free()
+
+func hurtFire():
+	hp -= VariaveisGlobais.danoFire
+	Health_bar.health = hp
+	print(hp)
+	spd = 0
+	if hp <= 0:
+		death()
+		return
+	await get_tree().create_timer(1).timeout
+	spd = 20
+
+
+func hurtIce():
+	hp -= VariaveisGlobais.danoIce
+	Health_bar.health = hp
+	print(hp)
+	spd = 0
+	if hp <= 0:
+		death()
+		return
+	await get_tree().create_timer(10).timeout
+	spd = 20
+	
+
+func hurtDark():
+	hp -= VariaveisGlobais.danoDark
+	Health_bar.health = hp
+	print(hp)
+	spd = 0
+	if hp <= 0:
+		death()
+		return
+	await get_tree().create_timer(.1).timeout
+	spd = 20
+
+
+func drop_potion():
+	var potion = potion_scene.instantiate()
+	get_parent().add_child(potion)
+	potion.position = position
+
+func drop_coin():
+	var coin = coin_scene.instantiate()
+	get_parent().add_child(coin)
+	coin.position = position 
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("player"):
+		body.hurt(VariaveisGlobais.enemy_Orc_Rider_damage)
+
+func _on_area_2d_2_body_entered(body):
+	if body.is_in_group("player"):
+		body.hurt(VariaveisGlobais.enemy_Orc_Rider_damage)
+
+func _show_dash_attack_warning():
+	if hp <= 0:
+		return
+	dir_dash = (player.position - position).normalized()
+	hurt_direction.rotation = dir_dash.angle()
+	hurt_direction.global_position = position + dir_dash
+	hurt_direction.visible = true
+
+func _start_dash():
+	if hp <= 0:
+		death()
+		return
+	is_dashing = true
+	is_waiting = false
+	dash_count += 1
+	$cavalhSkeleton_anim.play("Attacking")
+	hurt_direction.visible = false 
+
+func _perform_dash(delta):
+	if hp <= 0:
+		death()
+		return
+	velocity = dir_dash * dash_speed
+	dash_duration -= delta
+
+	if dash_duration <= 0:
+		velocity = Vector2.ZERO
+		is_dashing = false
+		is_waiting = true
+		await get_tree().create_timer(wait_time).timeout
+		is_waiting = false
+		dash_duration = 0.3  
+
+func _show_attack_warning():
+	if hp <= 0:
+		death()
+		return
+	Area_atk.visible = true
+
+func start_cone_atk():
+	if hp <= 0:
+		death()
+		return
+	is_attacking = true
+	is_cone_atk = true
+	is_waiting = false
+	$cavalhSkeleton_anim.play("Attacking3")
+	await get_tree().create_timer(.5).timeout
+	Area_atk.disabled = false
+	Area_atk.visible = true
+	
+	await get_tree().create_timer(0.2).timeout
+	Area_atk.visible = false
+	Area_atk.disabled = true
+	
+	await $cavalhSkeleton_anim.animation_finished
+	is_cone_atk = false
+	is_waiting = true
+	
+	await get_tree().create_timer(wait_time).timeout
+	is_waiting = false
+	dash_count = 0
+
+func _perform_cone_attack(delta):
+	if hp <= 0:
+		death()
+		return
+	Area_atk.visible = true
+	await get_tree().create_timer(0.2).timeout
+	is_attacking = false
+	Area_atk.visible = false
+
+

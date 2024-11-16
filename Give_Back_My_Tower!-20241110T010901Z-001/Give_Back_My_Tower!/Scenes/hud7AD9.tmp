@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://brw5nh33e052d"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_24quu"]
+[ext_resource type="Texture2D" uid="uid://4ikl3vchxnd7" path="res://Assets/Helio/Assets-20241019T074933Z-001/Assets/icon.svg" id="1_t2a5s"]
+[ext_resource type="Texture2D" uid="uid://dncvuj6k4bdbl" path="res://Assets/Helio/Assets-20241019T074933Z-001/Assets/basic/heart.png" id="2_w1o2v"]
+
+[node name="hud" type="Node2D"]
+script = ExtResource("1_24quu")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 417.0
+offset_bottom = 54.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+
+[node name="coins" type="Label" parent="Control/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.073
+anchor_top = 0.017
+anchor_right = 0.149
+anchor_bottom = 0.063
+offset_left = -0.0960083
+offset_top = -0.0160007
+offset_right = 0.35199
+offset_bottom = 0.175999
+
+[node name="vida" type="Label" parent="Control/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.148
+anchor_top = 0.017
+anchor_right = 0.209
+anchor_bottom = 0.052
+offset_left = 0.503998
+offset_top = -0.0160007
+offset_right = 0.231995
+offset_bottom = 0.304001
+
+[node name="lifeBar" type="HBoxContainer" parent="Control/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.183
+anchor_top = 0.017
+anchor_right = 0.261
+anchor_bottom = 0.068
+offset_left = 0.18399
+offset_top = -0.0160007
+offset_right = 1.328
+offset_bottom = -0.064003
+alignment = 1
+
+[node name="heart1" type="TextureRect" parent="Control/CanvasLayer/lifeBar"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_w1o2v")
+
+[node name="heart2" type="TextureRect" parent="Control/CanvasLayer/lifeBar"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_w1o2v")
+
+[node name="heart3" type="TextureRect" parent="Control/CanvasLayer/lifeBar"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_w1o2v")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/CanvasLayer"]
+position = Vector2(59, 22)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_t2a5s")

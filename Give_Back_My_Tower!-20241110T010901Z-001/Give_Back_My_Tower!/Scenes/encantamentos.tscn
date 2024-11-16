@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://d14n0a3egism3"]
+
+[ext_resource type="Script" path="res://Scripts/encantamentos.gd" id="1_t1s3e"]
+[ext_resource type="Texture2D" uid="uid://hi7vh13cxve3" path="res://Sprites/Livro_voador-Sheet.png" id="2_okc23"]
+[ext_resource type="PackedScene" uid="uid://dhywk2w2l2ena" path="res://Scenes/hud_melhorias.tscn" id="3_1p74w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cixhp"]
+atlas = ExtResource("2_okc23")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiiyk"]
+atlas = ExtResource("2_okc23")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oapse"]
+atlas = ExtResource("2_okc23")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ladgb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cixhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xiiyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oapse")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufnxr"]
+size = Vector2(61.8739, 6.74669)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnwuc"]
+size = Vector2(59.375, 23.4375)
+
+[node name="encantamentos" type="Area2D"]
+scale = Vector2(0.64, 0.64)
+script = ExtResource("1_t1s3e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ladgb")
+frame_progress = 0.610365
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.34375, 15.625)
+scale = Vector2(1.18689, 5.55828)
+shape = SubResource("RectangleShape2D_ufnxr")
+
+[node name="hud_melhorias" parent="." instance=ExtResource("3_1p74w")]
+visible = false
+offset_left = -90.625
+offset_top = -42.1875
+offset_right = -90.625
+offset_bottom = -41.9955
+scale = Vector2(0.562499, 0.562499)
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.5625, 21.0938)
+shape = SubResource("RectangleShape2D_hnwuc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

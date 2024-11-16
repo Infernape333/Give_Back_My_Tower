@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://dwjb81qfdq70k"]
+
+[ext_resource type="Script" path="res://Scripts/coins.gd" id="1_8djpy"]
+[ext_resource type="Texture2D" uid="uid://bygck5p5e7fqh" path="res://Assets/[4] Full Spritesheet.png" id="2_61871"]
+[ext_resource type="AudioStream" uid="uid://tdm165nx2p1d" path="res://Assets/sons/retro-coin-4-236671.mp3" id="3_w6356"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv0uq"]
+atlas = ExtResource("2_61871")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56mop"]
+atlas = ExtResource("2_61871")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p7rg"]
+atlas = ExtResource("2_61871")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qsp7"]
+atlas = ExtResource("2_61871")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s873s"]
+atlas = ExtResource("2_61871")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lo7gf"]
+atlas = ExtResource("2_61871")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lmdql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tv0uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56mop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p7rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qsp7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s873s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lo7gf")
+}],
+"loop": true,
+"name": &"coin",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6lece"]
+radius = 7.0
+
+[node name="coins" type="Area2D"]
+scale = Vector2(0.520001, 0.520001)
+script = ExtResource("1_8djpy")
+
+[node name="Coin" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_lmdql")
+animation = &"coin"
+frame_progress = 0.571952
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6lece")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_w6356")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

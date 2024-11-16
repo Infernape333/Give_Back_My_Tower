@@ -1,0 +1,118 @@
+[gd_scene load_steps=13 format=3 uid="uid://dy13jogrcff07"]
+
+[ext_resource type="Script" path="res://Scripts/hud_armaduras.gd" id="1_n40bl"]
+[ext_resource type="Theme" uid="uid://djhcai4p6n8i1" path="res://Assets/tema_butaoha.tres" id="2_3l1ge"]
+[ext_resource type="Texture2D" uid="uid://dvdrrq2myhgr" path="res://Assets/ui_assets/UI_Flat_InputField02a.png" id="2_f6m1p"]
+[ext_resource type="FontFile" uid="uid://cfsuudelg6221" path="res://Assets/fontForGame-Regular.ttf" id="3_w8heh"]
+[ext_resource type="Texture2D" uid="uid://d2pk4mpl5mrau" path="res://Assets/Fantasy Minimal Pixel Art GUI by eta-commercial-free/UI/BlankEquipmentIcons_20x17.png" id="5_nfd2q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28bii"]
+atlas = ExtResource("5_nfd2q")
+region = Rect2(0, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6245k"]
+atlas = ExtResource("5_nfd2q")
+region = Rect2(20, 17, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3wds"]
+atlas = ExtResource("5_nfd2q")
+region = Rect2(20, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ow00"]
+atlas = ExtResource("5_nfd2q")
+region = Rect2(40, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q2x3"]
+atlas = ExtResource("5_nfd2q")
+region = Rect2(0, 17, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ore7t"]
+atlas = ExtResource("5_nfd2q")
+region = Rect2(40, 17, 20, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4i3g5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28bii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6245k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3wds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ow00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q2x3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ore7t")
+}],
+"loop": true,
+"name": &"armadura",
+"speed": 1.0
+}]
+
+[node name="hud_armaduras" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 11.48
+script = ExtResource("1_n40bl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 309.0
+offset_bottom = 135.0
+texture = ExtResource("2_f6m1p")
+
+[node name="armadura" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 39.0
+offset_right = 200.0
+offset_bottom = 57.0
+theme = ExtResource("2_3l1ge")
+text = "Nível de armadura"
+flat = true
+alignment = 0
+
+[node name="price" type="Label" parent="TextureRect"]
+texture_repeat = 1
+layout_mode = 0
+offset_left = 230.0
+offset_top = 43.0
+offset_right = 293.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0.140447, 0.140447, 0.140447, 1)
+theme_override_fonts/font = ExtResource("3_w8heh")
+theme_override_font_sizes/font_size = 10
+text = "R$: 00"
+
+[node name="melhorias" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.064
+anchor_top = 0.582
+anchor_right = 0.486
+anchor_bottom = 0.812
+offset_left = 0.223999
+offset_top = -0.57
+offset_right = 0.0980072
+offset_bottom = -0.640007
+theme_override_colors/font_color = Color(0.721472, 0.410631, 0.23361, 1)
+theme_override_fonts/font = ExtResource("3_w8heh")
+theme_override_font_sizes/font_size = 10
+text = "melhorias"
+
+[node name="AnimatedSprited2D" type="AnimatedSprite2D" parent="TextureRect"]
+position = Vector2(157, 17)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_4i3g5")
+animation = &"armadura"
+frame_progress = 0.59098
+
+[connection signal="pressed" from="TextureRect/armadura" to="." method="_on_armadura_pressed"]

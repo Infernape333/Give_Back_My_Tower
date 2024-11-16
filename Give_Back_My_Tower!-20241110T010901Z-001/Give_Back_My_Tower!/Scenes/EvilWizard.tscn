@@ -1,0 +1,196 @@
+[gd_scene load_steps=26 format=3 uid="uid://hsiau2rwsdon"]
+
+[ext_resource type="Script" path="res://Scripts/CharacterBody2D.gd" id="1_ahoyl"]
+[ext_resource type="Texture2D" uid="uid://bintbu2h6lxfd" path="res://Sprites/Evil_Wizard.png" id="2_xyagp"]
+[ext_resource type="Script" path="res://Scenes/EvilHealth.gd" id="3_hpktg"]
+[ext_resource type="Texture2D" uid="uid://xvwrvqdg6jx2" path="res://Assets/ValueBar_128x16.png" id="4_er6vq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn6tk"]
+atlas = ExtResource("2_xyagp")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0okmu"]
+atlas = ExtResource("2_xyagp")
+region = Rect2(100, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqu2b"]
+atlas = ExtResource("2_xyagp")
+region = Rect2(200, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwm6f"]
+atlas = ExtResource("2_xyagp")
+region = Rect2(300, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oslxv"]
+atlas = ExtResource("2_xyagp")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dobcb"]
+atlas = ExtResource("2_xyagp")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3liyx"]
+atlas = ExtResource("2_xyagp")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0774"]
+atlas = ExtResource("2_xyagp")
+region = Rect2(300, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tubes"]
+atlas = ExtResource("2_xyagp")
+region = Rect2(0, 0, 100, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0gsv"]
+atlas = ExtResource("2_xyagp")
+region = Rect2(100, 0, 100, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbo6l"]
+atlas = ExtResource("2_xyagp")
+region = Rect2(200, 0, 100, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o467s"]
+atlas = ExtResource("2_xyagp")
+region = Rect2(300, 0, 100, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a3m0"]
+atlas = ExtResource("2_xyagp")
+region = Rect2(400, 0, 100, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkv6l"]
+atlas = ExtResource("2_xyagp")
+region = Rect2(500, 0, 100, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq1pv"]
+atlas = ExtResource("2_xyagp")
+region = Rect2(600, 0, 100, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm2de"]
+atlas = ExtResource("2_xyagp")
+region = Rect2(700, 0, 100, 75)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8dcil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn6tk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0okmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqu2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwm6f")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oslxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dobcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3liyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0774")
+}],
+"loop": false,
+"name": &"Hurt",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tubes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0gsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbo6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o467s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a3m0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkv6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bq1pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rm2de")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8fydw"]
+radius = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mupun"]
+bg_color = Color(0.970953, 0, 0.179175, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40jw6"]
+bg_color = Color(0.208059, 0.155544, 0.14022, 1)
+shadow_color = Color(0, 0, 0, 0.0666667)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wi72c"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="EvilWizard" type="CharacterBody2D" groups=["EvilWizard", "enemies"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ahoyl")
+
+[node name="EvilAnm" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_8dcil")
+animation = &"Death"
+
+[node name="Damage" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8fydw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EvilHealth" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 364.0
+offset_top = 591.0
+offset_right = 793.0
+offset_bottom = 624.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_mupun")
+value = 100.0
+show_percentage = false
+script = ExtResource("3_hpktg")
+
+[node name="DamageWizard" type="ProgressBar" parent="CanvasLayer/EvilHealth"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_40jw6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wi72c")
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="CanvasLayer/EvilHealth"]
+wait_time = 0.4
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(580, 608)
+scale = Vector2(3.56, 3.56)
+texture = ExtResource("4_er6vq")

@@ -1,0 +1,152 @@
+[gd_scene load_steps=12 format=3 uid="uid://dhywk2w2l2ena"]
+
+[ext_resource type="Script" path="res://Scripts/hud_melhorias.gd" id="1_j7vfr"]
+[ext_resource type="Theme" uid="uid://djhcai4p6n8i1" path="res://Assets/tema_butaoha.tres" id="2_2sw7u"]
+[ext_resource type="FontFile" uid="uid://cfsuudelg6221" path="res://Assets/fontForGame-Regular.ttf" id="2_gak4g"]
+[ext_resource type="Texture2D" uid="uid://dvdrrq2myhgr" path="res://Assets/ui_assets/UI_Flat_InputField02a.png" id="2_t73ht"]
+[ext_resource type="Texture2D" uid="uid://b8lo5d8oknaod" path="res://Assets/Fantasy Minimal Pixel Art GUI by eta-commercial-free/UI/BuffIcons(WithoutStroke)_16x16.png" id="5_vt5pp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sqg2"]
+atlas = ExtResource("5_vt5pp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbuxh"]
+atlas = ExtResource("5_vt5pp")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdbe5"]
+atlas = ExtResource("5_vt5pp")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmjof"]
+atlas = ExtResource("5_vt5pp")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lsyb"]
+atlas = ExtResource("5_vt5pp")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ogw6i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sqg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbuxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdbe5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmjof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lsyb")
+}],
+"loop": true,
+"name": &"encantamentos",
+"speed": 1.0
+}]
+
+[node name="hud_melhorias" type="Control"]
+layout_mode = 3
+anchor_left = 0.194
+anchor_right = 0.484
+anchor_bottom = 0.296
+offset_left = 0.511993
+offset_right = -0.568054
+offset_bottom = 0.192001
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("1_j7vfr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+offset_top = 4.0
+offset_right = 331.0
+offset_bottom = 191.0
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+texture = ExtResource("2_t73ht")
+
+[node name="dano_ataque" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 21.484
+offset_top = 51.0
+offset_right = 169.484
+offset_bottom = 69.0
+theme = ExtResource("2_2sw7u")
+action_mode = 0
+text = "dano de ataque"
+flat = true
+
+[node name="ataque_velocidade" type="Button" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.055
+anchor_top = 0.358
+anchor_right = 0.726
+anchor_bottom = 0.453
+offset_left = -0.0500011
+offset_top = -0.0200043
+offset_right = -0.0599976
+offset_bottom = -0.0699997
+theme = ExtResource("2_2sw7u")
+text = "velocidade de ataque"
+flat = true
+alignment = 0
+
+[node name="price1" type="Label" parent="TextureRect"]
+texture_repeat = 1
+layout_mode = 0
+offset_left = 248.0
+offset_top = 52.0
+offset_right = 308.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.140447, 0.140447, 0.140447, 1)
+theme_override_fonts/font = ExtResource("2_gak4g")
+theme_override_font_sizes/font_size = 10
+text = "R$: 00"
+
+[node name="price2" type="Label" parent="TextureRect"]
+texture_repeat = 1
+layout_mode = 0
+offset_left = 249.0
+offset_top = 73.0
+offset_right = 309.0
+offset_bottom = 91.0
+theme_override_colors/font_color = Color(0.140447, 0.140447, 0.140447, 1)
+theme_override_fonts/font = ExtResource("2_gak4g")
+theme_override_font_sizes/font_size = 10
+text = "R$: 00"
+
+[node name="melhorias" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.077
+anchor_top = 0.553
+anchor_right = 0.489
+anchor_bottom = 0.765
+offset_left = -2.87
+offset_top = -0.0700073
+offset_right = 0.102005
+offset_bottom = 3.061
+theme_override_colors/font_color = Color(0.721472, 0.410631, 0.23361, 1)
+theme_override_fonts/font = ExtResource("2_gak4g")
+theme_override_font_sizes/font_size = 10
+text = "melhorias"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect"]
+texture_filter = 1
+position = Vector2(160, 22)
+scale = Vector2(2.3, 2.3)
+sprite_frames = SubResource("SpriteFrames_ogw6i")
+animation = &"encantamentos"
+frame_progress = 0.618794
+
+[connection signal="pressed" from="TextureRect/dano_ataque" to="." method="_on_dano_ataque_pressed"]
+[connection signal="pressed" from="TextureRect/ataque_velocidade" to="." method="_on_ataque_velocidade_pressed"]

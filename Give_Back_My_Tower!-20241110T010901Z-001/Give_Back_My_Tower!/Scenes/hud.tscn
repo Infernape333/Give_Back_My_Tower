@@ -1,0 +1,108 @@
+[gd_scene load_steps=12 format=3 uid="uid://brw5nh33e052d"]
+
+[ext_resource type="Script" path="res://Scenes/hud.gd" id="1_pw52k"]
+[ext_resource type="FontFile" uid="uid://b4emibk4iwlnp" path="res://Assets/fibberish.ttf" id="2_clfsw"]
+[ext_resource type="Texture2D" uid="uid://cs13qq22hc3xx" path="res://Assets/Fantasy Minimal Pixel Art GUI by eta-commercial-free/UI/HeartIcons_32x32.png" id="2_g5bfk"]
+[ext_resource type="Texture2D" uid="uid://bygck5p5e7fqh" path="res://Assets/[4] Full Spritesheet.png" id="3_m0c8c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd32b"]
+atlas = ExtResource("3_m0c8c")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycbxc"]
+atlas = ExtResource("3_m0c8c")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v3bo"]
+atlas = ExtResource("3_m0c8c")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujxfi"]
+atlas = ExtResource("3_m0c8c")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d0c1"]
+atlas = ExtResource("3_m0c8c")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dcei"]
+atlas = ExtResource("3_m0c8c")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_641pl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jd32b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycbxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v3bo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujxfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d0c1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dcei")
+}],
+"loop": true,
+"name": &"coin",
+"speed": 5.0
+}]
+
+[node name="hud" type="Node2D"]
+script = ExtResource("1_pw52k")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -49.0
+offset_top = 8.0
+offset_right = 366.0
+offset_bottom = 60.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+
+[node name="coins" type="Label" parent="Control/CanvasLayer"]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.073
+anchor_top = 0.017
+anchor_right = 0.149
+anchor_bottom = 0.063
+offset_left = 583.715
+offset_top = 31.3774
+offset_right = 584.163
+offset_bottom = 31.5694
+scale = Vector2(3.45769, 3.45769)
+theme_override_fonts/font = ExtResource("2_clfsw")
+text = "= "
+
+[node name="lifeBar" type="HBoxContainer" parent="Control/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.179
+anchor_top = 0.023
+anchor_right = 0.269
+anchor_bottom = 0.074
+offset_left = -204.514
+offset_top = -4.664
+offset_right = -180.314
+offset_bottom = -4.744
+scale = Vector2(2.68019, 2.68019)
+
+[node name="heart1" type="TextureRect" parent="Control/CanvasLayer/lifeBar"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_g5bfk")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Control/CanvasLayer"]
+texture_filter = 1
+position = Vector2(615.433, 68.4334)
+scale = Vector2(4.30417, 4.30417)
+sprite_frames = SubResource("SpriteFrames_641pl")
+animation = &"coin"

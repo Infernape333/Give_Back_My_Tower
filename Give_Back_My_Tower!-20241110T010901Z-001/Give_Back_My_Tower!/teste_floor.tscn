@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://dvadf4vbtpmku"]
+[gd_scene load_steps=15 format=3 uid="uid://dvadf4vbtpmku"]
 
-[ext_resource type="Script" path="res://floor_1.gd" id="1_k6pln"]
+[ext_resource type="Script" path="res://teste_floor.gd" id="1_w1aog"]
 [ext_resource type="Texture2D" uid="uid://o2mlfxpq0p17" path="res://TileMaps/tf_darkdimension_sheet.png" id="2_lmgb2"]
 [ext_resource type="PackedScene" uid="uid://bl8tosgr2u7ao" path="res://Scenes/player.tscn" id="3_7f8a1"]
 [ext_resource type="AudioStream" uid="uid://dg0j4bgd8j6m2" path="res://Musics/04 Hopeful Feeling.mp3" id="4_4gr66"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://blbh6y8gt3fn" path="res://Scenes/timer_on_screen.tscn" id="6_x3fel"]
 [ext_resource type="PackedScene" uid="uid://bhqldrfmuoirs" path="res://Scenes/door.tscn" id="7_b4nsu"]
 [ext_resource type="PackedScene" uid="uid://bbfs5xndgyrfd" path="res://Scenes/slime.tscn" id="8_yxxdy"]
+[ext_resource type="Texture2D" uid="uid://ckh36ve5svnsr" path="res://Sprites/AWSD.png" id="9_ou6vm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8p4ce"]
 texture = ExtResource("2_lmgb2")
@@ -2435,7 +2436,7 @@ sources/0 = SubResource("TileSetAtlasSource_l358a")
 size = Vector2(36, 10)
 
 [node name="Teste_Floor" type="Node2D"]
-script = ExtResource("1_k6pln")
+script = ExtResource("1_w1aog")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -2446,6 +2447,7 @@ layer_1/name = "Second"
 layer_1/tile_data = PackedInt32Array(327685, 655360, 17, 393221, 655360, 18, 458757, 655360, 19, 327686, 720896, 17, 393222, 720896, 18, 458758, 720896, 19, 327687, 786432, 17, 393223, 786432, 18, 458759, 786432, 19, 393259, 655360, 17, 458795, 655360, 18, 524331, 655360, 19, 393260, 720896, 17, 458796, 720896, 18, 524332, 720896, 19, 393261, 786432, 17, 458797, 786432, 18, 524333, 786432, 19, 1572907, 655360, 17, 1638443, 655360, 18, 1703979, 655360, 19, 1572908, 720896, 17, 1638444, 720896, 18, 1703980, 720896, 19, 1572909, 786432, 17, 1638445, 786432, 18, 1703981, 786432, 19, 1572869, 655360, 17, 1638405, 655360, 18, 1703941, 655360, 19, 1572870, 720896, 17, 1638406, 720896, 18, 1703942, 720896, 19, 1572871, 786432, 17, 1638407, 786432, 18, 1703943, 786432, 19, 1835016, 327680, 4, 1900552, 327680, 5, 1835017, 393216, 4, 1900553, 393216, 5, 393246, 131072, 4, 720934, 131072, 4)
 
 [node name="Player" parent="." instance=ExtResource("3_7f8a1")]
+z_index = 1
 position = Vector2(406, 266)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -2463,12 +2465,11 @@ layer_1/name = "Layer2"
 layer_1/tile_data = PackedInt32Array()
 
 [node name="ColorRect" type="ColorRect" parent="."]
-z_index = -1
 offset_left = -330.0
 offset_top = -138.0
 offset_right = 1248.0
 offset_bottom = 780.0
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.588235)
 metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -2496,19 +2497,29 @@ position = Vector2(400, 24)
 scale = Vector2(0.82, 0.82)
 
 [node name="Slime" parent="." instance=ExtResource("8_yxxdy")]
+z_index = 1
 position = Vector2(321, 250)
 
 [node name="Slime2" parent="." instance=ExtResource("8_yxxdy")]
+z_index = 1
 position = Vector2(336, 318)
 
 [node name="Slime3" parent="." instance=ExtResource("8_yxxdy")]
+z_index = 1
 position = Vector2(485, 310)
 
 [node name="Slime4" parent="." instance=ExtResource("8_yxxdy")]
+z_index = 1
 position = Vector2(484, 241)
 
 [node name="Slime5" parent="." instance=ExtResource("8_yxxdy")]
+z_index = 1
 position = Vector2(397, 218)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(207, 156)
+texture = ExtResource("9_ou6vm")
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="Player" method="_on_audio_stream_player_2d_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dghw7gecjbgap"]
 
 [ext_resource type="Texture2D" uid="uid://ds66b0fc8mpcv" path="res://Assets/opp5_castle_tiles/environment/tiles/castle/tile_castle.png" id="1_iwh2o"]
-[ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://Scenes/hud.tscn" id="3_o3k15"]
+[ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://TileMaps/Scenes/hud.tscn" id="3_o3k15"]
 [ext_resource type="PackedScene" uid="uid://bv22bccsb6tir" path="res://TileMaps/Scenes/pause_menur.tscn" id="5_0tady"]
 [ext_resource type="PackedScene" uid="uid://bl8tosgr2u7ao" path="res://Scenes/player.tscn" id="5_yc26s"]
 [ext_resource type="PackedScene" uid="uid://d14n0a3egism3" path="res://Scenes/encantamentos.tscn" id="6_4wojm"]

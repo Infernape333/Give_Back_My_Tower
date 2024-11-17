@@ -36,7 +36,6 @@ var enemy_Grizzly_hp = 250
 var max_life = 100
 static var current_life: int = 100
 
-
 func update_health_bar():
 	var health_bar = get_tree().get_first_node_in_group("healthbar")
 	if health_bar: 

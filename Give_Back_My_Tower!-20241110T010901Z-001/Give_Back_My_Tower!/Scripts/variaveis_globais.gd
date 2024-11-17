@@ -1,5 +1,9 @@
 extends Node2D
 
+
+#Player atual
+var playerDir = "res://Scenes/player.tscn"
+
 #armadura
 var armadura_upgrade_price = 10
 var max_upgrades = 80

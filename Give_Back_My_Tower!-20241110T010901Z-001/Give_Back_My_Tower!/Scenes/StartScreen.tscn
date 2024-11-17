@@ -37,27 +37,35 @@ scale = Vector2(1.48, 1.48)
 texture = ExtResource("1_xavfs")
 expand_mode = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="Control2" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 82.0
-offset_top = 240.0
-offset_right = 250.0
-offset_bottom = 310.0
+anchor_left = -0.065
+anchor_top = -0.141
+anchor_right = 1.138
+anchor_bottom = 1.007
+offset_left = -0.669991
+offset_top = 0.0170059
+offset_right = 641.484
+offset_bottom = 346.141
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.735326, 0.735326)
 script = ExtResource("2_pqsc4")
 
-[node name="start" type="Button" parent="Control" groups=["btn"]]
+[node name="start" type="Button" parent="Control2" groups=["btn"]]
 texture_filter = 1
-layout_mode = 0
-offset_left = 686.0
-offset_top = 461.0
-offset_right = 1021.0
-offset_bottom = 548.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.62
+offset_top = 229.102
+offset_right = 36.3804
+offset_bottom = 316.102
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_pressed_color = Color(0.534392, 0.291042, 0.150514, 1)
 theme_override_colors/font_hover_color = Color(0.819608, 0.694118, 0.529412, 1)
 theme_override_fonts/font = ExtResource("2_kuxe7")
@@ -67,13 +75,20 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_30bad")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_2ick6")
 text = "Start"
 
-[node name="quit" type="Button" parent="Control" groups=["btn"]]
+[node name="quit" type="Button" parent="Control2" groups=["btn"]]
 texture_filter = 1
-layout_mode = 0
-offset_left = 688.0
-offset_top = 558.0
-offset_right = 1023.0
-offset_bottom = 645.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.62
+offset_top = 361.016
+offset_right = 36.3804
+offset_bottom = 448.016
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_pressed_color = Color(0.534392, 0.291042, 0.150514, 1)
 theme_override_colors/font_hover_color = Color(0.819608, 0.694118, 0.529412, 1)
 theme_override_fonts/font = ExtResource("2_kuxe7")
@@ -88,5 +103,5 @@ stream = ExtResource("5_ucw26")
 volume_db = -10.0
 autoplay = true
 
-[connection signal="pressed" from="Control/start" to="Control" method="_on_start_pressed"]
-[connection signal="pressed" from="Control/quit" to="Control" method="_on_quit_pressed"]
+[connection signal="pressed" from="Control2/start" to="Control2" method="_on_start_pressed"]
+[connection signal="pressed" from="Control2/quit" to="Control2" method="_on_quit_pressed"]

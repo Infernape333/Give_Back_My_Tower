@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dghw7gecjbgap"]
+[gd_scene load_steps=14 format=3 uid="uid://dghw7gecjbgap"]
 
 [ext_resource type="Texture2D" uid="uid://ds66b0fc8mpcv" path="res://Assets/opp5_castle_tiles/environment/tiles/castle/tile_castle.png" id="1_iwh2o"]
-[ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://TileMaps/Scenes/hud.tscn" id="3_o3k15"]
+[ext_resource type="Script" path="res://Scripts/jogador_selecionar.gd" id="2_6jgvo"]
+[ext_resource type="PackedScene" uid="uid://df61vjt7hui7" path="res://Scenes/persongem_0.tscn" id="2_chgmg"]
+[ext_resource type="PackedScene" uid="uid://evt8muun81pf" path="res://Scenes/persongem_2.tscn" id="3_3c8k7"]
+[ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://Scenes/hud.tscn" id="3_lnkux"]
 [ext_resource type="PackedScene" uid="uid://bv22bccsb6tir" path="res://TileMaps/Scenes/pause_menur.tscn" id="5_0tady"]
-[ext_resource type="PackedScene" uid="uid://bl8tosgr2u7ao" path="res://Scenes/player.tscn" id="5_yc26s"]
 [ext_resource type="PackedScene" uid="uid://d14n0a3egism3" path="res://Scenes/encantamentos.tscn" id="6_4wojm"]
 [ext_resource type="AudioStream" uid="uid://plshuipjvjee" path="res://Musics/Music3.wav" id="6_fys3i"]
 [ext_resource type="PackedScene" uid="uid://dh3dw626hrheu" path="res://Scenes/ferreiro.tscn" id="6_pxirj"]
@@ -2218,11 +2220,21 @@ layer_4/tile_data = PackedInt32Array(-196580, 0, 8, -131044, 0, 9, -65508, 0, 10
 layer_5/name = "objetos"
 layer_5/tile_data = PackedInt32Array(524315, 1572864, 28, 589851, 1572864, 29, 524316, 1638400, 28, 589852, 1638400, 29, 524321, 1572864, 28, 589857, 1572864, 29, 524322, 1638400, 28, 589858, 1638400, 29, 851993, 1048576, 15, 851994, 1114112, 15, 852004, 1114112, 15, 458773, 1835008, 28, 524309, 1835008, 29, 458774, 1900544, 28, 524310, 1900544, 29, 458791, 1835008, 28, 524327, 1835008, 29, 458792, 1900544, 28, 524328, 1900544, 29, 852003, 1048576, 15, 851988, 1572864, 28, 917524, 1572864, 29, 851989, 1638400, 28, 917525, 1638400, 29, 852008, 1572864, 28, 917544, 1572864, 29, 852009, 1638400, 28, 917545, 1638400, 29)
 
-[node name="Player" parent="." instance=ExtResource("5_yc26s")]
-position = Vector2(473, 394)
-scale = Vector2(1.25031, 1.25031)
+[node name="personagem" type="Node2D" parent="."]
 
-[node name="hud" parent="." instance=ExtResource("3_o3k15")]
+[node name="persongem_0" parent="personagem" instance=ExtResource("2_chgmg")]
+position = Vector2(626, 428)
+
+[node name="persongem_2" parent="personagem" instance=ExtResource("3_3c8k7")]
+position = Vector2(728, 428)
+
+[node name="jogador" type="Node2D" parent="."]
+script = ExtResource("2_6jgvo")
+
+[node name="Marker2D" type="Marker2D" parent="jogador"]
+position = Vector2(497, 350)
+
+[node name="hud" parent="." instance=ExtResource("3_lnkux")]
 
 [node name="pause_menu" parent="." instance=ExtResource("5_0tady")]
 
@@ -2250,5 +2262,3 @@ stream = ExtResource("8_ygemb")
 volume_db = -20.0
 autoplay = true
 max_distance = 200.0
-
-[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]

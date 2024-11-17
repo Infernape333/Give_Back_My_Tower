@@ -1,14 +1,14 @@
 extends Control
 
 
-@onready var damage_button = $TextureRect/dano_ataque
-@onready var speed_button = $TextureRect/ataque_velocidade
-@onready var price1 = $TextureRect/price1
-@onready var price2 = $TextureRect/price2
-@onready var label = $TextureRect/melhorias
+@onready var damage_button = $ColorRect/TextureRect/MenuBar/dano_ataque
+@onready var speed_button = $ColorRect/TextureRect/MenuBar/velocidade_ataque
+@onready var price1 = $ColorRect/TextureRect/label_1
+@onready var price2 = $ColorRect/TextureRect/label_2
+@onready var label = $ColorRect/box_melhorias/Label
+@onready var label_coin = $ColorRect/TextureRect/box_coins/label_coins
 
 func _ready():
-	$TextureRect/AnimatedSprite2D.play("encantamentos")
 	update_labels()
 
 func _unhandled_input(event):
@@ -18,6 +18,7 @@ func _unhandled_input(event):
 		speed_button.grab_focus()
 
 func update_labels():
+	label_coin.text = str(floor(VariaveisGlobais.coins))
 	price1.text = "R$: " + str(floor(VariaveisGlobais.attack_damage_upgrade_price))
 	price2.text = "R$: " + str(floor(VariaveisGlobais.attack_speed_upgrade_price))
 	label.text = "Dano de ataque: " + str(VariaveisGlobais.dano) + "\n" + "Velocidade de ataque: " + str(VariaveisGlobais.atk_spd)
@@ -43,8 +44,14 @@ func upgrade_attack_speed():
 		VariaveisGlobais.speed_upgrade_count += 1
 		update_labels()
 
-func _on_ataque_velocidade_pressed():
-	upgrade_attack_speed()
-
 func _on_dano_ataque_pressed():
 	upgrade_attack_damage()
+
+func _on_velocidade_ataque_pressed():
+	upgrade_attack_speed()
+
+func _on_exit_pressed():
+	self.visible = false
+
+
+

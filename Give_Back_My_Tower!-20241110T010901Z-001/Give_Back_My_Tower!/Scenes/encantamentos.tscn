@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/encantamentos.gd" id="1_t1s3e"]
 [ext_resource type="Texture2D" uid="uid://hi7vh13cxve3" path="res://Sprites/Livro_voador-Sheet.png" id="2_okc23"]
-[ext_resource type="PackedScene" uid="uid://dhywk2w2l2ena" path="res://Scenes/hud_melhorias.tscn" id="3_1p74w"]
+[ext_resource type="PackedScene" uid="uid://dyl0w7ou3mken" path="res://Scenes/hud_melhorias.tscn" id="3_1p74w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cixhp"]
 atlas = ExtResource("2_okc23")
@@ -53,19 +53,14 @@ position = Vector2(2.34375, 15.625)
 scale = Vector2(1.18689, 5.55828)
 shape = SubResource("RectangleShape2D_ufnxr")
 
-[node name="hud_melhorias" parent="." instance=ExtResource("3_1p74w")]
-visible = false
-offset_left = -90.625
-offset_top = -42.1875
-offset_right = -90.625
-offset_bottom = -41.9955
-scale = Vector2(0.562499, 0.562499)
-
 [node name="Area2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1.5625, 21.0938)
 shape = SubResource("RectangleShape2D_hnwuc")
+
+[node name="hud_melhorias" parent="." instance=ExtResource("3_1p74w")]
+visible = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

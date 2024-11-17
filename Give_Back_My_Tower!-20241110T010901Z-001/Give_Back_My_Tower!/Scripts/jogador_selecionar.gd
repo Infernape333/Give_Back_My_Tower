@@ -21,3 +21,9 @@ func load_player():
 
 func on_character_selected():
 	load_player()
+
+
+func _on_area_2d_body_entered(body):
+		if body.get_name() == "Player":
+			body.speed = 0
+			TransitionManager.fade_to_scene("res://Scenes/floor_1.tscn")

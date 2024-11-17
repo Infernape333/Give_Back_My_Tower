@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/jogador_selecionar.gd" id="2_6jgvo"]
 [ext_resource type="PackedScene" uid="uid://df61vjt7hui7" path="res://Scenes/persongem_0.tscn" id="2_chgmg"]
 [ext_resource type="PackedScene" uid="uid://evt8muun81pf" path="res://Scenes/persongem_2.tscn" id="3_3c8k7"]
-[ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://Scenes/hud.tscn" id="3_lnkux"]
+[ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://TileMaps/Scenes/hud.tscn" id="3_lnkux"]
 [ext_resource type="PackedScene" uid="uid://bv22bccsb6tir" path="res://TileMaps/Scenes/pause_menur.tscn" id="5_0tady"]
 [ext_resource type="PackedScene" uid="uid://d14n0a3egism3" path="res://Scenes/encantamentos.tscn" id="6_4wojm"]
 [ext_resource type="AudioStream" uid="uid://plshuipjvjee" path="res://Musics/Music3.wav" id="6_fys3i"]
@@ -2262,3 +2262,5 @@ stream = ExtResource("8_ygemb")
 volume_db = -20.0
 autoplay = true
 max_distance = 200.0
+
+[connection signal="body_entered" from="Area2D" to="jogador" method="_on_area_2d_body_entered"]

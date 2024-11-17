@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://qi7je4g33bvc" path="res://ui/UI/TitleBox_64x16.png" id="5_k6mug"]
 [ext_resource type="Texture2D" uid="uid://bmu78duf5lhgq" path="res://ui/UI/BlackBigCircleBoxWithBorder_27x27.png" id="7_kssis"]
 [ext_resource type="Texture2D" uid="uid://qncodmth4jjg" path="res://ui/UI/BuffIcons(WithoutStroke)_16x16.png" id="8_ptp14"]
-[ext_resource type="Texture2D" uid="uid://bygck5p5e7fqh" path="res://Assets/Assets/[4] Full Spritesheet.png" id="8_q4147"]
+[ext_resource type="Texture2D" uid="uid://bygck5p5e7fqh" path="res://Assets/[4] Full Spritesheet.png" id="8_q4147"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_obp4b"]
 atlas = ExtResource("8_q4147")

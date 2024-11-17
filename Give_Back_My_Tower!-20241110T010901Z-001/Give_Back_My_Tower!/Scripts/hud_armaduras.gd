@@ -1,13 +1,12 @@
 extends Control
 
 
-
-@onready var armadura_button = $TextureRect/armadura
-@onready var price = $TextureRect/price
-@onready var label = $TextureRect/melhorias
+@onready var armadura_button = $ColorRect/TextureRect/armadura
+@onready var price = $ColorRect/TextureRect/label_1
+@onready var label = $ColorRect/TextureRect/box_melhorias/Label
+@onready var label_coin = $ColorRect/TextureRect/box_coins/label_coins
 
 func _ready():
-	$TextureRect/AnimatedSprited2D.play("armadura")
 	update_labels()
 	VariaveisGlobais.update_health_bar()
 
@@ -19,6 +18,7 @@ func _unhandled_input(event):
 
 
 func update_labels():
+	label_coin.text = str(floor(VariaveisGlobais.coins))
 	price.text = "R$: " + str(floor(VariaveisGlobais.armadura_upgrade_price))
 	label.text = "Vida: " + str(VariaveisGlobais.max_life)
 	# Desativar o botão se o limite de upgrades for atingido
@@ -41,3 +41,7 @@ func upgrade_armadura():
 
 func _on_armadura_pressed():
 	upgrade_armadura()
+
+
+func _on_exit_pressed():
+	self.visible = false

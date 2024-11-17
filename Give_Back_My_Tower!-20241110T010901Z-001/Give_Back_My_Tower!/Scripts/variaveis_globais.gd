@@ -1,5 +1,9 @@
 extends Node2D
 
+
+#Player atual
+var playerDir = "res://Scenes/player.tscn"
+
 #armadura
 var armadura_upgrade_price = 10
 var max_upgrades = 80
@@ -35,7 +39,6 @@ var enemy_Grizzly_hp = 250
 
 var max_life = 100
 static var current_life: int = 100
-
 
 func update_health_bar():
 	var health_bar = get_tree().get_first_node_in_group("healthbar")

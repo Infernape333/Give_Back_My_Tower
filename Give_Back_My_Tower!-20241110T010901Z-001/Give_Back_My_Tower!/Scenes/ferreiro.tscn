@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://dh3dw626hrheu"]
+[gd_scene load_steps=31 format=3 uid="uid://dh3dw626hrheu"]
 
 [ext_resource type="Script" path="res://Scripts/ferreiro.gd" id="1_b1836"]
 [ext_resource type="Texture2D" uid="uid://bs40hfhf0pn27" path="res://Sprites/01_[Idle].png" id="2_l0iw3"]
 [ext_resource type="Texture2D" uid="uid://2d0nakmv1vey" path="res://Sprites/03_[Work_Loop].png" id="3_1hcr5"]
-[ext_resource type="PackedScene" uid="uid://dy13jogrcff07" path="res://Scenes/hud_armaduras.tscn" id="3_rprpf"]
+[ext_resource type="PackedScene" uid="uid://b2lqup7mox2ux" path="res://Scenes/hud_armaduras.tscn" id="3_rprpf"]
+[ext_resource type="Texture2D" uid="uid://bcy0gtjgq45fj" path="res://Assets/key_E.jpeg" id="5_44byw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jw7fj"]
 atlas = ExtResource("2_l0iw3")
@@ -193,19 +194,20 @@ shape = SubResource("RectangleShape2D_ufnxr")
 [node name="ChangeType" type="Timer" parent="."]
 wait_time = 4.0
 
-[node name="hud_armaduras" parent="." instance=ExtResource("3_rprpf")]
-visible = false
-offset_left = -85.0
-offset_top = -22.0
-offset_right = -73.52
-offset_bottom = -22.0
-scale = Vector2(0.6, 0.6)
-
 [node name="Area2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1.5, 17)
 shape = SubResource("RectangleShape2D_5x5jr")
+
+[node name="hud_armaduras" parent="." instance=ExtResource("3_rprpf")]
+visible = false
+
+[node name="KeyE" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-3, -11)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_44byw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dh03fbkotlc51"]
+[gd_scene load_steps=41 format=3 uid="uid://f0jqqqayuvt7"]
 
 [ext_resource type="Script" path="res://Scripts/Player_arqueiro.gd" id="1_j4iwe"]
 [ext_resource type="Texture2D" uid="uid://d0tn5y6dbp7eq" path="res://Assets/Characters(100x100)/Archer/Archer with shadows/Archer-Death.png" id="2_hl2h3"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://xvwrvqdg6jx2" path="res://Assets/ValueBar_128x16.png" id="8_b7npe"]
 [ext_resource type="PackedScene" uid="uid://b7tb1tt62sqya" path="res://Scenes/spell_button.tscn" id="9_jxvps"]
 [ext_resource type="Texture2D" uid="uid://b4ghpmbbuvn0d" path="res://Assets/navigation_n.png" id="10_esqmp"]
-[ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://TileMaps/Scenes/hud.tscn" id="11_qbhv8"]
+[ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://Scenes/hud.tscn" id="11_qbhv8"]
 [ext_resource type="AudioStream" uid="uid://cf4qg0xt7yclg" path="res://Musics/FireAtk.wav" id="12_j24la"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wngj2"]

@@ -107,3 +107,4 @@ scale = Vector2(4.30417, 4.30417)
 sprite_frames = SubResource("SpriteFrames_641pl")
 animation = &"coin"
 autoplay = "coin"
+frame_progress = 0.752605

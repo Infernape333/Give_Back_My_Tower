@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dghw7gecjbgap"]
+[gd_scene load_steps=13 format=3 uid="uid://dghw7gecjbgap"]
 
 [ext_resource type="Texture2D" uid="uid://ds66b0fc8mpcv" path="res://Assets/opp5_castle_tiles/environment/tiles/castle/tile_castle.png" id="1_iwh2o"]
 [ext_resource type="Script" path="res://Scripts/jogador_selecionar.gd" id="2_6jgvo"]
 [ext_resource type="PackedScene" uid="uid://df61vjt7hui7" path="res://Scenes/persongem_0.tscn" id="2_chgmg"]
 [ext_resource type="PackedScene" uid="uid://evt8muun81pf" path="res://Scenes/persongem_2.tscn" id="3_3c8k7"]
 [ext_resource type="PackedScene" uid="uid://bv22bccsb6tir" path="res://TileMaps/Scenes/pause_menur.tscn" id="5_0tady"]
-[ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://Scenes/hud.tscn" id="5_xaauk"]
 [ext_resource type="PackedScene" uid="uid://d14n0a3egism3" path="res://Scenes/encantamentos.tscn" id="6_4wojm"]
 [ext_resource type="AudioStream" uid="uid://plshuipjvjee" path="res://Musics/Music3.wav" id="6_fys3i"]
 [ext_resource type="PackedScene" uid="uid://dh3dw626hrheu" path="res://Scenes/ferreiro.tscn" id="6_pxirj"]
@@ -2233,8 +2232,6 @@ script = ExtResource("2_6jgvo")
 
 [node name="Marker2D" type="Marker2D" parent="jogador"]
 position = Vector2(497, 350)
-
-[node name="hud" parent="." instance=ExtResource("5_xaauk")]
 
 [node name="pause_menu" parent="." instance=ExtResource("5_0tady")]
 

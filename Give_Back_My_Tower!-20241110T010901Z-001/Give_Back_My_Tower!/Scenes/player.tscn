@@ -318,11 +318,11 @@ rotation = -1.58746
 scale = Vector2(0.234375, 0.234375)
 texture = ExtResource("14_7mols")
 
-[node name="hud" parent="." instance=ExtResource("15_jk4xu")]
-
 [node name="Fire" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_umj5q")
 volume_db = -10.0
+
+[node name="hud" parent="." instance=ExtResource("15_jk4xu")]
 
 [connection signal="timeout" from="Hand/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Hand/Timer" to="Hand" method="_on_timer_timeout"]

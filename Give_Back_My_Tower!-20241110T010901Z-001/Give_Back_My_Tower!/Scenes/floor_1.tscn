@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://floor_1.gd" id="1_18bga"]
 [ext_resource type="Texture2D" uid="uid://o2mlfxpq0p17" path="res://TileMaps/tf_darkdimension_sheet.png" id="1_beruv"]
 [ext_resource type="PackedScene" uid="uid://bbfs5xndgyrfd" path="res://Scenes/slime.tscn" id="2_eito8"]
+[ext_resource type="Script" path="res://Scripts/jogador_selecionar.gd" id="3_abbro"]
 [ext_resource type="PackedScene" uid="uid://yskwsnkr7bgu" path="res://Scenes/enemy_spawner.tscn" id="3_d7h16"]
-[ext_resource type="PackedScene" uid="uid://bl8tosgr2u7ao" path="res://Scenes/player.tscn" id="3_iucq7"]
 [ext_resource type="Script" path="res://Scripts/Spawn_Info.gd" id="5_xp7f5"]
 [ext_resource type="AudioStream" uid="uid://dg0j4bgd8j6m2" path="res://Musics/04 Hopeful Feeling.mp3" id="6_4fx5e"]
 [ext_resource type="Texture2D" uid="uid://ds66b0fc8mpcv" path="res://Assets/opp5_castle_tiles/environment/tiles/castle/tile_castle.png" id="7_mabs3"]
@@ -2455,8 +2455,11 @@ layer_0/tile_data = PackedInt32Array(262149, 65536, 10, 262150, 131072, 10, 3276
 layer_1/name = "Second"
 layer_1/tile_data = PackedInt32Array(327685, 655360, 17, 393221, 655360, 18, 458757, 655360, 19, 327686, 720896, 17, 393222, 720896, 18, 458758, 720896, 19, 327687, 786432, 17, 393223, 786432, 18, 458759, 786432, 19, 393259, 655360, 17, 458795, 655360, 18, 524331, 655360, 19, 393260, 720896, 17, 458796, 720896, 18, 524332, 720896, 19, 393261, 786432, 17, 458797, 786432, 18, 524333, 786432, 19, 1572907, 655360, 17, 1638443, 655360, 18, 1703979, 655360, 19, 1572908, 720896, 17, 1638444, 720896, 18, 1703980, 720896, 19, 1572909, 786432, 17, 1638445, 786432, 18, 1703981, 786432, 19, 1572869, 655360, 17, 1638405, 655360, 18, 1703941, 655360, 19, 1572870, 720896, 17, 1638406, 720896, 18, 1703942, 720896, 19, 1572871, 786432, 17, 1638407, 786432, 18, 1703943, 786432, 19, 1835016, 327680, 4, 1900552, 327680, 5, 1835017, 393216, 4, 1900553, 393216, 5, 393246, 131072, 4, 720934, 131072, 4)
 
-[node name="Player" parent="." instance=ExtResource("3_iucq7")]
-position = Vector2(406, 266)
+[node name="jogador" type="Node2D" parent="."]
+script = ExtResource("3_abbro")
+
+[node name="Marker2D" type="Marker2D" parent="jogador"]
+position = Vector2(395, 269)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_d7h16")]
 spawns = Array[ExtResource("5_xp7f5")]([SubResource("Resource_hirng")])
@@ -2508,7 +2511,6 @@ disabled = true
 position = Vector2(400, 24)
 scale = Vector2(0.82, 0.82)
 
-[connection signal="finished" from="AudioStreamPlayer2D" to="Player" method="_on_audio_stream_player_2d_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="CursorTimer" to="." method="_on_cursor_timer_timeout"]
 [connection signal="body_entered" from="Door" to="." method="_on_area_2d_body_entered"]

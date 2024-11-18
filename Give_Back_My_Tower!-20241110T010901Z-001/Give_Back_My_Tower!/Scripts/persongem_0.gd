@@ -11,7 +11,8 @@ var canvas_visible = false
 @onready var btn_selecionar = $CanvasLayer/Control/ColorRect/TextureRect/selecionar
 
 func _ready():
-	btn_selecionar.disabled = true
+	btn_selecionar.disabled = false
+	btn_comprar.disabled = true
 
 func _process(delta):
 	canvas.visible = canvas_visible
@@ -35,7 +36,4 @@ func _on_selecionar_pressed():
 
 
 func _on_comprar_pressed():
-	if VariaveisGlobais.coins >= 100:
-		btn_comprar.disabled = true
-		btn_comprar.text = "Obtido"
-		btn_selecionar.disabled = false
+	pass

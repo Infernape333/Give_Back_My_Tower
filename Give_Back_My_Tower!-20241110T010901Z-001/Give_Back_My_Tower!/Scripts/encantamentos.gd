@@ -10,7 +10,7 @@ func _ready():
 	$AnimatedSprite2D.play("default")
 
 func _on_body_entered(body):
-	if body.get_name() == "Player":
+	if body.get_name() == "Player" or body.get_name() == "Player_arqueiro":
 		play_in_area = true
 		key_e.visible = true
 
@@ -20,7 +20,7 @@ func _input(event):
 
 
 func _on_body_exited(body):
-	if body.get_name() == "Player":
+	if body.get_name() == "Player" or body.get_name() == "Player_arqueiro":
 		play_in_area = false
 		melhorias.visible = false
 		key_e.visible = false

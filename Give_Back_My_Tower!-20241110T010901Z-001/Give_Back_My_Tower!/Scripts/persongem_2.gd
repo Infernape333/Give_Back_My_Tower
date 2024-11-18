@@ -1,6 +1,6 @@
 extends Node2D
 
-var player_ship = "res://Scenes/playerTESTE.tscn" #mudar esse caminho depois
+var player_ship = "res://Scenes/Player_arqueiro.tscn"
 
 @onready var canvas = $CanvasLayer
 var canvas_visible = false
@@ -12,6 +12,7 @@ var canvas_visible = false
 
 func _ready():
 	btn_selecionar.disabled = true
+	atualizar_rud()
 
 func _process(delta):
 	canvas.visible = canvas_visible
@@ -33,9 +34,17 @@ func _on_selecionar_pressed():
 	VariaveisGlobais.playerDir = player_ship
 	jogador.on_character_selected()
 
+func atualizar_rud():
+	if VariaveisGlobais.has_archer == true:
+		btn_comprar.text = "Obtido"
+		btn_comprar.disabled = true
+		btn_selecionar.disabled = false
+	else:
+		btn_selecionar.disabled = true
 
 func _on_comprar_pressed():
 	if VariaveisGlobais.coins >= 100:
-		btn_comprar.disabled = true
-		btn_comprar.text = "Obtido"
+		VariaveisGlobais.coins -= 100
+		VariaveisGlobais.has_archer = true
+		atualizar_rud()
 		btn_selecionar.disabled = false

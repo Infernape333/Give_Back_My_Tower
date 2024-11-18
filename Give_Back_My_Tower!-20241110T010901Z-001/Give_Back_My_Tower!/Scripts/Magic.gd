@@ -22,7 +22,6 @@ func _on_visible_on_screen_enabler_2d_screen_exited():
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):
 		if $AnimatedSprite2D.animation == "FireBolt":
-			$AnimatedSprite2D.play("FireBoldExp")
 			body.hurtFire()
 		elif $AnimatedSprite2D.animation == "IceSpikes":
 			body.hurtIce()
@@ -35,6 +34,4 @@ func _on_body_entered(body):
 		$CollisionShape2D.disabled = true
 
 
-func _on_animated_sprite_2d_animation_finished():
-	if $AnimatedSprite2D.animation == "FireBoldExp":
-		queue_free()
+

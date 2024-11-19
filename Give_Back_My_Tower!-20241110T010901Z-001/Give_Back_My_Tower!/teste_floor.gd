@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _ready():
-	get_tree().paused = true
+	get_tree().paused = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

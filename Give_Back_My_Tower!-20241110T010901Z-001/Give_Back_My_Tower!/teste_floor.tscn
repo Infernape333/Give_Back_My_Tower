@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dvadf4vbtpmku"]
+[gd_scene load_steps=17 format=3 uid="uid://dvadf4vbtpmku"]
 
 [ext_resource type="Script" path="res://teste_floor.gd" id="1_w1aog"]
 [ext_resource type="Texture2D" uid="uid://o2mlfxpq0p17" path="res://TileMaps/tf_darkdimension_sheet.png" id="2_lmgb2"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bbfs5xndgyrfd" path="res://Scenes/slime.tscn" id="8_yxxdy"]
 [ext_resource type="Texture2D" uid="uid://ckh36ve5svnsr" path="res://Sprites/AWSD.png" id="9_ou6vm"]
 [ext_resource type="FontFile" uid="uid://cfsuudelg6221" path="res://Assets/fontForGame-Regular.ttf" id="10_cjmth"]
+[ext_resource type="PackedScene" uid="uid://cdtmtuldlbcsk" path="res://grizzly.tscn" id="11_cydch"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8p4ce"]
 texture = ExtResource("2_lmgb2")
@@ -2466,6 +2467,7 @@ layer_1/name = "Layer2"
 layer_1/tile_data = PackedInt32Array()
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -330.0
 offset_top = -138.0
 offset_right = 1248.0
@@ -2533,6 +2535,9 @@ offset_bottom = 728.0
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("10_cjmth")
 text = "Botões de movimentação"
+
+[node name="Grizzly" parent="." instance=ExtResource("11_cydch")]
+position = Vector2(96, 142)
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="Player" method="_on_audio_stream_player_2d_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

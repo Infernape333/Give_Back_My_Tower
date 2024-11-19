@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dy13jogrcff07"]
+[gd_scene load_steps=13 format=3 uid="uid://b2lqup7mox2ux"]
 
 [ext_resource type="Script" path="res://Scripts/hud_armaduras.gd" id="1_n40bl"]
 [ext_resource type="Theme" uid="uid://djhcai4p6n8i1" path="res://Assets/tema_butaoha.tres" id="2_3l1ge"]

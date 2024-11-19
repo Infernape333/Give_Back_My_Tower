@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhywk2w2l2ena"]
+[gd_scene load_steps=12 format=3 uid="uid://dyl0w7ou3mken"]
 
 [ext_resource type="Script" path="res://Scripts/hud_melhorias.gd" id="1_j7vfr"]
 [ext_resource type="Theme" uid="uid://djhcai4p6n8i1" path="res://Assets/tema_butaoha.tres" id="2_2sw7u"]

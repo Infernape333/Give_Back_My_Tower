@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/encantamentos.gd" id="1_t1s3e"]
 [ext_resource type="Texture2D" uid="uid://hi7vh13cxve3" path="res://Sprites/Livro_voador-Sheet.png" id="2_okc23"]
 [ext_resource type="PackedScene" uid="uid://dyl0w7ou3mken" path="res://Scenes/hud_melhorias.tscn" id="3_1p74w"]
-[ext_resource type="Texture2D" uid="uid://bcy0gtjgq45fj" path="res://Assets/key_E.jpeg" id="4_8jy44"]
+[ext_resource type="Texture2D" path="res://Assets/key_E.jpeg" id="4_8jy44"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cixhp"]
 atlas = ExtResource("2_okc23")

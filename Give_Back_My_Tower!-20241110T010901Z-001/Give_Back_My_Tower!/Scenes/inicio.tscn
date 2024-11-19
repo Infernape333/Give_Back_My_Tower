@@ -2225,7 +2225,7 @@ layer_5/tile_data = PackedInt32Array(524315, 1572864, 28, 589851, 1572864, 29, 5
 position = Vector2(394, 338)
 
 [node name="persongem_2" parent="personagem" instance=ExtResource("3_3c8k7")]
-position = Vector2(410, 387)
+position = Vector2(-178, 405)
 
 [node name="jogador" type="Node2D" parent="."]
 script = ExtResource("2_6jgvo")

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bhqldrfmuoirs" path="res://Scenes/door.tscn" id="7_b4nsu"]
 [ext_resource type="Texture2D" uid="uid://ckh36ve5svnsr" path="res://Sprites/AWSD.png" id="9_ou6vm"]
 [ext_resource type="FontFile" uid="uid://cfsuudelg6221" path="res://Assets/fontForGame-Regular.ttf" id="10_cjmth"]
-[ext_resource type="PackedScene" uid="uid://cdtmtuldlbcsk" path="res://grizzly.tscn" id="11_cydch"]
+[ext_resource type="PackedScene" uid="uid://cqay3shqorfbx" path="res://Scenes/gemdillo.tscn" id="11_a3sev"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8p4ce"]
 texture = ExtResource("2_lmgb2")
@@ -2515,8 +2515,9 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("10_cjmth")
 text = "Botões de movimentação"
 
-[node name="Grizzly" parent="." instance=ExtResource("11_cydch")]
-position = Vector2(540, 256)
+[node name="Gemdillo" parent="." instance=ExtResource("11_a3sev")]
+position = Vector2(188, 284)
+dash_duration = 0.5
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="Player" method="_on_audio_stream_player_2d_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

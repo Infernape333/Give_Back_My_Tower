@@ -1,10 +1,10 @@
 [gd_scene load_steps=64 format=3 uid="uid://bq218sqsi8jgg"]
 
-[ext_resource type="Texture2D" uid="uid://btvr783segv7p" path="res://Sprites/Orc_rider_Jump02-Sheet.png" id="2_c76nt"]
+[ext_resource type="Texture2D" path="res://Sprites/Orc_rider_Jump02-Sheet.png" id="2_c76nt"]
 [ext_resource type="Texture2D" uid="uid://cicpcefxxp3o2" path="res://Sprites/Orc rider-Death.png" id="2_uq034"]
-[ext_resource type="Texture2D" uid="uid://bvntcqfincc8v" path="res://Sprites/Orc_rider_Attack01-Sheet.png" id="3_00ftq"]
+[ext_resource type="Texture2D" path="res://Sprites/Orc_rider_Attack01-Sheet.png" id="3_00ftq"]
 [ext_resource type="Texture2D" uid="uid://c4n0oq5ickjmj" path="res://Sprites/Orc rider-Hurt.png" id="3_vcktv"]
-[ext_resource type="Texture2D" uid="uid://1w10bj71x0cw" path="res://Sprites/Orc_rider_Jump01-Sheet.png" id="4_hd836"]
+[ext_resource type="Texture2D" path="res://Sprites/Orc_rider_Jump01-Sheet.png" id="4_hd836"]
 [ext_resource type="Texture2D" uid="uid://cqvonajc0yqv8" path="res://Sprites/Orc rider-Walk.png" id="4_sfn6g"]
 [ext_resource type="Texture2D" uid="uid://qr47qg14f0yp" path="res://Sprites/Orc rider-Attack03.png" id="4_wgto5"]
 [ext_resource type="Script" path="res://Scripts/cavalh_skeleton.gd" id="5_m6pcl"]

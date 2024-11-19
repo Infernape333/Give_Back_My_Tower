@@ -33,6 +33,7 @@ func hurt():
 	hp -= VariaveisGlobais.dano
 	print(hp)
 	$CoboldAnm.play("Hurt")
+	$Hit.play()
 	spd = 0
 	if hp <= 0:
 		death()
@@ -43,6 +44,7 @@ func hurtIce():
 	hp -= VariaveisGlobais.danoIce
 	print(hp)
 	$CoboldAnm.play("Hurt")
+	$Hit.play()
 	spd = 0
 	if hp <= 0:
 		death()
@@ -61,6 +63,7 @@ func hurtFire():
 	hp -= VariaveisGlobais.danoFire
 	print(hp)
 	$CoboldAnm.play("Hurt")
+	$Hit.play()
 	spd = 0
 	if hp <= 0:
 		death()
@@ -71,7 +74,9 @@ func hurtDark():
 	hp -= VariaveisGlobais.danoDark
 	print(hp)
 	$CoboldAnm.play("Hurt")
+	$Hit.play()
 	if hp <= 0:
+		spd = 0
 		death()
 	await get_tree().create_timer(1).timeout
 	

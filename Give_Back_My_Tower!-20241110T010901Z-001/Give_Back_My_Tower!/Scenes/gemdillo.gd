@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@export var spd = 20.0
+@export var spd = 10.0
 @export var hp = VariaveisGlobais.enemy_Gemdillo_hp
-@export var detection_range: float = 35.0
-@export var dash_speed: float = 150.0
+@export var detection_range: float = 55.0
+@export var dash_speed: float = 250.0
 @export var dash_duration: float = 0.3
 @export var wait_time: float = 0.7
 
@@ -67,12 +67,13 @@ func reset_state():
 	spd = 20
 	is_hurt = false
 func hurt():
-	if is_hurt:
+	if is_hurt or $GemAnim.animation == "Attacking":
 		return
 	is_hurt = true
 	hp -= VariaveisGlobais.dano
 	print(hp)
 	$GemAnim.play("Hurt")
+	$Hit.play()
 	spd = 0
 	if hp <= 0:
 		await get_tree().create_timer(.5).timeout 
@@ -83,12 +84,13 @@ func hurt():
 	
 
 func hurtIce():
-	if is_hurt:
+	if is_hurt or $GemAnim.animation == "Attacking":
 		return
 	is_hurt = true
 	hp -= VariaveisGlobais.danoIce
 	print(hp)
 	$GemAnim.play("Hurt")
+	$Hit.play()
 	spd = 0
 	if hp <= 0:
 		await get_tree().create_timer(.5).timeout 
@@ -98,12 +100,13 @@ func hurtIce():
 		reset_state()
 	
 func hurtFire():
-	if is_hurt:
+	if is_hurt or $GemAnim.animation == "Attacking":
 		return
 	is_hurt = true
 	hp -= VariaveisGlobais.danoFire
 	print(hp)
 	$GemAnim.play("Hurt")
+	$Hit.play()
 	spd = 0
 	if hp <= 0:
 		await get_tree().create_timer(.5).timeout 
@@ -113,12 +116,14 @@ func hurtFire():
 		reset_state()
 	
 func hurtDark():
-	if is_hurt:
+	if is_hurt or $GemAnim.animation == "Attacking":
 		return
 	is_hurt = true
 	hp -= VariaveisGlobais.danoDark
 	$GemAnim.play("Hurt")
+	$Hit.play()
 	if hp <= 0:
+		spd = 0
 		await get_tree().create_timer(.5).timeout 
 		death()
 	else:

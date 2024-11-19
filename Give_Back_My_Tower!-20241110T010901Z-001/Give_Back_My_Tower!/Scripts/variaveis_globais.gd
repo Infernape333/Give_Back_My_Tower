@@ -19,7 +19,7 @@ var damage_upgrade_count = 0
 var speed_upgrade_count = 0
 
 
-var coins = 1000
+var coins = 0
 var atk_spd = 3
 var dano = 5
 static var danoIce = 15
@@ -32,7 +32,7 @@ var enemy_skeleton_damage: int = 25
 var enemy_Grizzly_damage: int = 100
 var enemy_Gemdillo_damage: int = 40
 var enemy_Orc_Rider_damage: int = 200
-var BossHp = 1000
+var BossHp = 10000
 var Orc_Rider_hp = 1000
 var enemy_slime_hp = 20
 var enemy_cobold_hp = 100

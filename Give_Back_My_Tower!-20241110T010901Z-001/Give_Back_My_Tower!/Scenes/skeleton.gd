@@ -34,6 +34,7 @@ func hurt():
 	hp -= VariaveisGlobais.dano
 	print(hp)
 	$SkeletonAnm.play("Hurt")
+	$Hit.play()
 	spd = 0
 	if hp <= 0:
 		death()
@@ -44,6 +45,7 @@ func hurtIce():
 	hp -= VariaveisGlobais.danoIce
 	print(hp)
 	$SkeletonAnm.play("Hurt")
+	$Hit.play()
 	spd = 0
 	if hp <= 0:
 		death()
@@ -62,6 +64,7 @@ func hurtFire():
 	hp -= VariaveisGlobais.danoFire
 	print(hp)
 	$SkeletonAnm.play("Hurt")
+	$Hit.play()
 	spd = 0
 	if hp <= 0:
 		death()
@@ -72,7 +75,9 @@ func hurtDark():
 	hp -= VariaveisGlobais.danoDark
 	print(hp)
 	$SkeletonAnm.play("Hurt")
+	$Hit.play()
 	if hp <= 0:
+		spd = 0
 		death()
 
 func drop_potion():

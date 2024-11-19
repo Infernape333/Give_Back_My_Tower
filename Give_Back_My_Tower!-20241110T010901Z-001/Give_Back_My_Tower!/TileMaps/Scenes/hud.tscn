@@ -16,7 +16,6 @@ offset_right = 417.0
 offset_bottom = 54.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Control"]
-visible = false
 
 [node name="coins" type="Label" parent="Control/CanvasLayer"]
 anchors_preset = -1

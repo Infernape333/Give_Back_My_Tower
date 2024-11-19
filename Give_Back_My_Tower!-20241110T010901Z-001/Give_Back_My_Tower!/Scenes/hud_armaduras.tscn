@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bmu78duf5lhgq" path="res://ui/UI/BlackBigCircleBoxWithBorder_27x27.png" id="5_mch2k"]
 [ext_resource type="Texture2D" uid="uid://qncodmth4jjg" path="res://ui/UI/BuffIcons(WithoutStroke)_16x16.png" id="6_o3usq"]
 [ext_resource type="Texture2D" uid="uid://dmh573k8gu1r0" path="res://ui/UI/CharacterBox_56x57.png" id="7_hins0"]
-[ext_resource type="Texture2D" uid="uid://bygck5p5e7fqh" path="res://Assets/Assets/[4] Full Spritesheet.png" id="8_62sj4"]
+[ext_resource type="Texture2D" uid="uid://bygck5p5e7fqh" path="res://Assets/[4] Full Spritesheet.png" id="8_62sj4"]
 [ext_resource type="Texture2D" uid="uid://dpg8fjch2583k" path="res://ui/UI/AttributesIcons_17x17.png" id="9_f5f76"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hk1ap"]

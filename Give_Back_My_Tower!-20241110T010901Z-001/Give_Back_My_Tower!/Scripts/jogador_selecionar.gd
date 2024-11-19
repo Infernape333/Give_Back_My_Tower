@@ -24,6 +24,6 @@ func on_character_selected():
 
 
 func _on_area_2d_body_entered(body):
-		if body.get_name() == "Player":
+		if body.get_name() == "Player" or body.get_name() == "Player_arqueiro":
 			body.speed = 0
 			TransitionManager.fade_to_scene("res://Scenes/floor_1.tscn")

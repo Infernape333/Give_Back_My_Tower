@@ -13,8 +13,6 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body.get_name() == "Player" and can_open:
+	if body.get_name() == "Player" and can_open or body.get_name() == "Player_arqueiro" and can_open:
 		porta_aberta.visible = true
 		porta_fechada.visible = false
-		
-		

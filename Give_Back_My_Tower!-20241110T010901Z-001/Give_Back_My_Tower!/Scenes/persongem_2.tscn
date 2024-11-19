@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://evt8muun81pf"]
+[gd_scene load_steps=26 format=3 uid="uid://evt8muun81pf"]
 
 [ext_resource type="Script" path="res://Scripts/persongem_2.gd" id="1_s48xg"]
+[ext_resource type="Texture2D" uid="uid://c2ruagv1cx8u6" path="res://Assets/Characters(100x100)/Archer/Archer with shadows/Archer-Idle.png" id="2_2q8a2"]
 [ext_resource type="Texture2D" uid="uid://bh3m880tqf6sm" path="res://icon.svg" id="2_haqeq"]
 [ext_resource type="Texture2D" uid="uid://coxa5wkxkrcki" path="res://ui/UI/RectangleBox_96x96.png" id="3_7tkgo"]
+[ext_resource type="Theme" uid="uid://djhcai4p6n8i1" path="res://Assets/tema_butaoha.tres" id="3_x2v8i"]
 [ext_resource type="Texture2D" uid="uid://d1w2coi1kgw6j" path="res://ui/UI/Button_52x14.png" id="4_y33s0"]
 [ext_resource type="Texture2D" uid="uid://c4fpy0rwx2gcl" path="res://ui/UI/QuitIcon.png" id="5_6o56b"]
 [ext_resource type="Texture2D" uid="uid://qi7je4g33bvc" path="res://ui/UI/TitleBox_64x16.png" id="6_21e7l"]
@@ -11,8 +13,58 @@
 [ext_resource type="Texture2D" uid="uid://dpg8fjch2583k" path="res://ui/UI/AttributesIcons_17x17.png" id="9_lb2sm"]
 [ext_resource type="Texture2D" uid="uid://dmh573k8gu1r0" path="res://ui/UI/CharacterBox_56x57.png" id="10_80u0w"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bwv3"]
+atlas = ExtResource("2_2q8a2")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghxfl"]
+atlas = ExtResource("2_2q8a2")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p7a1"]
+atlas = ExtResource("2_2q8a2")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vigj7"]
+atlas = ExtResource("2_2q8a2")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x7ah"]
+atlas = ExtResource("2_2q8a2")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlxyf"]
+atlas = ExtResource("2_2q8a2")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n780a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bwv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghxfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p7a1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vigj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3x7ah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlxyf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5ulj"]
-size = Vector2(174, 163)
+size = Vector2(29, 27)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tb20k"]
 animations = [{
@@ -55,18 +107,18 @@ animations = [{
 }]
 
 [node name="persongem_2" type="Node2D"]
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_s48xg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.545364, 0.0374407, 0, 1)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_haqeq")
+sprite_frames = SubResource("SpriteFrames_n780a")
+autoplay = "default"
+frame_progress = 0.930117
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, -2.5)
+position = Vector2(0.5, -1.5)
 shape = SubResource("RectangleShape2D_w5ulj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -79,11 +131,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_x2v8i")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_right = 1158.0
-offset_bottom = 654.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 0.565)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/ColorRect"]
@@ -141,7 +197,8 @@ offset_left = 164.0
 offset_top = 211.0
 offset_right = 391.0
 offset_bottom = 264.0
-text = "Comprar"
+text = "Comprar por R$ 100"
+flat = true
 
 [node name="selecionar" type="Button" parent="CanvasLayer/Control/ColorRect/TextureRect"]
 layout_mode = 0
@@ -151,6 +208,7 @@ offset_right = 684.0
 offset_bottom = 264.0
 text = "Selecionar
 "
+flat = true
 
 [node name="box_coins" type="TextureRect" parent="CanvasLayer/Control/ColorRect/TextureRect"]
 texture_filter = 1
@@ -226,9 +284,11 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 392.0
 offset_bottom = 119.0
-text = "descriçao: bdsjdksefkskjfskjffssbcjsbcjksbcjkbsdjkcbjksdbcjksd
-dckjbsdkjcbsdkjckdscnsdccdscsdncsdc
-sckbsdjbcjksbc"
+text = "descriçao: 
+Especialista em arco e flecha,
+o arqueiro combina agilidade e 
+mira impecável para enfrentar 
+qualquer desafio"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

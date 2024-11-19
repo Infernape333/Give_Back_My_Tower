@@ -3,6 +3,7 @@ extends Node2D
 
 #Player atual
 var playerDir = "res://Scenes/player.tscn"
+var has_archer = false
 
 #armadura
 var armadura_upgrade_price = 10

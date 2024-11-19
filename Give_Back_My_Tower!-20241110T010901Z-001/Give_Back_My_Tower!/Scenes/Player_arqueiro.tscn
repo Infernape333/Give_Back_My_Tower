@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b7tb1tt62sqya" path="res://Scenes/spell_button.tscn" id="9_jxvps"]
 [ext_resource type="Texture2D" uid="uid://b4ghpmbbuvn0d" path="res://Assets/navigation_n.png" id="10_esqmp"]
 [ext_resource type="AudioStream" uid="uid://cf4qg0xt7yclg" path="res://Musics/FireAtk.wav" id="12_j24la"]
-[ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://Scenes/hud.tscn" id="12_jtc64"]
+[ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://Scenes/hud.tscn" id="12_mvv8o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wngj2"]
 atlas = ExtResource("2_hl2h3")
@@ -317,7 +317,7 @@ texture = ExtResource("10_esqmp")
 stream = ExtResource("12_j24la")
 volume_db = -10.0
 
-[node name="hud" parent="." instance=ExtResource("12_jtc64")]
+[node name="hud" parent="." instance=ExtResource("12_mvv8o")]
 
 [connection signal="timeout" from="Hand/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Hand/Timer" to="Hand" method="_on_timer_timeout"]

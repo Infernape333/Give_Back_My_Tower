@@ -10,12 +10,17 @@ var canvas_visible = false
 @onready var btn_comprar = $CanvasLayer/Control/ColorRect/TextureRect/comprar
 @onready var btn_selecionar = $CanvasLayer/Control/ColorRect/TextureRect/selecionar
 
+@onready var label_coins = $CanvasLayer/Control/ColorRect/TextureRect/box_coins/label_coins
+
+@onready var coin_preco = $CanvasLayer/Control/ColorRect/TextureRect/comprar/sprit_coins
+
 func _ready():
 	btn_selecionar.disabled = true
 	atualizar_rud()
 
 func _process(delta):
 	canvas.visible = canvas_visible
+	label_coins.text = str(floor(VariaveisGlobais.coins))
 	
 	if VariaveisGlobais.playerDir == player_ship:
 		self.visible = false
@@ -47,4 +52,5 @@ func _on_comprar_pressed():
 		VariaveisGlobais.coins -= 100
 		VariaveisGlobais.has_archer = true
 		atualizar_rud()
+		coin_preco.visible = false
 		btn_selecionar.disabled = false

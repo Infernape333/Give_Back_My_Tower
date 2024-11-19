@@ -15,6 +15,3 @@ func _unhandled_input(event):
 func _on_voltar_pressed():
 	get_tree().paused = false
 	self.visible = false
-
-func _on_sair_pressed():
-	get_tree().change_scene_to_file("res://Scenes/inicio.tscn")

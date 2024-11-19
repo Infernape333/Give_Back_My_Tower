@@ -11,6 +11,9 @@ extends Control
 func _ready():
 	update_labels()
 
+func _process(delta):
+	label_coin.text = str(floor(VariaveisGlobais.coins))
+
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_up"):
 		damage_button.grab_focus()
@@ -19,8 +22,8 @@ func _unhandled_input(event):
 
 func update_labels():
 	label_coin.text = str(floor(VariaveisGlobais.coins))
-	price1.text = "R$: " + str(floor(VariaveisGlobais.attack_damage_upgrade_price))
-	price2.text = "R$: " + str(floor(VariaveisGlobais.attack_speed_upgrade_price))
+	price1.text = str(floor(VariaveisGlobais.attack_damage_upgrade_price))
+	price2.text = str(floor(VariaveisGlobais.attack_speed_upgrade_price))
 	label.text = "Dano de ataque: " + str(VariaveisGlobais.dano) + "\n" + "Velocidade de ataque: " + str(VariaveisGlobais.atk_spd)
 	# Desativar o botão se o limite de upgrades for atingido
 	damage_button.disabled = VariaveisGlobais.damage_upgrade_count >= VariaveisGlobais.max_upgrades_damage

@@ -135,9 +135,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -132.5
-offset_top = -91.0
+offset_top = -99.0
 offset_right = 145.5
-offset_bottom = -21.0
+offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ubhyl")
@@ -216,17 +216,29 @@ offset_left = 372.0
 offset_top = 218.0
 offset_right = 500.0
 offset_bottom = 241.0
-text = "R$ 00,00
+text = "00
 "
+
+[node name="sprit_coins" type="AnimatedSprite2D" parent="Control/ColorRect/TextureRect/label_1"]
+position = Vector2(54, 6)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_dqsq2")
+autoplay = "default"
 
 [node name="label_2" type="Label" parent="Control/ColorRect/TextureRect"]
 layout_mode = 0
-offset_left = 373.0
+offset_left = 371.0
 offset_top = 286.0
-offset_right = 501.0
+offset_right = 499.0
 offset_bottom = 309.0
-text = "R$ 00,00
+text = "00
 "
+
+[node name="sprit_coins" type="AnimatedSprite2D" parent="Control/ColorRect/TextureRect/label_2"]
+position = Vector2(55, 6)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_dqsq2")
+autoplay = "default"
 
 [node name="exit" type="TextureButton" parent="Control/ColorRect/TextureRect"]
 layout_mode = 0
@@ -276,9 +288,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -153.5
-offset_top = -101.0
+offset_top = -109.0
 offset_right = -63.5
-offset_bottom = -11.0
+offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_kssis")

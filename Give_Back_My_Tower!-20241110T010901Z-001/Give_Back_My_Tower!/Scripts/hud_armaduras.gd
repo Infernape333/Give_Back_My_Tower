@@ -10,6 +10,9 @@ func _ready():
 	update_labels()
 	VariaveisGlobais.update_health_bar()
 
+func _process(delta):
+	label_coin.text = str(floor(VariaveisGlobais.coins))
+
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_up"):
 		armadura_button.grab_focus()
@@ -19,7 +22,7 @@ func _unhandled_input(event):
 
 func update_labels():
 	label_coin.text = str(floor(VariaveisGlobais.coins))
-	price.text = "R$: " + str(floor(VariaveisGlobais.armadura_upgrade_price))
+	price.text = str(floor(VariaveisGlobais.armadura_upgrade_price))
 	label.text = "Vida: " + str(VariaveisGlobais.max_life)
 	# Desativar o botão se o limite de upgrades for atingido
 	armadura_button.disabled = VariaveisGlobais.armadura_upgrade_count >= VariaveisGlobais.max_upgrades

@@ -249,22 +249,6 @@ offset_bottom = 69.0
 scale = Vector2(2.67174, 2.81077)
 texture_normal = ExtResource("5_esa2v")
 
-[node name="espaco_1" type="TextureRect" parent="CanvasLayer/Control/ColorRect/TextureRect"]
-layout_mode = 0
-offset_left = 175.0
-offset_top = 210.0
-offset_right = 391.0
-offset_bottom = 267.0
-texture = ExtResource("10_smsmw")
-
-[node name="espaco_2" type="TextureRect" parent="CanvasLayer/Control/ColorRect/TextureRect"]
-layout_mode = 0
-offset_left = 461.0
-offset_top = 212.0
-offset_right = 677.0
-offset_bottom = 269.0
-texture = ExtResource("10_smsmw")
-
 [node name="comprar" type="Button" parent="CanvasLayer/Control/ColorRect/TextureRect"]
 layout_mode = 0
 offset_left = 175.0

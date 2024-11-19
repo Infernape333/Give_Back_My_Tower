@@ -1,5 +1,6 @@
 extends Control
 
+@onready var canvas = $".."
 
 @onready var armadura_button = $ColorRect/TextureRect/armadura
 @onready var price = $ColorRect/TextureRect/label_1
@@ -47,4 +48,4 @@ func _on_armadura_pressed():
 
 
 func _on_exit_pressed():
-	self.visible = false
+	canvas.visible = false

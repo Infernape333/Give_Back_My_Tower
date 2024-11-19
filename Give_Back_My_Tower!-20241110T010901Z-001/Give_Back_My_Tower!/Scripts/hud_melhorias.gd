@@ -1,6 +1,8 @@
 extends Control
 
 
+@onready var canvas = $".."
+
 @onready var damage_button = $ColorRect/TextureRect/MenuBar/dano_ataque
 @onready var speed_button = $ColorRect/TextureRect/MenuBar/velocidade_ataque
 @onready var price1 = $ColorRect/TextureRect/label_1
@@ -54,7 +56,7 @@ func _on_velocidade_ataque_pressed():
 	upgrade_attack_speed()
 
 func _on_exit_pressed():
-	self.visible = false
+	canvas.visible = false
 
 
 

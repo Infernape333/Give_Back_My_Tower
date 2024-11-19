@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ddipkteedhnr2"]
+[gd_scene load_steps=23 format=3 uid="uid://ddipkteedhnr2"]
 
 [ext_resource type="Script" path="res://Scenes/floor_4.gd" id="1_xw15c"]
 [ext_resource type="Script" path="res://Scenes/Area2D.gd" id="1_y0pgp"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dg0j4bgd8j6m2" path="res://Musics/04 Hopeful Feeling.mp3" id="6_tawot"]
 [ext_resource type="Script" path="res://Scripts/Spawn_Info.gd" id="7_ddu3f"]
 [ext_resource type="PackedScene" uid="uid://car6ry82k3efv" path="res://Scenes/cobold.tscn" id="8_bog0u"]
+[ext_resource type="PackedScene" uid="uid://cqay3shqorfbx" path="res://Scenes/gemdillo.tscn" id="10_85y3y"]
 [ext_resource type="PackedScene" uid="uid://blbh6y8gt3fn" path="res://Scenes/timer_on_screen.tscn" id="11_qpxl4"]
 [ext_resource type="PackedScene" uid="uid://bhqldrfmuoirs" path="res://Scenes/door.tscn" id="12_y3vtp"]
 [ext_resource type="PackedScene" uid="uid://bv22bccsb6tir" path="res://TileMaps/Scenes/pause_menur.tscn" id="13_bjue1"]
@@ -2743,6 +2744,14 @@ enemy = ExtResource("8_bog0u")
 enemy_num = 1
 enemy_spawn_delay = 3
 
+[sub_resource type="Resource" id="Resource_v5ug3"]
+script = ExtResource("7_ddu3f")
+time_start = 20
+time_end = 22
+enemy = ExtResource("10_85y3y")
+enemy_num = 1
+enemy_spawn_delay = 0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujyan"]
 size = Vector2(42.5, 11)
 
@@ -2772,6 +2781,7 @@ layer_1/name = "Second"
 layer_1/tile_data = PackedInt32Array(327685, 655360, 17, 393221, 655360, 18, 458757, 655360, 19, 327686, 720896, 17, 393222, 720896, 18, 458758, 720896, 19, 327687, 786432, 17, 393223, 786432, 18, 458759, 786432, 19, 393259, 655360, 17, 458795, 655360, 18, 524331, 655360, 19, 393260, 720896, 17, 458796, 720896, 18, 524332, 720896, 19, 393261, 786432, 17, 458797, 786432, 18, 524333, 786432, 19, 1572907, 655360, 17, 1638443, 655360, 18, 1703979, 655360, 19, 1572908, 720896, 17, 1638444, 720896, 18, 1703980, 720896, 19, 1572909, 786432, 17, 1638445, 786432, 18, 1703981, 786432, 19, 1572869, 655360, 17, 1638405, 655360, 18, 1703941, 655360, 19, 1572870, 720896, 17, 1638406, 720896, 18, 1703942, 720896, 19, 1572871, 786432, 17, 1638407, 786432, 18, 1703943, 786432, 19, 1835016, 327680, 4, 1900552, 327680, 5, 1835017, 393216, 4, 1900553, 393216, 5, 393246, 131072, 4, 720934, 131072, 4)
 
 [node name="TileMap2" type="TileMap" parent="."]
+z_index = 1
 texture_filter = 1
 tile_set = SubResource("TileSet_mu7g8")
 format = 2
@@ -2784,7 +2794,7 @@ script = ExtResource("5_h2x4w")
 position = Vector2(395, 269)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_1p6e6")]
-spawns = Array[ExtResource("7_ddu3f")]([SubResource("Resource_3f0ox"), SubResource("Resource_r4nd1")])
+spawns = Array[ExtResource("7_ddu3f")]([SubResource("Resource_3f0ox"), SubResource("Resource_r4nd1"), SubResource("Resource_v5ug3")])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(392, 269)

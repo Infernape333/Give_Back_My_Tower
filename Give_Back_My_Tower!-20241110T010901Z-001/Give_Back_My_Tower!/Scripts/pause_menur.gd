@@ -10,7 +10,6 @@ func _unhandled_input(event):
 	if event.is_action("ui_cancel"):
 		self.visible = true
 		get_tree().paused = true
-		voltar.grab_focus()
 
 func _on_voltar_pressed():
 	get_tree().paused = false

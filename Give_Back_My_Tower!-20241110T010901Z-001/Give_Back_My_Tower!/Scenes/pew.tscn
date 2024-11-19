@@ -1,21 +1,21 @@
 [gd_scene load_steps=6 format=3 uid="uid://bgifwgtds7wig"]
 
 [ext_resource type="Script" path="res://Scripts/Pew.gd" id="1_hxpna"]
-[ext_resource type="Texture2D" uid="uid://bvb4g5dflu2d1" path="res://Assets/Characters(100x100)/Archer/Arrow(projectile)/Arrow02(32x32).png" id="2_3c7rc"]
+[ext_resource type="Texture2D" uid="uid://d1iyib3gd2ct8" path="res://Sprites/Wizard-Attack01_Effect.png" id="2_djrnk"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ubq7t"]
-a = Vector2(-6.5, 1)
-b = Vector2(8.5, 1)
+a = Vector2(-14, 1)
+b = Vector2(16, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b0weu"]
-atlas = ExtResource("2_3c7rc")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vakkd"]
+atlas = ExtResource("2_djrnk")
+region = Rect2(800, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jhlfu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b0weu")
+"texture": SubResource("AtlasTexture_vakkd")
 }],
 "loop": true,
 "name": &"default",
@@ -28,12 +28,10 @@ collision_mask = 2
 script = ExtResource("1_hxpna")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -1)
 shape = SubResource("SegmentShape2D_ubq7t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0.999996, 0.999996)
 rotation = 2.15374
 scale = Vector2(0.648438, 0.648438)
 sprite_frames = SubResource("SpriteFrames_jhlfu")

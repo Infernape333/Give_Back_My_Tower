@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var staff: Sprite2D = get_node("Staff")
-const PEW: PackedScene = preload("res://Scenes/pew.tscn")
+const ARROW: PackedScene = preload("res://Scenes/arrow.tscn")
 var is_in_initial_scene: bool = false
 @onready var timer: Timer = get_node("Timer")
 
@@ -24,10 +24,10 @@ func atk() -> void:
 		$Timer.stop()
 		return
 	
-	var pew = PEW.instantiate()
+	var arrow = ARROW.instantiate()
 	$Shoot.play()
-	pew.global_position = global_position + Vector2(0, 0.5)
-	get_tree().root.call_deferred("add_child", pew)
+	arrow.global_position = global_position + Vector2(0, 0.5)
+	get_tree().root.call_deferred("add_child", arrow)
 
 
 func _on_timer_timeout():

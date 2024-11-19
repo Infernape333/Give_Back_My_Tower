@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dwc0l4b74wr5l"]
+[gd_scene load_steps=18 format=3 uid="uid://dwc0l4b74wr5l"]
 
 [ext_resource type="Script" path="res://floor_1.gd" id="1_18bga"]
 [ext_resource type="Texture2D" uid="uid://o2mlfxpq0p17" path="res://TileMaps/tf_darkdimension_sheet.png" id="1_beruv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ds66b0fc8mpcv" path="res://Assets/opp5_castle_tiles/environment/tiles/castle/tile_castle.png" id="7_mabs3"]
 [ext_resource type="PackedScene" uid="uid://blbh6y8gt3fn" path="res://Scenes/timer_on_screen.tscn" id="9_2ety1"]
 [ext_resource type="PackedScene" uid="uid://bhqldrfmuoirs" path="res://Scenes/door.tscn" id="10_vjn6d"]
+[ext_resource type="PackedScene" uid="uid://bv22bccsb6tir" path="res://TileMaps/Scenes/pause_menur.tscn" id="11_4pnky"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8p4ce"]
 texture = ExtResource("1_beruv")
@@ -2510,6 +2511,8 @@ disabled = true
 [node name="door" parent="." instance=ExtResource("10_vjn6d")]
 position = Vector2(400, 24)
 scale = Vector2(0.82, 0.82)
+
+[node name="pause_menu" parent="." instance=ExtResource("11_4pnky")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="CursorTimer" to="." method="_on_cursor_timer_timeout"]

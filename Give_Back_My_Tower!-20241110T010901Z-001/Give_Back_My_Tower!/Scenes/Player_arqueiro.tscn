@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://f0jqqqayuvt7"]
+[gd_scene load_steps=42 format=3 uid="uid://bob2octkbnjok"]
 
 [ext_resource type="Script" path="res://Scripts/Player_arqueiro.gd" id="1_j4iwe"]
 [ext_resource type="Texture2D" uid="uid://d0tn5y6dbp7eq" path="res://Assets/Characters(100x100)/Archer/Archer with shadows/Archer-Death.png" id="2_hl2h3"]

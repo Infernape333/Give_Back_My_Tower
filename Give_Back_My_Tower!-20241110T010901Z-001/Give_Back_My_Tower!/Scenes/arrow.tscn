@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://t5ni8hn1y2pw"]
+
+[ext_resource type="Script" path="res://Scripts/arrow.gd" id="1_hu77g"]
+[ext_resource type="Texture2D" uid="uid://bvb4g5dflu2d1" path="res://Assets/Characters(100x100)/Archer/Arrow(projectile)/Arrow02(32x32).png" id="2_8sxtx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xroy7"]
+size = Vector2(22, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvi0u"]
+atlas = ExtResource("2_8sxtx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lla02"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvi0u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="arrow" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_hu77g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_xroy7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_lla02")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

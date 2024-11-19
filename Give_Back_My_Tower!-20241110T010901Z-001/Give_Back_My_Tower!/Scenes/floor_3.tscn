@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://lfbdita85v3o"]
+[gd_scene load_steps=23 format=3 uid="uid://lfbdita85v3o"]
 
 [ext_resource type="Script" path="res://Scenes/floor_3.gd" id="1_3ais2"]
 [ext_resource type="Script" path="res://Scenes/Area2D.gd" id="1_djivo"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://car6ry82k3efv" path="res://Scenes/cobold.tscn" id="9_nn55x"]
 [ext_resource type="PackedScene" uid="uid://blbh6y8gt3fn" path="res://Scenes/timer_on_screen.tscn" id="12_4mw2b"]
 [ext_resource type="PackedScene" uid="uid://bhqldrfmuoirs" path="res://Scenes/door.tscn" id="13_bw28i"]
+[ext_resource type="PackedScene" uid="uid://bv22bccsb6tir" path="res://TileMaps/Scenes/pause_menur.tscn" id="14_84qua"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_irpeh"]
 texture = ExtResource("2_uaneu")
@@ -2823,6 +2824,8 @@ disabled = true
 [node name="door" parent="." instance=ExtResource("13_bw28i")]
 position = Vector2(400, 24)
 scale = Vector2(0.819998, 0.819998)
+
+[node name="pause_menu" parent="." instance=ExtResource("14_84qua")]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

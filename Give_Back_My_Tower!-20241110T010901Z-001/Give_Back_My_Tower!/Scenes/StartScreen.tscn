@@ -1,107 +1,95 @@
-[gd_scene load_steps=9 format=3 uid="uid://gdgbk1vib7um"]
+[gd_scene load_steps=7 format=3 uid="uid://dtlxpuh7ofqs1"]
 
-[ext_resource type="Texture2D" uid="uid://dspkca4qhxrfb" path="res://imagem_2024-10-27_192206953-removebg-preview.png" id="1_xavfs"]
-[ext_resource type="FontFile" uid="uid://cfsuudelg6221" path="res://Assets/fontForGame-Regular.ttf" id="2_kuxe7"]
-[ext_resource type="Script" path="res://Scripts/Control_inicio.gd" id="2_pqsc4"]
-[ext_resource type="Texture2D" uid="uid://bh2pkbry02b5d" path="res://Assets/Fantasy Minimal Pixel Art GUI by eta-commercial-free/UI/Button_52x14.png" id="3_uc3fr"]
-[ext_resource type="AudioStream" uid="uid://dv7asqkv4x6ki" path="res://Musics/01 Invitation.mp3" id="5_ucw26"]
+[ext_resource type="Texture2D" uid="uid://dspkca4qhxrfb" path="res://imagem_2024-10-27_192206953-removebg-preview.png" id="1_nbqir"]
+[ext_resource type="Theme" uid="uid://djhcai4p6n8i1" path="res://Assets/tema_butaoha.tres" id="2_11i5v"]
+[ext_resource type="Script" path="res://Scripts/Control_inicio.gd" id="3_0egkc"]
+[ext_resource type="Texture2D" uid="uid://d1w2coi1kgw6j" path="res://ui/UI/Button_52x14.png" id="4_g5cf2"]
+[ext_resource type="AudioStream" uid="uid://dv7asqkv4x6ki" path="res://Musics/01 Invitation.mp3" id="5_nehed"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_owfkl"]
-texture = ExtResource("3_uc3fr")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ugm4"]
+texture = ExtResource("4_g5cf2")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_30bad"]
-texture = ExtResource("3_uc3fr")
+[node name="ColorRect" type="CanvasLayer"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ick6"]
-texture = ExtResource("3_uc3fr")
-
-[node name="StartScreen" type="ColorRect"]
+[node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -57.0
-offset_top = -36.0
-offset_right = 59.0
-offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.34902, 0.352941, 0.396078, 1)
+color = Color(0.386953, 0.399249, 0.510779, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -252.5
+offset_right = 252.5
+offset_bottom = 494.0
+grow_horizontal = 2
+texture = ExtResource("1_nbqir")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_11i5v")
+script = ExtResource("3_0egkc")
+
+[node name="Button52x15" type="Sprite2D" parent="Control"]
+texture_filter = 1
+position = Vector2(682, 547)
+scale = Vector2(4.44231, 4.42857)
+texture = ExtResource("4_g5cf2")
+
+[node name="Button52x16" type="Sprite2D" parent="Control"]
+texture_filter = 1
+position = Vector2(682, 619)
+scale = Vector2(4.44231, 4.42857)
+texture = ExtResource("4_g5cf2")
+
+[node name="MenuBar" type="MenuBar" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 158.0
+offset_right = 20.0
+offset_bottom = 198.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="start" type="Button" parent="Control/MenuBar"]
 layout_mode = 0
-offset_left = 328.0
-offset_top = 75.0
-offset_right = 830.0
-offset_bottom = 383.0
-scale = Vector2(1.48, 1.48)
-texture = ExtResource("1_xavfs")
-expand_mode = 1
-
-[node name="Control2" type="Control" parent="."]
-layout_mode = 1
-anchor_left = -0.065
-anchor_top = -0.141
-anchor_right = 1.138
-anchor_bottom = 1.007
-offset_left = -0.669991
-offset_top = 0.0170059
-offset_right = 641.484
-offset_bottom = 346.141
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.735326, 0.735326)
-script = ExtResource("2_pqsc4")
-
-[node name="start" type="Button" parent="Control2" groups=["btn"]]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -298.62
-offset_top = 229.102
-offset_right = 36.3804
-offset_bottom = 316.102
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_pressed_color = Color(0.534392, 0.291042, 0.150514, 1)
-theme_override_colors/font_hover_color = Color(0.819608, 0.694118, 0.529412, 1)
-theme_override_fonts/font = ExtResource("2_kuxe7")
+offset_left = -95.0
+offset_top = -25.0
+offset_right = 134.0
+offset_bottom = 34.0
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxTexture_owfkl")
-theme_override_styles/hover = SubResource("StyleBoxTexture_30bad")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_2ick6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2ugm4")
 text = "Start"
+flat = true
 
-[node name="quit" type="Button" parent="Control2" groups=["btn"]]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -298.62
-offset_top = 361.016
-offset_right = 36.3804
-offset_bottom = 448.016
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_pressed_color = Color(0.534392, 0.291042, 0.150514, 1)
-theme_override_colors/font_hover_color = Color(0.819608, 0.694118, 0.529412, 1)
-theme_override_fonts/font = ExtResource("2_kuxe7")
+[node name="quit" type="Button" parent="Control/MenuBar"]
+layout_mode = 0
+offset_left = -97.0
+offset_top = 48.0
+offset_right = 136.0
+offset_bottom = 106.0
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxTexture_owfkl")
-theme_override_styles/hover = SubResource("StyleBoxTexture_30bad")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_2ick6")
 text = "Quit"
+flat = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_ucw26")
-volume_db = -10.0
-autoplay = true
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_nehed")
 
-[connection signal="pressed" from="Control2/start" to="Control2" method="_on_start_pressed"]
-[connection signal="pressed" from="Control2/quit" to="Control2" method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/MenuBar/start" to="Control" method="_on_start_pressed"]
+[connection signal="pressed" from="Control/MenuBar/quit" to="Control" method="_on_quit_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="Control" method="_on_audio_stream_player_finished"]

@@ -1,21 +1,21 @@
 [gd_scene load_steps=6 format=3 uid="uid://bgifwgtds7wig"]
 
 [ext_resource type="Script" path="res://Scripts/Pew.gd" id="1_hxpna"]
-[ext_resource type="Texture2D" uid="uid://d1iyib3gd2ct8" path="res://Sprites/Wizard-Attack01_Effect.png" id="2_djrnk"]
+[ext_resource type="Texture2D" uid="uid://bvb4g5dflu2d1" path="res://Assets/Characters(100x100)/Archer/Arrow(projectile)/Arrow02(32x32).png" id="2_3c7rc"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ubq7t"]
-a = Vector2(-9.5, 1)
-b = Vector2(17.5, 1)
+a = Vector2(-6.5, 1)
+b = Vector2(8.5, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oxlyx"]
-atlas = ExtResource("2_djrnk")
-region = Rect2(810, 0, 90, 100)
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0weu"]
+atlas = ExtResource("2_3c7rc")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jhlfu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oxlyx")
+"texture": SubResource("AtlasTexture_b0weu")
 }],
 "loop": true,
 "name": &"default",

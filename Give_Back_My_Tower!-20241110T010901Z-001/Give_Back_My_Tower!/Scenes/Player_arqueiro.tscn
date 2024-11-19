@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://f0jqqqayuvt7"]
+[gd_scene load_steps=42 format=3 uid="uid://f0jqqqayuvt7"]
 
 [ext_resource type="Script" path="res://Scripts/Player_arqueiro.gd" id="1_j4iwe"]
 [ext_resource type="Texture2D" uid="uid://d0tn5y6dbp7eq" path="res://Assets/Characters(100x100)/Archer/Archer with shadows/Archer-Death.png" id="2_hl2h3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c2ruagv1cx8u6" path="res://Assets/Characters(100x100)/Archer/Archer with shadows/Archer-Idle.png" id="4_r6kr2"]
 [ext_resource type="Texture2D" uid="uid://oa5016uxw0cr" path="res://Assets/Characters(100x100)/Archer/Archer with shadows/Archer-Walk.png" id="5_8tpyw"]
 [ext_resource type="Texture2D" uid="uid://ds014n7606sdw" path="res://Sprites/Wizard-Staff.png" id="6_4jimo"]
+[ext_resource type="Script" path="res://Scripts/Hand_arqueiro.gd" id="6_vll0q"]
 [ext_resource type="AudioStream" uid="uid://drr7b7aoj3qq8" path="res://Musics/Retro Water Drop 01.wav" id="7_0mnh4"]
 [ext_resource type="Texture2D" uid="uid://xvwrvqdg6jx2" path="res://Assets/ValueBar_128x16.png" id="8_b7npe"]
 [ext_resource type="PackedScene" uid="uid://b7tb1tt62sqya" path="res://Scenes/spell_button.tscn" id="9_jxvps"]
@@ -230,6 +231,7 @@ zoom = Vector2(6, 6)
 limit_left = -10000009
 
 [node name="Hand" type="Node2D" parent="."]
+script = ExtResource("6_vll0q")
 
 [node name="Staff" type="Sprite2D" parent="Hand"]
 texture_filter = 1

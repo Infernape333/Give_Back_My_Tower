@@ -159,7 +159,7 @@ script = ExtResource("1_nkt6h")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_jrdqn")
-animation = &"IceSpikes"
+animation = &"DarkSkull"
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false

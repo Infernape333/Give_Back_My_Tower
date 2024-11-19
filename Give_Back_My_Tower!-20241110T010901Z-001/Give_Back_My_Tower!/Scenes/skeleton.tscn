@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d01v7rbetpx3c" path="res://Sprites/Skeleton-Hurt.png" id="4_ohd14"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uiq3f"]
-radius = 13.1529
+radius = 5.09902
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_td2fd"]
 atlas = ExtResource("1_7hquf")
@@ -187,7 +187,6 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tfqev"]
-radius = 5.0
 
 [node name="Skeleton" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 2

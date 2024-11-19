@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var spd = 20.0
+@export var spd = 10.0
 @export var hp = VariaveisGlobais.enemy_Gemdillo_hp
-@export var detection_range: float = 35.0
+@export var detection_range: float = 45.0
 @export var dash_speed: float = 150.0
 @export var dash_duration: float = 0.3
 @export var wait_time: float = 0.7
@@ -11,6 +11,7 @@ extends CharacterBody2D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var atk_collision = $Area2D/Atk
 @onready var animation = $GemAnim
+@onready var timer = $Cooldown
 
 var is_dashing = false
 var is_waiting = false
@@ -27,6 +28,7 @@ var warning_duration = 1.0
 
 func _ready():
 	hp = VariaveisGlobais.enemy_Gemdillo_hp
+	timer.start(10.0)
 
 func _physics_process(delta):
 	if hp <= 0:
@@ -49,7 +51,7 @@ func _physics_process(delta):
 			$GemAnim.flip_h = false
 		
 		var distance_to_player = position.distance_to(player.position)
-
+		
 		if distance_to_player <= detection_range:
 			is_waiting = true
 			velocity = Vector2.ZERO
@@ -67,7 +69,7 @@ func reset_state():
 	spd = 20
 	is_hurt = false
 func hurt():
-	if is_hurt:
+	if is_hurt or $GemAnim.animation == "Attacking":
 		return
 	is_hurt = true
 	hp -= VariaveisGlobais.dano
@@ -83,7 +85,7 @@ func hurt():
 	
 
 func hurtIce():
-	if is_hurt:
+	if is_hurt or $GemAnim.animation == "Attacking":
 		return
 	is_hurt = true
 	hp -= VariaveisGlobais.danoIce
@@ -98,7 +100,7 @@ func hurtIce():
 		reset_state()
 	
 func hurtFire():
-	if is_hurt:
+	if is_hurt or $GemAnim.animation == "Attacking":
 		return
 	is_hurt = true
 	hp -= VariaveisGlobais.danoFire
@@ -113,7 +115,7 @@ func hurtFire():
 		reset_state()
 	
 func hurtDark():
-	if is_hurt:
+	if is_hurt or $GemAnim.animation == "Attacking":
 		return
 	is_hurt = true
 	hp -= VariaveisGlobais.danoDark
@@ -166,7 +168,7 @@ func _perform_dash(delta):
 		velocity = Vector2.ZERO
 		is_dashing = false
 		is_waiting = true
-		dash_duration = 0.3
+		dash_duration = 0.5
 		await get_tree().create_timer(wait_time).timeout
 		is_waiting = false
 

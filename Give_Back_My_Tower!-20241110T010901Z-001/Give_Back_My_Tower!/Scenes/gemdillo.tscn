@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dgxebh5ycisjy"]
+[gd_scene load_steps=39 format=3 uid="uid://b3fc60wan53f8"]
 
 [ext_resource type="Script" path="res://Scenes/gemdillo.gd" id="1_xu6if"]
 [ext_resource type="Texture2D" uid="uid://tf5wd4rrbhhf" path="res://Sprites/Gemdillo_attack-Sheet.png" id="2_71g4l"]

@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b7tb1tt62sqya" path="res://Scenes/spell_button.tscn" id="12_5b0fn"]
 [ext_resource type="Script" path="res://Scenes/HBoxContainer.gd" id="12_vno5a"]
 [ext_resource type="Texture2D" uid="uid://b4ghpmbbuvn0d" path="res://Assets/navigation_n.png" id="14_7mols"]
-[ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://Scenes/hud.tscn" id="16_c5fu4"]
+[ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://Scenes/hud.tscn" id="14_bacac"]
 [ext_resource type="AudioStream" uid="uid://cf4qg0xt7yclg" path="res://Musics/FireAtk.wav" id="16_umj5q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qwaty"]
@@ -49,27 +49,27 @@ region = Rect2(231, 33, 33, 33)
 atlas = ExtResource("3_6sw6l")
 region = Rect2(330, 33, 33, 33)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a36m8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojfbr"]
 atlas = ExtResource("2_7mmiw")
 region = Rect2(0, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4snpp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4j2q"]
 atlas = ExtResource("2_7mmiw")
 region = Rect2(100, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sh8ew"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l77xw"]
 atlas = ExtResource("2_7mmiw")
 region = Rect2(200, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j8fra"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgetn"]
 atlas = ExtResource("2_7mmiw")
 region = Rect2(300, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nyalm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm2c3"]
 atlas = ExtResource("2_7mmiw")
 region = Rect2(400, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xk5sp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2fc5"]
 atlas = ExtResource("2_7mmiw")
 region = Rect2(500, 0, 100, 100)
 
@@ -143,22 +143,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a36m8")
+"texture": SubResource("AtlasTexture_ojfbr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4snpp")
+"texture": SubResource("AtlasTexture_r4j2q")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sh8ew")
+"texture": SubResource("AtlasTexture_l77xw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j8fra")
+"texture": SubResource("AtlasTexture_cgetn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nyalm")
+"texture": SubResource("AtlasTexture_dm2c3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xk5sp")
+"texture": SubResource("AtlasTexture_c2fc5")
 }],
 "loop": true,
 "name": &"Idle",
@@ -318,11 +318,11 @@ rotation = -1.58746
 scale = Vector2(0.234375, 0.234375)
 texture = ExtResource("14_7mols")
 
+[node name="hud" parent="." instance=ExtResource("14_bacac")]
+
 [node name="Fire" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_umj5q")
 volume_db = -10.0
-
-[node name="hud" parent="." instance=ExtResource("16_c5fu4")]
 
 [connection signal="timeout" from="Hand/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Hand/Timer" to="Hand" method="_on_timer_timeout"]

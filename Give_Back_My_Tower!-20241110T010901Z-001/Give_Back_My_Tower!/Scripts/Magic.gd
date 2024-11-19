@@ -21,17 +21,29 @@ func _on_visible_on_screen_enabler_2d_screen_exited():
 
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):
-		if $AnimatedSprite2D.animation == "FireBolt":
-			body.hurtFire()
-		elif $AnimatedSprite2D.animation == "IceSpikes":
-			body.hurtIce()
-		elif $AnimatedSprite2D.animation == "DarkSkull":
-			body.hurtDark()
-		else:
-			body.hurt()
-		queue_free()
+		match MagicType:
+				"FireBolt":
+					explosion()  # Chama a explosão
+				"IceSpikes":
+					body.hurtIce()
+				"DarkSkull":
+					body.hurtDark()
+				_:
+					body.hurt()
 		
 		$CollisionShape2D.disabled = true
+		speed = 0
+		if MagicType != "FireBolt":
+			queue_free()
+		
+func explosion():
+	$AnimatedSprite2D.play("FireBoltExp")
+	$ExpArea.monitoring = true
+	await $AnimatedSprite2D.animation_finished
+	$ExpArea.monitoring = false
+	queue_free()
 
-
-
+func _on_exp_area_body_entered(body):
+	if body.is_in_group("enemies"):
+		print("oi")
+		body.hurtFire()

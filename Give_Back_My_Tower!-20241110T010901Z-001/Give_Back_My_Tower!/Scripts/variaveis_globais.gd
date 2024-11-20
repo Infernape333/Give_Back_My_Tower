@@ -19,7 +19,7 @@ var damage_upgrade_count = 0
 var speed_upgrade_count = 0
 
 
-var coins = 100000
+var coins = 50
 var atk_spd = 3
 var dano = 5
 static var danoIce = 15

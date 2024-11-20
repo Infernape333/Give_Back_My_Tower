@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://dx05dswfj5hni"]
 
-[ext_resource type="Script" path="res://Scenes/floor_5.gd" id="1_n7ra6"]
+[ext_resource type="Script" path="res://Scenes/floor_6.gd" id="1_xnwpd"]
 [ext_resource type="Script" path="res://Scenes/Area2D.gd" id="2_n6jfq"]
 [ext_resource type="Texture2D" uid="uid://o2mlfxpq0p17" path="res://TileMaps/tf_darkdimension_sheet.png" id="3_stnwy"]
 [ext_resource type="Texture2D" uid="uid://ds66b0fc8mpcv" path="res://Assets/opp5_castle_tiles/environment/tiles/castle/tile_castle.png" id="4_jik38"]
@@ -2730,7 +2730,7 @@ size = Vector2(42.5, 11)
 
 [node name="Floor6" type="Node2D"]
 position = Vector2(0, 2)
-script = ExtResource("1_n7ra6")
+script = ExtResource("1_xnwpd")
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("2_n6jfq")

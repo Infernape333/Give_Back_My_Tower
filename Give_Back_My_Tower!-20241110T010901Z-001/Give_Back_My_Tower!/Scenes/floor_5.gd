@@ -13,12 +13,14 @@ extends Node2D
 		#cursor.rotation += deg_to_rad(90)
 
 func _on_area_2d_2_body_entered(body):
-	TransitionManager.fade_to_scene("res://Scenes/inicio.tscn")
-
-func boss_death():
-	VariaveisGlobais.BossHp <= 0
-	$Area2D2/CollisionShape2D.disabled = false
-	porta.can_open = true
+	if body.is_in_group("player"):
+		TransitionManager.fade_to_scene("res://Scenes/inicio.tscn")
 
 #func _on_cursor_timer_timeout():
 	#cursor.visible = true
+
+
+func _on_timer_timeout():
+	VariaveisGlobais.remove_enemys()
+	$Area2D2/CollisionShape2D.disabled = false
+	porta.can_open = true

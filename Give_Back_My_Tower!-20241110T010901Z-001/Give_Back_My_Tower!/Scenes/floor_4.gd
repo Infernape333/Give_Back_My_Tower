@@ -14,7 +14,8 @@ extends Node2D
 		#cursor.rotation += deg_to_rad(90)
 
 func _on_area_2d_2_body_entered(body):
-	TransitionManager.fade_to_scene("res://Scenes/floor_5.tscn")
+	if body.is_in_group("player"):
+		TransitionManager.fade_to_scene("res://Scenes/floor_5.tscn")
 
 
 func _on_timer_timeout():

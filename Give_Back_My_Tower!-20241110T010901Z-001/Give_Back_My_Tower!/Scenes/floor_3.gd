@@ -22,4 +22,5 @@ func _on_timer_timeout():
 	#cursor.visible = true
 
 func _on_area_2d_2_body_entered(body):
-	TransitionManager.fade_to_scene("res://Scenes/floor_4.tscn")
+	if body.is_in_group("player"):
+		TransitionManager.fade_to_scene("res://Scenes/floor_4.tscn")

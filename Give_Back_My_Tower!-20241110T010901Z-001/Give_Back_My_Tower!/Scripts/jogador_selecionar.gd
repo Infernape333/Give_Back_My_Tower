@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var position_player = $Marker2D
 var player_ship = null
+@onready var HammerAudio = $"../Hammer"
 
 func _ready():
 	load_player()
@@ -27,3 +28,4 @@ func _on_area_2d_body_entered(body):
 		if body.get_name() == "Player" or body.get_name() == "Player_arqueiro":
 			body.speed = 0
 			TransitionManager.fade_to_scene("res://Scenes/floor_1.tscn")
+

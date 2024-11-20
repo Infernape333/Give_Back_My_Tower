@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var spd = 10.0
 @export var hp = VariaveisGlobais.enemy_Gemdillo_hp
-@export var detection_range: float = 35.0
+@export var detection_range: float = 50.0
 @export var dash_speed: float = 250.0
 @export var dash_duration: float = 0.3
 @export var wait_time: float = 0.7

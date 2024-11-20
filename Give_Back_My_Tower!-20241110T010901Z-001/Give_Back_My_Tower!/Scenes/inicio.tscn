@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dghw7gecjbgap"]
+[gd_scene load_steps=14 format=3 uid="uid://dghw7gecjbgap"]
 
 [ext_resource type="Texture2D" uid="uid://ds66b0fc8mpcv" path="res://Assets/opp5_castle_tiles/environment/tiles/castle/tile_castle.png" id="1_iwh2o"]
+[ext_resource type="Script" path="res://Scripts/inicio.gd" id="1_x1v4u"]
 [ext_resource type="Script" path="res://Scripts/jogador_selecionar.gd" id="2_6jgvo"]
 [ext_resource type="PackedScene" uid="uid://df61vjt7hui7" path="res://Scenes/persongem_0.tscn" id="2_chgmg"]
 [ext_resource type="PackedScene" uid="uid://evt8muun81pf" path="res://Scenes/persongem_2.tscn" id="3_3c8k7"]
@@ -2201,6 +2202,7 @@ size = Vector2(58, 66.5)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(1429, 71)
+script = ExtResource("1_x1v4u")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -2236,7 +2238,6 @@ position = Vector2(497, 350)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(468, 392)
 stream = ExtResource("6_fys3i")
-volume_db = -10.0
 autoplay = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -2255,9 +2256,9 @@ position = Vector2(620, 332)
 position = Vector2(256, 476)
 stream = ExtResource("8_ygemb")
 volume_db = -20.0
-autoplay = true
 max_distance = 200.0
 
 [node name="pause_menu" parent="." instance=ExtResource("5_0tady")]
 
 [connection signal="body_entered" from="Area2D" to="jogador" method="_on_area_2d_body_entered"]
+[connection signal="finished" from="Hammer" to="." method="_on_hammer_finished"]

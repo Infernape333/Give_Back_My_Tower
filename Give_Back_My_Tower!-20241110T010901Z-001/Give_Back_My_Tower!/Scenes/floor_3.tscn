@@ -2823,6 +2823,7 @@ shape = SubResource("RectangleShape2D_i7j25")
 disabled = true
 
 [node name="door" parent="." instance=ExtResource("13_bw28i")]
+z_index = 1
 position = Vector2(400, 24)
 scale = Vector2(0.819998, 0.819998)
 

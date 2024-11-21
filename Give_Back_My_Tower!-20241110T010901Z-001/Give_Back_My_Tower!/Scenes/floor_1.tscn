@@ -2468,7 +2468,7 @@ spawns = Array[ExtResource("5_xp7f5")]([SubResource("Resource_hirng")])
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(392, 269)
 stream = ExtResource("6_4fx5e")
-volume_db = -20.0
+volume_db = -10.0
 autoplay = true
 
 [node name="TileMap2" type="TileMap" parent="."]

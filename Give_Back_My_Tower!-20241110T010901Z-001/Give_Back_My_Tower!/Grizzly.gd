@@ -31,17 +31,9 @@ func _physics_process(_delta):
 		$GrizzlyAnm.flip_h = false
 	move_and_slide()
 	
-	if not atk_trigged and global_position.distance_to(player.global_position) <= detection_range:
-		spd = 0
-		$GrizzlyAnm.play("Attack")
-		atk_trigged = true
-		await get_tree().create_timer(.8).timeout
-		atk_collision.disabled = false
-		spd = 15
 	if can_attack and not atk_trigged and global_position.distance_to(player.global_position) <= detection_range:
 		start_atk()
-	elif not atk_trigged:
-		move_towards_player()
+		print('oi')
 	
 	if hp <= 0:
 		disable_all_collision()
@@ -69,12 +61,18 @@ func start_atk():
 	attack_sequence()
 
 func attack_sequence():
-	await get_tree().create_timer(0.8).timeout
+	adjust_atk_directio()
+	await get_tree().create_timer(2).timeout
 	atk_collision.disabled = true
 	await get_tree().create_timer(0.2).timeout
 	atk_collision.disabled = false
 	end_atk()
 	
+func adjust_atk_directio():
+	var direction = global_position.direction_to(player.global_position).normalized()
+	$Area2D.position = direction * 10
+	$Area2D.rotation= direction.angle()
+
 func end_atk():
 	spd = 15
 	atk_trigged = false

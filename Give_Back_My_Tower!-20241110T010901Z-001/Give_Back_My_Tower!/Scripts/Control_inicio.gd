@@ -5,11 +5,15 @@ extends Control
 
 func _ready():
 	audio.play()
+	$AnimatedSprite2D.play("default")
 
 
 func _process(delta):
 	pass
 
+func _input(event):
+	if Input.is_action_just_pressed("Enter"):
+		TransitionManager.fade_to_scene("res://Scenes/inicio.tscn")
 
 func _on_start_pressed():
 	TransitionManager.fade_to_scene("res://Scenes/inicio.tscn")

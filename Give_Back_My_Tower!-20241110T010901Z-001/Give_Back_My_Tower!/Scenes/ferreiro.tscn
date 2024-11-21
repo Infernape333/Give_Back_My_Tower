@@ -1,10 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://dh3dw626hrheu"]
+[gd_scene load_steps=33 format=3 uid="uid://dh3dw626hrheu"]
 
 [ext_resource type="Script" path="res://Scripts/ferreiro.gd" id="1_b1836"]
 [ext_resource type="Texture2D" uid="uid://bs40hfhf0pn27" path="res://Sprites/01_[Idle].png" id="2_l0iw3"]
 [ext_resource type="Texture2D" uid="uid://2d0nakmv1vey" path="res://Sprites/03_[Work_Loop].png" id="3_1hcr5"]
 [ext_resource type="PackedScene" uid="uid://b2lqup7mox2ux" path="res://Scenes/hud_armaduras.tscn" id="3_rprpf"]
-[ext_resource type="Texture2D" path="res://Assets/key_E.jpeg" id="5_44byw"]
+[ext_resource type="Texture2D" uid="uid://dxiyisa2iyd6u" path="res://Sprites/Keyboard Letters and Symbols.png" id="5_nudth"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jw7fj"]
 atlas = ExtResource("2_l0iw3")
@@ -179,6 +179,21 @@ size = Vector2(30, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5x5jr"]
 size = Vector2(21, 28)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cqbt"]
+atlas = ExtResource("5_nudth")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lcsip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cqbt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="ferreiro" type="Area2D"]
 script = ExtResource("1_b1836")
 
@@ -203,11 +218,12 @@ shape = SubResource("RectangleShape2D_5x5jr")
 [node name="hud_armaduras" parent="." instance=ExtResource("3_rprpf")]
 visible = false
 
-[node name="KeyE" type="Sprite2D" parent="."]
+[node name="KeyE" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(-3, -11)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_44byw")
+texture_filter = 1
+position = Vector2(-2.38419e-07, -12)
+scale = Vector2(1.272, 1.272)
+sprite_frames = SubResource("SpriteFrames_lcsip")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

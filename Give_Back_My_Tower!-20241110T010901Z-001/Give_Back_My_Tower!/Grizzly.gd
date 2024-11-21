@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var atk_collision = $Area2D/Atk
+@onready var animation = $GrizzlyAnm
 
 var coin_scene = preload("res://Scenes/coins.tscn") 
 var potion_scene = preload("res://Scenes/porcao.tscn")
@@ -14,6 +15,7 @@ var pDrop_chance = 0.1
 var atk_trigged = false
 var warning_duration = 1.0
 var can_attack = true
+
 
 
 func _ready():
@@ -54,24 +56,23 @@ func move_towards_player():
 	move_and_slide()
 
 func start_atk():
-	spd = 0
 	atk_trigged = true
 	can_attack = false
+	spd = 0
 	$GrizzlyAnm.play("Attack")
-	attack_sequence()
-
-func attack_sequence():
 	adjust_atk_directio()
-	await get_tree().create_timer(2).timeout
-	atk_collision.disabled = true
-	await get_tree().create_timer(0.2).timeout
-	atk_collision.disabled = false
-	end_atk()
+
 	
 func adjust_atk_directio():
 	var direction = global_position.direction_to(player.global_position).normalized()
 	$Area2D.position = direction * 10
 	$Area2D.rotation= direction.angle()
+	
+func trigger_atk_collision():
+	atk_collision.disabled = false
+	await get_tree().create_timer(0.8).timeout
+	atk_collision.disabled = true
+
 
 func end_atk():
 	spd = 15
@@ -150,4 +151,6 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		body.hurt(VariaveisGlobais.enemy_Grizzly_damage)
 
-
+func _on_grizzly_anm_animation_finished(animation_name):
+	if animation_name == "Attack":
+		end_atk()

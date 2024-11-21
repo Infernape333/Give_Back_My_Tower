@@ -236,3 +236,4 @@ frame_progress = 1.0
 [node name="Hit" type="AudioStreamPlayer" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="animation_finished" from="GrizzlyAnm" to="." method="_on_grizzly_anm_animation_finished"]

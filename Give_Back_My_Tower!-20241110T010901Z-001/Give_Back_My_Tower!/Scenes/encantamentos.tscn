@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://d14n0a3egism3"]
+[gd_scene load_steps=13 format=3 uid="uid://d14n0a3egism3"]
 
 [ext_resource type="Script" path="res://Scripts/encantamentos.gd" id="1_t1s3e"]
 [ext_resource type="Texture2D" uid="uid://hi7vh13cxve3" path="res://Sprites/Livro_voador-Sheet.png" id="2_okc23"]
 [ext_resource type="PackedScene" uid="uid://dyl0w7ou3mken" path="res://Scenes/hud_melhorias.tscn" id="3_1p74w"]
-[ext_resource type="Texture2D" path="res://Assets/key_E.jpeg" id="4_8jy44"]
+[ext_resource type="Texture2D" uid="uid://dxiyisa2iyd6u" path="res://Sprites/Keyboard Letters and Symbols.png" id="4_hhe7d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cixhp"]
 atlas = ExtResource("2_okc23")
@@ -40,6 +40,21 @@ size = Vector2(61.8739, 6.74669)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnwuc"]
 size = Vector2(59.375, 23.4375)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc8vy"]
+atlas = ExtResource("4_hhe7d")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8on50"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc8vy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="encantamentos" type="Area2D"]
 scale = Vector2(0.64, 0.64)
 script = ExtResource("1_t1s3e")
@@ -63,12 +78,12 @@ shape = SubResource("RectangleShape2D_hnwuc")
 [node name="hud_melhorias" parent="." instance=ExtResource("3_1p74w")]
 visible = false
 
-[node name="KeyE" type="Sprite2D" parent="."]
+[node name="KeyE" type="AnimatedSprite2D" parent="."]
 visible = false
 texture_filter = 1
-position = Vector2(1.5625, -42.1875)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_8jy44")
+position = Vector2(1.5625, -37.5)
+scale = Vector2(1.27187, 1.27187)
+sprite_frames = SubResource("SpriteFrames_8on50")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

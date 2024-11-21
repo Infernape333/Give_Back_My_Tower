@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bifcxni46d04b" path="res://Sprites/spritesheet.png" id="4_s5grp"]
 [ext_resource type="AudioStream" uid="uid://dv7asqkv4x6ki" path="res://Musics/01 Invitation.mp3" id="5_nehed"]
 [ext_resource type="Texture2D" uid="uid://2losnyj13lmq" path="res://Sprites/Title.png" id="6_bh52q"]
-[ext_resource type="FontFile" uid="uid://cfsuudelg6221" path="res://Assets/Assets/fontForGame-Regular.ttf" id="7_nqrph"]
+[ext_resource type="Texture2D" uid="uid://bvcmemknjwsgu" path="res://Sprites/Start_button.png" id="7_gfblv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_51dkw"]
 atlas = ExtResource("4_s5grp")
@@ -71,23 +71,19 @@ texture_filter = 1
 position = Vector2(684, 383)
 scale = Vector2(1.075, 1.075)
 sprite_frames = SubResource("SpriteFrames_oddy3")
-frame_progress = 0.44587
+frame_progress = 0.634828
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_nehed")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(677, 398)
 texture = ExtResource("6_bh52q")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 467.0
-offset_top = 503.0
-offset_right = 787.0
-offset_bottom = 526.0
-scale = Vector2(1.4, 1.4)
-theme_override_colors/font_color = Color(0.945098, 1, 0.211765, 1)
-theme_override_fonts/font = ExtResource("7_nqrph")
-text = "Press Enter to start"
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(688, 517)
+texture = ExtResource("7_gfblv")
 
 [connection signal="finished" from="AudioStreamPlayer" to="Control" method="_on_audio_stream_player_finished"]

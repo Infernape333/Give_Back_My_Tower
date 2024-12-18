@@ -27,7 +27,7 @@ func _physics_process(_delta: float) -> void:
 	if is_hurt:
 		return
 	move()
-	#hand.animate(get_direction(),get_mouse_position())
+	hand.animate(get_direction(),get_mouse_position())
 	if velocity.length() > 0:
 		$PlayerAnm.play("Walking")
 	else:
@@ -88,7 +88,7 @@ func remove_enemys():
 	for enemy in enemies:
 		enemy.queue_free()
 	
-func single_shot(animation_name = "FireBolt"):
+func single_shot(animation_name = "teste"):
 	if is_inicial_scene:
 		return
 	var MagicAtk = Magic.instantiate()

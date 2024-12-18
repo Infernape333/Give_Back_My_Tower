@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var staff: Sprite2D = get_node("Staff")
-const ARROW: PackedScene = preload("res://Scenes/arrow.tscn")
+@onready var bow: Sprite2D = get_node("Bow")
+const PEW: PackedScene = preload("res://Scenes/pew.tscn")
 var is_in_initial_scene: bool = false
 @onready var timer: Timer = get_node("Timer")
 
@@ -14,9 +14,9 @@ func _ready():
 
 func animate(attack_direction: Vector2, direction: Vector2) -> void:
 	if attack_direction.x > 0:
-		staff.flip_v = false
+		bow.flip_v = false
 	if attack_direction.x < 0:
-		staff.flip_v = true
+		bow.flip_v = true
 	look_at(direction)
 
 func atk() -> void:
@@ -24,10 +24,10 @@ func atk() -> void:
 		$Timer.stop()
 		return
 	
-	var arrow = ARROW.instantiate()
+	var pew = PEW.instantiate()
 	$Shoot.play()
-	arrow.global_position = global_position + Vector2(0, 0.5)
-	get_tree().root.call_deferred("add_child", arrow)
+	pew.global_position = global_position + Vector2(0, 0.5)
+	get_tree().root.call_deferred("add_child", pew)
 
 
 func _on_timer_timeout():

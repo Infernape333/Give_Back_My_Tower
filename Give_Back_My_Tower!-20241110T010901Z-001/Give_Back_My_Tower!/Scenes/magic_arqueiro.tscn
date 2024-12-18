@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3o0p1gek0peu"]
+
+[ext_resource type="Script" path="res://Scripts/magic_arqueiro.gd" id="1_87i12"]
+[ext_resource type="Texture2D" uid="uid://bvb4g5dflu2d1" path="res://Assets/Characters(100x100)/Archer/Arrow(projectile)/Arrow02(32x32).png" id="2_pht5t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uudd"]
+atlas = ExtResource("2_pht5t")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sj4jv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uudd")
+}],
+"loop": true,
+"name": &"teste",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57tkk"]
+size = Vector2(20, 12)
+
+[node name="magic_arqueiro" type="Area2D"]
+script = ExtResource("1_87i12")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_sj4jv")
+animation = &"teste"
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_57tkk")
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

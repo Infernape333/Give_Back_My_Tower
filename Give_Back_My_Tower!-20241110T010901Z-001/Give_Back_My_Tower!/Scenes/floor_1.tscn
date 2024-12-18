@@ -2489,7 +2489,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 5.0
 autostart = true
 
 [node name="TimerOnScreen" parent="." instance=ExtResource("9_2ety1")]
@@ -2513,6 +2513,12 @@ position = Vector2(400, 24)
 scale = Vector2(0.82, 0.82)
 
 [node name="pause_menu" parent="." instance=ExtResource("11_4pnky")]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(362, 255)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(432, 255)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="CursorTimer" to="." method="_on_cursor_timer_timeout"]

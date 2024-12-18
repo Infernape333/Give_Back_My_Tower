@@ -75,6 +75,7 @@ frame_progress = 0.634828
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_nehed")
+volume_db = -10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

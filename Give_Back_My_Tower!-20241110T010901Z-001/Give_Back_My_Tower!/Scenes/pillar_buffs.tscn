@@ -204,7 +204,11 @@ buff_attack_scene = ExtResource("2_ir4fl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_etjja")
 animation = &"Pilar"
 frame = 25
 frame_progress = 1.0
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -22.2223)

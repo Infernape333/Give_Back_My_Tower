@@ -3020,7 +3020,7 @@ position = Vector2(497, 158.75)
 shape = SubResource("RectangleShape2D_4gbi1")
 
 [node name="ferreiro" parent="." instance=ExtResource("6_pxirj")]
-position = Vector2(259, 465)
+position = Vector2(368, 417)
 
 [node name="encantamentos" parent="." instance=ExtResource("6_4wojm")]
 position = Vector2(620, 332)

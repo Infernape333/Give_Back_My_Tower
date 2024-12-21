@@ -3,7 +3,7 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Sprite2D.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -12,5 +12,12 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	VariaveisGlobais.dano += 15
+	var animation_name = $Sprite2D.animation
+	match animation_name:
+		"Atk":
+			VariaveisGlobais.dano += 2.5
+		"Atk_Spd":
+			VariaveisGlobais.atk_spd -= 0.10
+		"Hp":
+			VariaveisGlobais.max_life += 5
 	queue_free()

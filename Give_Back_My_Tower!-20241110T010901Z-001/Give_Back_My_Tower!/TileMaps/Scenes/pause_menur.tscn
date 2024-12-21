@@ -5,6 +5,7 @@
 
 [node name="pause_menu" type="Node2D"]
 process_mode = 3
+position = Vector2(-3, 25)
 metadata/_edit_group_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -12,6 +13,7 @@ process_mode = 3
 script = ExtResource("1_ry22r")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,6 +31,7 @@ grow_vertical = 2
 theme = ExtResource("2_epu08")
 
 [node name="voltar" type="Button" parent="CanvasLayer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5

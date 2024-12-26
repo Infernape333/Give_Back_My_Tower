@@ -1,17 +1,16 @@
-[gd_scene load_steps=44 format=3 uid="uid://btifn174aptc"]
+[gd_scene load_steps=43 format=3 uid="uid://btifn174aptc"]
 
 [ext_resource type="Script" path="res://Scripts/Player_arqueiro.gd" id="1_j4iwe"]
 [ext_resource type="Texture2D" uid="uid://d0tn5y6dbp7eq" path="res://Assets/Characters(100x100)/Archer/Archer with shadows/Archer-Death.png" id="2_hl2h3"]
 [ext_resource type="PackedScene" uid="uid://c3o0p1gek0peu" path="res://Scenes/magic_arqueiro.tscn" id="2_oocg1"]
 [ext_resource type="Texture2D" uid="uid://cvawb22sl24h7" path="res://Assets/Characters(100x100)/Archer/Archer with shadows/Archer-Hurt.png" id="3_ka6bo"]
-[ext_resource type="Texture2D" uid="uid://c2ruagv1cx8u6" path="res://Assets/Characters(100x100)/Archer/Archer with shadows/Archer-Idle.png" id="4_r6kr2"]
-[ext_resource type="Texture2D" uid="uid://bix8qdy3obnam" path="res://Assets/Characters(100x100)/Archer/Archer/Archer-Walk.png" id="6_k5f3l"]
+[ext_resource type="Texture2D" uid="uid://c6jpmj5bsfgft" path="res://Assets/Characters(100x100)/Archer/Archer_idle-Sheet.png" id="5_vi7fu"]
 [ext_resource type="Script" path="res://Scripts/Hand_arqueiro.gd" id="6_vll0q"]
+[ext_resource type="Texture2D" uid="uid://dojq1ke8pahky" path="res://Assets/Characters(100x100)/Archer/Archer_walk-Sheet.png" id="6_ydrik"]
 [ext_resource type="AudioStream" uid="uid://drr7b7aoj3qq8" path="res://Musics/Retro Water Drop 01.wav" id="7_0mnh4"]
-[ext_resource type="Texture2D" uid="uid://dao458dj2xo5g" path="res://Assets/Characters(100x100)/Archer/Archer/Bow and Arrows.png" id="8_5jdu2"]
+[ext_resource type="Texture2D" uid="uid://b8er8jfxy6u2t" path="res://Assets/Characters(100x100)/Archer/Bow_idle.png" id="8_68sm6"]
 [ext_resource type="Texture2D" uid="uid://xvwrvqdg6jx2" path="res://Assets/ValueBar_128x16.png" id="8_b7npe"]
 [ext_resource type="PackedScene" uid="uid://b7tb1tt62sqya" path="res://Scenes/spell_button.tscn" id="9_jxvps"]
-[ext_resource type="Texture2D" uid="uid://b4ghpmbbuvn0d" path="res://Assets/navigation_n.png" id="10_esqmp"]
 [ext_resource type="Script" path="res://Scripts/SkillBar_arqueiro.gd" id="10_seok8"]
 [ext_resource type="AudioStream" uid="uid://cf4qg0xt7yclg" path="res://Musics/FireAtk.wav" id="12_j24la"]
 [ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://Scenes/hud.tscn" id="12_mvv8o"]
@@ -48,60 +47,60 @@ region = Rect2(200, 0, 100, 100)
 atlas = ExtResource("3_ka6bo")
 region = Rect2(300, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f4w6a"]
-atlas = ExtResource("4_r6kr2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqw5n"]
+atlas = ExtResource("5_vi7fu")
 region = Rect2(0, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2iir2"]
-atlas = ExtResource("4_r6kr2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7g5e"]
+atlas = ExtResource("5_vi7fu")
 region = Rect2(100, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aotvl"]
-atlas = ExtResource("4_r6kr2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m5lo"]
+atlas = ExtResource("5_vi7fu")
 region = Rect2(200, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wpkax"]
-atlas = ExtResource("4_r6kr2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrviw"]
+atlas = ExtResource("5_vi7fu")
 region = Rect2(300, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mlhm6"]
-atlas = ExtResource("4_r6kr2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcb3p"]
+atlas = ExtResource("5_vi7fu")
 region = Rect2(400, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oint1"]
-atlas = ExtResource("4_r6kr2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_r767i"]
+atlas = ExtResource("5_vi7fu")
 region = Rect2(500, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ahw86"]
-atlas = ExtResource("6_k5f3l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbuc5"]
+atlas = ExtResource("6_ydrik")
 region = Rect2(0, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dcw3n"]
-atlas = ExtResource("6_k5f3l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lmqq"]
+atlas = ExtResource("6_ydrik")
 region = Rect2(100, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jqy2g"]
-atlas = ExtResource("6_k5f3l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2mdv"]
+atlas = ExtResource("6_ydrik")
 region = Rect2(200, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wo2jt"]
-atlas = ExtResource("6_k5f3l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jake5"]
+atlas = ExtResource("6_ydrik")
 region = Rect2(300, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2tpoj"]
-atlas = ExtResource("6_k5f3l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1fxk"]
+atlas = ExtResource("6_ydrik")
 region = Rect2(400, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hnk42"]
-atlas = ExtResource("6_k5f3l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvb5d"]
+atlas = ExtResource("6_ydrik")
 region = Rect2(500, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5no21"]
-atlas = ExtResource("6_k5f3l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqxer"]
+atlas = ExtResource("6_ydrik")
 region = Rect2(600, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_idkce"]
-atlas = ExtResource("6_k5f3l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqkmf"]
+atlas = ExtResource("6_ydrik")
 region = Rect2(700, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dn7g4"]
@@ -142,22 +141,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f4w6a")
+"texture": SubResource("AtlasTexture_fqw5n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2iir2")
+"texture": SubResource("AtlasTexture_l7g5e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_aotvl")
+"texture": SubResource("AtlasTexture_3m5lo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wpkax")
+"texture": SubResource("AtlasTexture_mrviw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mlhm6")
+"texture": SubResource("AtlasTexture_vcb3p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oint1")
+"texture": SubResource("AtlasTexture_r767i")
 }],
 "loop": true,
 "name": &"Idle",
@@ -165,28 +164,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ahw86")
+"texture": SubResource("AtlasTexture_sbuc5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dcw3n")
+"texture": SubResource("AtlasTexture_3lmqq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jqy2g")
+"texture": SubResource("AtlasTexture_p2mdv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wo2jt")
+"texture": SubResource("AtlasTexture_jake5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2tpoj")
+"texture": SubResource("AtlasTexture_h1fxk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hnk42")
+"texture": SubResource("AtlasTexture_mvb5d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5no21")
+"texture": SubResource("AtlasTexture_aqxer")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_idkce")
+"texture": SubResource("AtlasTexture_gqkmf")
 }],
 "loop": true,
 "name": &"Walking",
@@ -224,8 +223,6 @@ Magic = ExtResource("2_oocg1")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_dn7g4")
 animation = &"Walking"
-frame = 5
-frame_progress = 0.0304591
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -240,9 +237,9 @@ script = ExtResource("6_vll0q")
 
 [node name="Bow" type="Sprite2D" parent="Hand"]
 texture_filter = 1
-position = Vector2(7, 1)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("8_5jdu2")
+position = Vector2(3, -1)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("8_68sm6")
 
 [node name="Timer" type="Timer" parent="Hand"]
 wait_time = 1.5
@@ -305,14 +302,6 @@ layout_mode = 2
 
 [node name="SpellButton3" parent="CanvasLayer/SkillBar" instance=ExtResource("9_jxvps")]
 layout_mode = 2
-
-[node name="Cursor" type="Sprite2D" parent="."]
-visible = false
-texture_filter = 1
-position = Vector2(0, -16)
-rotation = -1.58746
-scale = Vector2(0.234375, 0.234375)
-texture = ExtResource("10_esqmp")
 
 [node name="Fire" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_j24la")

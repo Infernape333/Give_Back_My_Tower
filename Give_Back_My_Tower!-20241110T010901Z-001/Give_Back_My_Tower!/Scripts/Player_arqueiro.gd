@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed: float = 42
 @onready var hand: Node2D = get_node("Hand")
 @onready var health: ProgressBar = get_node("CanvasLayer/HealthBar")
+@onready var Camera: Camera2D = get_node("Camera2D")
 @export var Magic : PackedScene
 var slime = preload("res://Scenes/slime.tscn")
 var cobold = preload("res://Scenes/cobold.tscn")
@@ -18,8 +19,10 @@ func _ready():
 		is_inicial_scene = true
 		$CanvasLayer/SkillBar.visible = false
 		$Hand.visible = false
+		adjust_camera_for_lobby()
 	else: 
 		is_inicial_scene = false
+		adjust_camera_for_gameplay()
 
 func _physics_process(_delta: float) -> void:
 	if is_dead:
@@ -125,3 +128,8 @@ func radial(count):
 	for i in range(count):
 		angled_shot( (float(i) / count) * 2.0 * PI, i)
 
+func adjust_camera_for_lobby():
+	Camera.zoom = Vector2(4.0, 4.0)  
+
+func adjust_camera_for_gameplay():
+	Camera.zoom = Vector2(6, 6)  

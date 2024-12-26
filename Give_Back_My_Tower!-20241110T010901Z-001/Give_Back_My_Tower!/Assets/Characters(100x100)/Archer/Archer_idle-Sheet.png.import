@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dao458dj2xo5g"
-path="res://.godot/imported/Bow and Arrows.png-d9aa10f1f521919299def71d37ca957e.ctex"
+uid="uid://c6jpmj5bsfgft"
+path="res://.godot/imported/Archer_idle-Sheet.png-84b83d9a6a47aa602eb92e1edc8b085a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters(100x100)/Archer/Archer/Bow and Arrows.png"
-dest_files=["res://.godot/imported/Bow and Arrows.png-d9aa10f1f521919299def71d37ca957e.ctex"]
+source_file="res://Assets/Characters(100x100)/Archer/Archer_idle-Sheet.png"
+dest_files=["res://.godot/imported/Archer_idle-Sheet.png-84b83d9a6a47aa602eb92e1edc8b085a.ctex"]
 
 [params]
 

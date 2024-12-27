@@ -1,8 +1,36 @@
-[gd_scene load_steps=31 format=3 uid="uid://c8wpqr5uh8nuk"]
+[gd_scene load_steps=38 format=3 uid="uid://c8wpqr5uh8nuk"]
 
 [ext_resource type="Script" path="res://PillarBuffs.gd" id="1_ix26t"]
 [ext_resource type="PackedScene" uid="uid://b622g0j2lr6u8" path="res://Scenes/sword_buff.tscn" id="2_ir4fl"]
 [ext_resource type="Texture2D" uid="uid://cek8v2nesyf51" path="res://Sprites/Pilar-short-Sheet.png" id="2_s7et6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocgeu"]
+atlas = ExtResource("2_s7et6")
+region = Rect2(900, 0, 36, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmbco"]
+atlas = ExtResource("2_s7et6")
+region = Rect2(864, 0, 36, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gkbc"]
+atlas = ExtResource("2_s7et6")
+region = Rect2(828, 0, 36, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_630y8"]
+atlas = ExtResource("2_s7et6")
+region = Rect2(792, 0, 36, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwr8w"]
+atlas = ExtResource("2_s7et6")
+region = Rect2(756, 0, 36, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rqrm"]
+atlas = ExtResource("2_s7et6")
+region = Rect2(720, 0, 36, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivriv"]
+atlas = ExtResource("2_s7et6")
+region = Rect2(684, 0, 36, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_um46b"]
 atlas = ExtResource("2_s7et6")
@@ -112,6 +140,32 @@ region = Rect2(900, 0, 36, 96)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ocgeu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmbco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gkbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_630y8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwr8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rqrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivriv")
+}],
+"loop": false,
+"name": &"Down",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_um46b")
 }, {
 "duration": 1.0,
@@ -206,8 +260,8 @@ buff_attack_scene = ExtResource("2_ir4fl")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_etjja")
-animation = &"Pilar"
-frame = 25
+animation = &"Down"
+frame = 6
 frame_progress = 1.0
 
 [node name="Marker2D" type="Marker2D" parent="."]

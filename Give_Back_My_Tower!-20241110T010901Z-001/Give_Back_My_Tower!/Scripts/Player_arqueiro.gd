@@ -112,10 +112,7 @@ func multi_shot(count: int = 3, delay: float = 0.3, animation_name = "DarkSkull"
 func angled_shot(angle, i):
 	var MagicAtk = Magic.instantiate()
 	
-	if i % 2 == 0:
-		MagicAtk.play("IceSpikes")
-	else:
-		MagicAtk.play("IceSpikes")
+	MagicAtk.play("IceSpikes")
 	
 	MagicAtk.position = global_position
 	MagicAtk.direction = Vector2(cos(angle), sin(angle))

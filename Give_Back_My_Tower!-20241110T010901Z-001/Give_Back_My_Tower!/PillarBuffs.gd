@@ -26,4 +26,7 @@ func spawn_buffs():
 		add_child(buff_instace)
 
 func _process(delta):
-	pass
+	if VariaveisGlobais.door_choice == 1:
+		$AnimatedSprite2D.play("Down")
+		await get_tree().create_timer(.7).timeout
+		queue_free()

@@ -11,17 +11,17 @@ var buff_spawned = false
 
 
 func _ready():
-	if choice == 1:
-		porta.can_open = true
+	pass
 
-#func _process(delta):
-	#if target and cursor.visible:
-		#cursor.look_at(target.global_position)
-		#cursor.rotation += deg_to_rad(90)
+func _process(delta):
+	print(VariaveisGlobais.door_choice)
+	if VariaveisGlobais.door_choice == 1:
+		porta.can_open = true
+		$Door/CollisionShape2D.disabled = false
 
 func _on_timer_timeout():
 	#VariaveisGlobais.remove_enemys()
-	$Door/CollisionShape2D.disabled = false
+	
 	Spawn_Buff1()
 
 func Spawn_Buff1():
@@ -37,5 +37,6 @@ func Spawn_Buff1():
 	#cursor.visible = true
 	
 func _on_area_2d_body_entered(body):
+	VariaveisGlobais.door_choice -= 1
 	TransitionManager.fade_to_scene("res://Scenes/floor_2.tscn")
 

@@ -8,7 +8,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if VariaveisGlobais.door_choice == 1:
+		queue_free()
 
 
 func _on_body_entered(body):
@@ -20,4 +21,5 @@ func _on_body_entered(body):
 			VariaveisGlobais.atk_spd -= 0.10
 		"Hp":
 			VariaveisGlobais.max_life += 5
+	VariaveisGlobais.door_choice += 1
 	queue_free()

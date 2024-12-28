@@ -1,8 +1,11 @@
-[gd_scene load_steps=38 format=3 uid="uid://c8wpqr5uh8nuk"]
+[gd_scene load_steps=39 format=3 uid="uid://c8wpqr5uh8nuk"]
 
 [ext_resource type="Script" path="res://PillarBuffs.gd" id="1_ix26t"]
 [ext_resource type="PackedScene" uid="uid://b622g0j2lr6u8" path="res://Scenes/sword_buff.tscn" id="2_ir4fl"]
 [ext_resource type="Texture2D" uid="uid://cek8v2nesyf51" path="res://Sprites/Pilar-short-Sheet.png" id="2_s7et6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mu2bo"]
+size = Vector2(33.3334, 51.6668)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ocgeu"]
 atlas = ExtResource("2_s7et6")
@@ -256,13 +259,14 @@ buff_attack_scene = ExtResource("2_ir4fl")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 15.8334)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_mu2bo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_etjja")
 animation = &"Down"
-frame = 6
-frame_progress = 1.0
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -22.2223)

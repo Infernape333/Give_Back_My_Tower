@@ -1,5 +1,8 @@
 extends Node2D
 
+#Choice
+var door_choice = 0
+
 
 #Player atual
 var playerDir = "res://Scenes/player.tscn"

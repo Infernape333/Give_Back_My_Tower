@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var bow: Sprite2D = get_node("Bow")
+@onready var bow: AnimatedSprite2D = get_node("Bow")
 const ARROW: PackedScene = preload("res://Scenes/arrow.tscn")
 var is_in_initial_scene: bool = false
 @onready var timer: Timer = get_node("Timer")

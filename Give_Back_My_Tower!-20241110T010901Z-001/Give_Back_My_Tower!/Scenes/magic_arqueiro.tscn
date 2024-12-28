@@ -14,7 +14,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_7uudd")
 }],
 "loop": true,
-"name": &"teste",
+"name": &"triptychShot",
 "speed": 5.0
 }]
 
@@ -27,7 +27,7 @@ script = ExtResource("1_87i12")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_sj4jv")
-animation = &"teste"
+animation = &"triptychShot"
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 

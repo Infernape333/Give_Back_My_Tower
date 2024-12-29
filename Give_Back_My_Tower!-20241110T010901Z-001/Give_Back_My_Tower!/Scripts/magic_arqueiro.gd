@@ -25,9 +25,9 @@ func _on_body_entered(body):
 		if $AnimatedSprite2D.animation == "triptychShot":
 			body.hurtFire()
 			queue_free()
-		elif $AnimatedSprite2D.animation == "IceSpikes":
+		elif $AnimatedSprite2D.animation == "explosiveArrow":
+			explosion()
 			body.hurtIce()
-			queue_free()
 		elif $AnimatedSprite2D.animation == "DarkSkull":
 			body.hurtDark()
 			queue_free()
@@ -37,3 +37,9 @@ func _on_body_entered(body):
 		$CollisionShape2D.disabled = true
 		speed = 0
 
+func explosion():
+	$AnimatedSprite2D.play("FireBoltExp")
+	$CollisionShape2D.disabled = true
+	await $AnimatedSprite2D.animation_finished
+	queue_free()
+	$CollisionShape2D.disabled = false

@@ -118,10 +118,17 @@ func cone_shot(animation_name = "triptychShot"):
 		# Adicionar a flecha à cena
 		get_tree().current_scene.call_deferred("add_child", MagicAtk)
 
-func multi_shot(count: int = 3, delay: float = 0.3, animation_name = "DarkSkull"):
-	for i in range(count):
-		cone_shot(animation_name)
-		await get_tree().create_timer(delay).timeout
+func explosive_arrow(count: int = 3, delay: float = 0.3, animation_name = "explosiveArrow"):
+	if is_inicial_scene:
+		return
+	var MagicAtk = Magic.instantiate()
+	
+	MagicAtk.play(animation_name)
+	
+	MagicAtk.position = global_position
+	MagicAtk.direction = (get_global_mouse_position() - global_position).normalized()
+	
+	get_tree().current_scene.call_deferred("add_child",MagicAtk)
 	
 func angled_shot(angle, i):
 	var MagicAtk = Magic.instantiate()

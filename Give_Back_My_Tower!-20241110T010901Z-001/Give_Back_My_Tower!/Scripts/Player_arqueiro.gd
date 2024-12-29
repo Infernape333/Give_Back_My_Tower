@@ -123,6 +123,9 @@ func explosive_arrow(count: int = 3, delay: float = 0.3, animation_name = "explo
 		return
 	var MagicAtk = Magic.instantiate()
 	
+	$Hand/Bow.play("attack_02")
+	await get_tree().create_timer(.2).timeout
+	
 	MagicAtk.play(animation_name)
 	
 	MagicAtk.position = global_position

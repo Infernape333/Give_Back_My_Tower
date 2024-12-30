@@ -1,20 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://yskwsnkr7bgu"]
+[gd_scene load_steps=2 format=3 uid="uid://yskwsnkr7bgu"]
 
 [ext_resource type="Script" path="res://Scripts/EnemySpawner.gd" id="1_omrsd"]
-[ext_resource type="PackedScene" uid="uid://bbfs5xndgyrfd" path="res://Scenes/slime.tscn" id="2_8x6cp"]
-[ext_resource type="Script" path="res://Scripts/Spawn_Info.gd" id="3_jfln1"]
-
-[sub_resource type="Resource" id="Resource_o0rjy"]
-script = ExtResource("3_jfln1")
-time_start = 2
-time_end = 15
-enemy = ExtResource("2_8x6cp")
-enemy_num = 5
-enemy_spawn_delay = 2
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_omrsd")
-spawns = Array[ExtResource("3_jfln1")]([SubResource("Resource_o0rjy")])
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

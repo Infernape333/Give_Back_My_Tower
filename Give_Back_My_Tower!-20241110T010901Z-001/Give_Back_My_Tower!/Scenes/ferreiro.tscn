@@ -221,7 +221,7 @@ visible = false
 [node name="KeyE" type="AnimatedSprite2D" parent="."]
 visible = false
 texture_filter = 1
-position = Vector2(-2.38419e-07, -12)
+position = Vector2(1, -17)
 scale = Vector2(1.272, 1.272)
 sprite_frames = SubResource("SpriteFrames_lcsip")
 

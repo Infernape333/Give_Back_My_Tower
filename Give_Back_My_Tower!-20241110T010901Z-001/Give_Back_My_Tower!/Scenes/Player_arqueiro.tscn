@@ -361,7 +361,7 @@ Magic = ExtResource("2_oocg1")
 [node name="PlayerAnm" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_dn7g4")
-animation = &"Walking"
+animation = &"Death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

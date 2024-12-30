@@ -97,6 +97,8 @@ func single_shot(animation_name = "FireBolt"):
 		return
 	var MagicAtk = Magic.instantiate()
 	
+	$Hand/Staff.play("attack_01")
+	
 	MagicAtk.play(animation_name)
 	
 	MagicAtk.position = global_position
@@ -106,12 +108,27 @@ func single_shot(animation_name = "FireBolt"):
 	
 	
 func multi_shot(count: int = 3, delay: float = 0.3, animation_name = "DarkSkull"):
+	if is_inicial_scene:
+		return
+	
+	
+	$Hand/Staff.play("attack_03")
+	
 	for i in range(count):
-		single_shot(animation_name)
+		var MagicAtk = Magic.instantiate()
+		
+		MagicAtk.play(animation_name)
+	
+		MagicAtk.position = global_position
+		MagicAtk.direction = (get_global_mouse_position() - global_position).normalized()
+	
+		get_tree().current_scene.call_deferred("add_child",MagicAtk)
 		await get_tree().create_timer(delay).timeout
 	
 func angled_shot(angle, i):
 	var MagicAtk = Magic.instantiate()
+	
+	$Hand/Staff.play("attack_02")
 	
 	if i % 2 == 0:
 		MagicAtk.play("IceSpikes")

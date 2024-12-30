@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://lfbdita85v3o"]
+[gd_scene load_steps=24 format=3 uid="uid://lfbdita85v3o"]
 
 [ext_resource type="Script" path="res://Scenes/floor_3.gd" id="1_3ais2"]
 [ext_resource type="Script" path="res://Scenes/Area2D.gd" id="1_djivo"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ufksx8wlorja" path="res://Scenes/skeleton.tscn" id="6_pn4s6"]
 [ext_resource type="Script" path="res://Scripts/Spawn_Info.gd" id="7_ei6wy"]
 [ext_resource type="PackedScene" uid="uid://bbfs5xndgyrfd" path="res://Scenes/slime.tscn" id="8_6b466"]
+[ext_resource type="PackedScene" uid="uid://drapfxbfkgnir" path="res://Scenes/summon.tscn" id="9_h3bpu"]
 [ext_resource type="PackedScene" uid="uid://cqay3shqorfbx" path="res://Scenes/gemdillo.tscn" id="10_u4388"]
 [ext_resource type="PackedScene" uid="uid://blbh6y8gt3fn" path="res://Scenes/timer_on_screen.tscn" id="12_4mw2b"]
 [ext_resource type="PackedScene" uid="uid://bhqldrfmuoirs" path="res://Scenes/door.tscn" id="13_bw28i"]
@@ -2728,26 +2729,29 @@ texture = ExtResource("3_0gljo")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_skfju")
 
-[sub_resource type="Resource" id="Resource_jjjn0"]
+[sub_resource type="Resource" id="Resource_wv8fh"]
 script = ExtResource("7_ei6wy")
 time_start = 2
 time_end = 60
+spawn_animation = ExtResource("9_h3bpu")
 enemy = ExtResource("6_pn4s6")
 enemy_num = 7
 enemy_spawn_delay = 5
 
-[sub_resource type="Resource" id="Resource_wunbq"]
+[sub_resource type="Resource" id="Resource_ecp4j"]
 script = ExtResource("7_ei6wy")
 time_start = 15
 time_end = 90
+spawn_animation = ExtResource("9_h3bpu")
 enemy = ExtResource("8_6b466")
 enemy_num = 8
 enemy_spawn_delay = 4
 
-[sub_resource type="Resource" id="Resource_yw5bk"]
+[sub_resource type="Resource" id="Resource_jycts"]
 script = ExtResource("7_ei6wy")
 time_start = 10
 time_end = 12
+spawn_animation = ExtResource("9_h3bpu")
 enemy = ExtResource("10_u4388")
 enemy_num = 1
 enemy_spawn_delay = 0
@@ -2793,8 +2797,9 @@ script = ExtResource("5_0b3q4")
 [node name="Marker2D" type="Marker2D" parent="jogador"]
 position = Vector2(395, 269)
 
-[node name="EnemySpawner" parent="." instance=ExtResource("5_5fwlq")]
-spawns = Array[ExtResource("7_ei6wy")]([SubResource("Resource_jjjn0"), SubResource("Resource_wunbq"), SubResource("Resource_yw5bk")])
+[node name="EnemySpawner" parent="." node_paths=PackedStringArray("tile_map") instance=ExtResource("5_5fwlq")]
+tile_map = NodePath("../TileMap")
+spawns = Array[ExtResource("7_ei6wy")]([SubResource("Resource_wv8fh"), SubResource("Resource_ecp4j"), SubResource("Resource_jycts")])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(392, 269)

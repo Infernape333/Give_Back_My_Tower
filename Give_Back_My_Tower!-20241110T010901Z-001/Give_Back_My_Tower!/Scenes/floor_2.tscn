@@ -2787,7 +2787,7 @@ offset_bottom = 780.0
 color = Color(0, 0, 0, 1)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 75.0
+wait_time = 3.0
 autostart = true
 
 [node name="TimerOnScreen" parent="." instance=ExtResource("10_qtdf2")]
@@ -2811,6 +2811,12 @@ position = Vector2(400, 24)
 scale = Vector2(0.82, 0.82)
 
 [node name="pause_menu" parent="." instance=ExtResource("12_f54do")]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(371, 251)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(427, 251)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="CursorTimer" to="." method="_on_cursor_timer_timeout"]

@@ -21,7 +21,6 @@ func _process(delta):
 
 func _on_timer_timeout():
 	#VariaveisGlobais.remove_enemys()
-	
 	Spawn_Buff1()
 
 func Spawn_Buff1():

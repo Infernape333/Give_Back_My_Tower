@@ -3026,7 +3026,7 @@ position = Vector2(368, 417)
 position = Vector2(620, 332)
 
 [node name="Hammer" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(256, 476)
+position = Vector2(365, 435)
 stream = ExtResource("8_ygemb")
 volume_db = -20.0
 max_distance = 200.0

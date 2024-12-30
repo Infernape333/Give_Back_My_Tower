@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://40ybfojngaiv" path="res://Sprites/AttSpeed_icon-Sheet.png" id="3_tuo4u"]
 [ext_resource type="Texture2D" uid="uid://s1ybjiikk5mc" path="res://Sprites/LifeUp_icon01-Sheet.png" id="4_j5kkc"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_70g0c"]
-radius = 7.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snbc7"]
+size = Vector2(44, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_agopp"]
 atlas = ExtResource("2_vv0qf")
@@ -198,7 +198,8 @@ animations = [{
 script = ExtResource("1_m14rt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_70g0c")
+position = Vector2(1, 14)
+shape = SubResource("RectangleShape2D_snbc7")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -206,4 +207,7 @@ position = Vector2(4.47035e-08, 2.38419e-07)
 sprite_frames = SubResource("SpriteFrames_n7s7h")
 animation = &"Hp"
 
+[node name="Area2D" type="Area2D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

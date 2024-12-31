@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cma46j0p03dvt"]
+[gd_scene load_steps=6 format=3 uid="uid://cma46j0p03dvt"]
 
 [ext_resource type="Script" path="res://Scripts/inventory/inventory_slot_item.gd" id="1_jbwpg"]
 [ext_resource type="Texture2D" uid="uid://binpxgaspbum7" path="res://Sprites/skill_icons3.png" id="1_l08np"]
+[ext_resource type="Shader" path="res://Scripts/inventory/inventory_slot_item_shader.gdshader" id="2_ljjms"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ebyx"]
+shader = ExtResource("2_ljjms")
+shader_parameter/button_state = null
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3yw3"]
 bg_color = Color(0.763422, 0.561703, 0.102176, 1)
@@ -15,6 +20,7 @@ script = ExtResource("1_jbwpg")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_2ebyx")
 clip_contents = true
 custom_minimum_size = Vector2(85, 85)
 layout_mode = 2

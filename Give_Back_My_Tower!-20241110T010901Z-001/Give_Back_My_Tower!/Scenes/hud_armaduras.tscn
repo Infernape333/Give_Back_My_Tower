@@ -231,7 +231,8 @@ grow_vertical = 2
 texture = ExtResource("7_hins0")
 expand_mode = 1
 
-[node name="GridContainer" type="GridContainer" parent="Control/ColorRect/TextureRect/box_melhorias"]
+[node name="GridSlots" type="GridContainer" parent="Control/ColorRect/TextureRect/box_melhorias"]
+unique_name_in_owner = true
 clip_contents = true
 layout_mode = 0
 offset_left = 23.0
@@ -243,7 +244,7 @@ theme_override_constants/h_separation = 9
 theme_override_constants/v_separation = 9
 columns = 6
 
-[node name="SlotTest" parent="Control/ColorRect/TextureRect/box_melhorias/GridContainer" instance=ExtResource("13_xjyyn")]
+[node name="SlotTest" parent="Control/ColorRect/TextureRect/box_melhorias/GridSlots" instance=ExtResource("13_xjyyn")]
 layout_mode = 2
 
 [connection signal="pressed" from="Control/ColorRect/TextureRect/exit" to="Control" method="_on_exit_pressed"]

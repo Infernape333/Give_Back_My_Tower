@@ -1194,8 +1194,7 @@ shape = SubResource("RectangleShape2D_snbc7")
 texture_filter = 1
 position = Vector2(4.47035e-08, 2.38419e-07)
 sprite_frames = SubResource("SpriteFrames_n7s7h")
-animation = &"Atk_Spd"
-frame_progress = 0.139964
+animation = &"Atk_Rare"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

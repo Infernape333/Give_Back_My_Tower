@@ -4,9 +4,12 @@ extends Control
 @onready var price = $ColorRect/TextureRect/label_1
 @onready var label = $ColorRect/TextureRect/box_melhorias/Label
 @onready var label_coin = $ColorRect/TextureRect/box_coins/label_coins
-@onready var _items_grid_view: GridContainer = $ColorRect/TextureRect/box_melhorias/GridContainer
+@onready var _items_grid_view: GridContainer = $ColorRect/TextureRect/box_melhorias/GridSlots
+@onready var slot_test = $ColorRect/TextureRect/box_melhorias/GridSlots/SlotTest
+@onready var inventory = Inventory.new()
 
 var slot_scene = preload("res://Scenes/inventory_slot_item.tscn")
+var _slots_cache: Array[SlotRoot]
 
 
 func _ready():
@@ -39,13 +42,16 @@ func upgrade_armadura():
 func _on_armadura_pressed():
 	upgrade_armadura()
 
-
 func _on_exit_pressed():
 	canvas.visible = false
+	canvas.visibility_changed.connect(_on_visibility_changed)
+	
+func _on_visibility_changed():
+	if canvas.visible:
+		_refresh_slots_states()
 	
 func _populate_inventory():
-	$ColorRect/TextureRect/box_melhorias/GridContainer/SlotTest.visible = false
-	var inventory = Inventory.new()
+	slot_test.visible = false
 	
 	for item: InventoryItem in inventory.list_of_inventory_items:
 		var instance = slot_scene.instantiate()
@@ -66,8 +72,39 @@ func _populate_inventory():
 		var label_price = instance.find_child("LabelPrice") as Label
 		label_price.text = str(item.get_coins())
 		
+		if VariaveisGlobais.player_instance.has_inventory_item(item):
+			button.enabled = false
+			_disabled_effect(button)
+			label_price.visible = false
+		
 		_items_grid_view.add_child(instance)
 
-func _on_inventory_item_clicked(inventory_item: InventoryItem):
-	if VariaveisGlobais.player_instance:
-		VariaveisGlobais.player_instance.add_inventory_item(inventory_item)
+func _refresh_slots_states():
+	var slots = _items_grid_view.get_children()
+	
+	for slot in slots:
+		var inventory_item = slot.get_item()
+		
+		if inventory_item and VariaveisGlobais.player_instance.has_inventory_item(inventory_item):
+			var button: TextureButton = slot.find_child("TextureButton")
+			button.disabled = true
+			_disabled_effect(button)
+			
+			var label_price = slot.find_child("LabelPrice") as Label
+			label_price.visible = false
+
+func _on_inventory_item_clicked(slot: SlotRoot, inventory_item: InventoryItem):
+	_click_effect(slot.button)
+	VariaveisGlobais.player_instance.add_inventory_item(inventory_item)
+
+func _disabled_effect(button: TextureButton):
+	if button.material is ShaderMaterial:
+		button.material = button.material.duplicate()
+		button.material.set("shader_param/button_state", 2)
+		
+func _click_effect(button: TextureButton):
+	if button.material is ShaderMaterial:
+		button.material = button.material.duplicate()
+		button.material.set("shader_param/button_state", 1)
+		await get_tree().create_timer(0.2).timeout
+		button.material.set("shader_param/button_state", 0)

@@ -26,6 +26,9 @@ func set_life_damage(damage: int):
 func heal(amount: int = _DEFAULT_HEAL):
 	_current_life = min(_current_life + amount, MAX_LIFE)
 	
+func has_inventory_item(item: InventoryItem):
+	return _is_item_already_added(item)
+	
 func reset_states():
 	_current_life = MAX_LIFE
 	_attack = _INITIAL_ATTACK

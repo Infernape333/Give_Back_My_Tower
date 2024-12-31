@@ -1,7 +1,7 @@
 class_name SlotRoot
 extends PanelContainer
 
-signal on_item_clicked(InventoryItem)
+signal on_item_clicked(SlotRoot, InventoryItem)
 
 @onready var button: TextureButton = %TextureButton
 
@@ -25,4 +25,4 @@ func get_item() -> InventoryItem:
 	return _item
 
 func _on_item_clicked():
-	on_item_clicked.emit(_item)
+	on_item_clicked.emit(self, _item)

@@ -14,7 +14,6 @@ func _ready():
 	pass
 
 func _process(delta):
-	print(VariaveisGlobais.door_choice)
 	if VariaveisGlobais.door_choice == 1:
 		porta.can_open = true
 		$Door/CollisionShape2D.disabled = false

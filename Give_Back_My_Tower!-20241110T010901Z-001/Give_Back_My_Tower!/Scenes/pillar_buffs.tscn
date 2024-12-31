@@ -260,7 +260,6 @@ buff_attack_scene = ExtResource("2_ir4fl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
 position = Vector2(0, 15.8334)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_mu2bo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

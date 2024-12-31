@@ -14,13 +14,12 @@ func _ready():
 	pass
 
 func _process(delta):
-	print(VariaveisGlobais.door_choice)
 	if VariaveisGlobais.door_choice == 1:
 		porta.can_open = true
 		$Area2D/CollisionShape2D.disabled = false
 
 func _on_timer_timeout():
-	VariaveisGlobais.remove_enemys()
+	#VariaveisGlobais.remove_enemys()
 	Spawn_Buff1()
 
 func Spawn_Buff1():

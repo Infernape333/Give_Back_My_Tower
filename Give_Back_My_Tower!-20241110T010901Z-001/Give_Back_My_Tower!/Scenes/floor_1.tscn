@@ -2521,6 +2521,9 @@ position = Vector2(362, 255)
 [node name="Marker2D2" type="Marker2D" parent="."]
 position = Vector2(432, 255)
 
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(395, 270)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="CursorTimer" to="." method="_on_cursor_timer_timeout"]
 [connection signal="body_entered" from="Door" to="." method="_on_area_2d_body_entered"]

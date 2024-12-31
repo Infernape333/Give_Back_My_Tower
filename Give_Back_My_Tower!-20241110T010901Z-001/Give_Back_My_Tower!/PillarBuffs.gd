@@ -1,10 +1,19 @@
 extends Node2D
 
-@export var buff_attack_scene: PackedScene
-var available_animations = ["Atk", "Atk_Incommun", "Atk_Rare", "Atk_Epic", "Atk_Legendary",
-	"Atk_Spd", "Atk_Spd_Incommun", "Atk_Spd_Rare", "Atk_Spd_Epic", "Atk_Spd_Legendary",
-	"Hp", "Hp_Incommun", "Hp_Rare", "Hp_Epic", "Hp_Legendary"]
 
+# Esssa variável define o tipo de buff q o pilaar spawna: 0 = atks, 1 = atks_spds e 2 = ahps
+@export var type : int
+
+@export var buff_attack_scene: PackedScene
+#var available_animations = ["Atk", "Atk_Incommun", "Atk_Rare", "Atk_Epic", "Atk_Legendary",
+	#"Atk_Spd", "Atk_Spd_Incommun", "Atk_Spd_Rare", "Atk_Spd_Epic", "Atk_Spd_Legendary",
+	#"Hp", "Hp_Incommun", "Hp_Rare", "Hp_Epic", "Hp_Legendary"]
+	
+#Criei um vetor para cada tipo buff 
+var atks = ["Atk", "Atk_Incommun", "Atk_Rare", "Atk_Epic", "Atk_Legendary"]
+var atks_spds = ["Atk_Spd", "Atk_Spd_Incommun", "Atk_Spd_Rare", "Atk_Spd_Epic", "Atk_Spd_Legendary"]
+var hps = ["Hp", "Hp_Incommun", "Hp_Rare", "Hp_Epic", "Hp_Legendary"]
+	
 @export var animation_duration: float = 1.5
 
 var buffs: Array = []
@@ -25,9 +34,22 @@ func _ready():
 
 func spawn_buffs():
 	var chosen_rarity = select_rarity()
-	var filtered_animations = available_animations.filter(func(anim_name):
-		return anim_name.ends_with(chosen_rarity) or (chosen_rarity == "Common" and not anim_name.contains("_"))
-		)
+	var filtered_animations = "" #aqui vai ser o item a ser escolhido
+	
+	# nesses ifs tem a escolha de qual vetor de bufs deve ser ecolhidos
+	if type == 0:
+		filtered_animations = atks.filter(func(anim_name):
+			return anim_name.ends_with(chosen_rarity) or (chosen_rarity == "Common" and not anim_name.contains("_"))
+			)
+	elif type == 1:
+		filtered_animations = atks_spds.filter(func(anim_name):
+			return anim_name.ends_with(chosen_rarity) or (chosen_rarity == "Common" and not anim_name.contains("_"))
+			)
+	else:
+		filtered_animations = hps.filter(func(anim_name):
+			return anim_name.ends_with(chosen_rarity) or (chosen_rarity == "Common" and not anim_name.contains("_"))
+			)
+		
 	
 	if filtered_animations.size() > 0:
 		filtered_animations.shuffle()

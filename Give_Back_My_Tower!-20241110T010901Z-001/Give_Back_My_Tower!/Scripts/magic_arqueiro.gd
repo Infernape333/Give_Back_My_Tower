@@ -10,9 +10,14 @@ var direction: Vector2 = Vector2.RIGHT:
 		direction = value
 		rotation = direction.angle()
 
+var inimigos_na_area: Array = []
 
 func _physics_process(delta):
 	position += speed * direction * delta
+	
+	for inimigo in inimigos_na_area:
+		if inimigo.is_valid():  # Verifica se o inimigo ainda existe
+			inimigo.hurtDark()
 	 
 func play(animation_name = "triptychShot"):
 	$AnimatedSprite2D.play(animation_name)
@@ -28,9 +33,6 @@ func _on_body_entered(body):
 		elif $AnimatedSprite2D.animation == "explosiveArrow":
 			explosion()
 			body.hurtIce()
-		elif $AnimatedSprite2D.animation == "DarkSkull":
-			body.hurtDark()
-			queue_free()
 		else:
 			body.hurt()
 		
@@ -43,3 +45,12 @@ func explosion():
 	await $AnimatedSprite2D.animation_finished
 	queue_free()
 	$CollisionShape2D.disabled = false
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("enemies"):  # Verifica se é um inimigo
+		inimigos_na_area.append(body)
+
+
+func _on_area_2d_body_exited(body):
+	if body.is_in_group("enemies"):
+		inimigos_na_area.erase(body)

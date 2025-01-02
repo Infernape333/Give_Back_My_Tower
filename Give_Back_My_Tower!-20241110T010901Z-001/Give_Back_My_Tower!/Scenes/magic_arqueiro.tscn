@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://syvlqrkpsfgx"]
+[gd_scene load_steps=35 format=3 uid="uid://syvlqrkpsfgx"]
 
 [ext_resource type="Script" path="res://Scripts/magic_arqueiro.gd" id="1_87i12"]
 [ext_resource type="Texture2D" uid="uid://bvb4g5dflu2d1" path="res://Assets/Characters(100x100)/Archer/Arrow(projectile)/Arrow02(32x32).png" id="2_pht5t"]
 [ext_resource type="Texture2D" uid="uid://gn8mpotfcd4o" path="res://Sprites/Explosion SpriteSheet.png" id="2_qn17j"]
+[ext_resource type="Texture2D" uid="uid://5nt67egkt5dd" path="res://Assets/Characters(100x100)/Archer/Arrow_Rain-Sheet.png" id="4_11w6j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aa0di"]
 atlas = ExtResource("2_qn17j")
@@ -72,6 +73,42 @@ region = Rect2(192, 192, 64, 64)
 atlas = ExtResource("2_pht5t")
 region = Rect2(0, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_myxv7"]
+atlas = ExtResource("4_11w6j")
+region = Rect2(0, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mavf"]
+atlas = ExtResource("4_11w6j")
+region = Rect2(100, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckyts"]
+atlas = ExtResource("4_11w6j")
+region = Rect2(200, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmns6"]
+atlas = ExtResource("4_11w6j")
+region = Rect2(300, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_io6lf"]
+atlas = ExtResource("4_11w6j")
+region = Rect2(400, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0bls"]
+atlas = ExtResource("4_11w6j")
+region = Rect2(500, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pbti"]
+atlas = ExtResource("4_11w6j")
+region = Rect2(600, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yybb2"]
+atlas = ExtResource("4_11w6j")
+region = Rect2(700, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luctl"]
+atlas = ExtResource("4_11w6j")
+region = Rect2(800, 0, 100, 200)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7uudd"]
 atlas = ExtResource("2_pht5t")
 region = Rect2(0, 0, 32, 32)
@@ -139,10 +176,37 @@ animations = [{
 "name": &"explosiveArrow",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myxv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mavf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckyts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmns6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_io6lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0bls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pbti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yybb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luctl")
+}],
+"loop": false,
 "name": &"hailArrows",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -156,6 +220,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57tkk"]
 size = Vector2(20, 12)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lmbaw"]
+radius = 33.9924
+height = 80.0142
+
 [node name="magic_arqueiro" type="Area2D"]
 collision_layer = 6
 collision_mask = 6
@@ -165,6 +233,8 @@ script = ExtResource("1_87i12")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_sj4jv")
 animation = &"hailArrows"
+frame = 8
+frame_progress = 1.0
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(-8.9407e-08, -2.38419e-07)
@@ -173,5 +243,17 @@ scale = Vector2(0.9, 0.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_57tkk")
 
+[node name="area_attack_03" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="area_attack_03"]
+
+[node name="Collision_attack_03" type="CollisionShape2D" parent="area_attack_03/Area2D"]
+position = Vector2(-1, 65)
+rotation = -1.54503
+shape = SubResource("CapsuleShape2D_lmbaw")
+disabled = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
+[connection signal="body_entered" from="area_attack_03/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="area_attack_03/Area2D" to="." method="_on_area_2d_body_exited"]

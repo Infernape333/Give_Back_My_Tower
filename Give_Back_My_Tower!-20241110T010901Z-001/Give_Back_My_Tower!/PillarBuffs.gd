@@ -1,19 +1,14 @@
 extends Node2D
 
 
-# Esssa variável define o tipo de buff q o pilaar spawna: 0 = atks, 1 = atks_spds e 2 = ahps
 @export var type : int
 
 @export var buff_attack_scene: PackedScene
-#var available_animations = ["Atk", "Atk_Incommun", "Atk_Rare", "Atk_Epic", "Atk_Legendary",
-	#"Atk_Spd", "Atk_Spd_Incommun", "Atk_Spd_Rare", "Atk_Spd_Epic", "Atk_Spd_Legendary",
-	#"Hp", "Hp_Incommun", "Hp_Rare", "Hp_Epic", "Hp_Legendary"]
-	
-#Criei um vetor para cada tipo buff 
+
 var atks = ["Atk", "Atk_Incommun", "Atk_Rare", "Atk_Epic", "Atk_Legendary"]
 var atks_spds = ["AtkSpd", "AtkSpd_Incommun", "AtkSpd_Rare", "AtkSpd_Epic", "AtkSpd_Legendary"]
 var hps = ["Hp", "Hp_Incommun", "Hp_Rare", "Hp_Epic", "Hp_Legendary"]
-	
+
 @export var animation_duration: float = 1.5
 
 var buffs: Array = []
@@ -34,16 +29,13 @@ func _ready():
 
 func spawn_buffs():
 	var chosen_rarity = select_rarity()
-	var filtered_animations = [] #aqui vai ser o item a ser escolhido
+	var filtered_animations = []
 	
-	# nesses ifs tem a escolha de qual vetor de bufs deve ser ecolhidos
 	if type == 0:
-		print(type)
 		filtered_animations = atks.filter(func(anim_name):
 			return anim_name.ends_with(chosen_rarity) or (chosen_rarity == "Common" and not anim_name.contains("_"))
 			)
 	elif type == 1:
-		print(type)
 		filtered_animations = atks_spds.filter(func(anim_name):
 			return anim_name.ends_with(chosen_rarity) or (chosen_rarity == "Common" and not anim_name.contains("_"))
 			)

@@ -15,17 +15,18 @@ var canvas_visible = false
 func _ready():
 	btn_selecionar.disabled = false
 	btn_comprar.disabled = true
+	self.visible = false
 
 func _process(delta):
 	canvas.visible = canvas_visible
 	label_coins.text = str(floor(VariaveisGlobais.coins))
 	
-	if VariaveisGlobais.playerDir == player_ship:
-		self.visible = false
-		$Area2D/CollisionShape2D.disabled = true
-	else:
+	if VariaveisGlobais.playerDir != player_ship:
 		self.visible = true
 		$Area2D/CollisionShape2D.disabled = false
+	else:
+		self.visible = false
+		$Area2D/CollisionShape2D.disabled = true
 
 func _on_area_2d_body_entered(body):
 	canvas_visible = true

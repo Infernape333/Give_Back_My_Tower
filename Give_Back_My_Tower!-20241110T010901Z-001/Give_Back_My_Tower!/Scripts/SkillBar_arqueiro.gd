@@ -9,5 +9,5 @@ func _ready():
 	
 	slots[0].skill = triptychShot.new(slots[0])
 	slots[1].skill = explosiveArrow.new(slots[1])
-	slots[2].skill = DarkSkull.new(slots[2])
+	slots[2].skill = hailArrows.new(slots[2])
 

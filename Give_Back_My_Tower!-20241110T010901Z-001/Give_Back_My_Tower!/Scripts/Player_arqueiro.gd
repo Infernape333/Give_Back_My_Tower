@@ -13,6 +13,8 @@ var hp = VariaveisGlobais.current_life
 var is_dead = false
 var is_hurt = false
 
+var is_attacking: bool = false
+
 func _ready():
 	if get_tree().current_scene.name == "Node2D":
 		is_inicial_scene = true
@@ -28,12 +30,14 @@ func _physics_process(_delta: float) -> void:
 		return
 	if is_hurt:
 		return
-	move()
-	hand.animate(get_direction(),get_mouse_position())
-	if velocity.length() > 0:
-		$PlayerAnm.play("Walking")
-	else:
-		$PlayerAnm.play("Idle")
+	
+	if not is_attacking:
+		move()
+		hand.animate(get_direction(),get_mouse_position())
+		if velocity.length() > 0:
+			$PlayerAnm.play("Walking")
+		else:
+			$PlayerAnm.play("Idle")
 
 	if get_direction().x < 0:
 		$PlayerAnm.flip_h = true
@@ -121,6 +125,7 @@ func cone_shot(animation_name = "triptychShot"):
 func explosive_arrow(count: int = 3, delay: float = 0.3, animation_name = "explosiveArrow"):
 	if is_inicial_scene:
 		return
+		
 	var MagicAtk = Magic.instantiate()
 	
 	$Hand/Bow.play("attack_02")
@@ -132,22 +137,27 @@ func explosive_arrow(count: int = 3, delay: float = 0.3, animation_name = "explo
 	MagicAtk.direction = (get_global_mouse_position() - global_position).normalized()
 	
 	get_tree().current_scene.call_deferred("add_child",MagicAtk)
-	
-func angled_shot(angle, i):
-	var MagicAtk = Magic.instantiate()
-	
-	MagicAtk.play("IceSpikes")
-	
-	MagicAtk.position = global_position
-	MagicAtk.direction = Vector2(cos(angle), sin(angle))
-	
-	get_tree().current_scene.call_deferred("add_child", MagicAtk)
-	
-func radial(count):
+
+func hail_arrows(animation_name = "hailArrows"):
 	if is_inicial_scene:
 		return
-	for i in range(count):
-		angled_shot( (float(i) / count) * 2.0 * PI, i)
+	
+	is_attacking = true
+	hand.visible = false
+	speed = 0
+	$PlayerAnm.stop()
+	$PlayerAnm.play("attack_03")
+	await $PlayerAnm.animation_finished
+	speed = 42
+	is_attacking = false
+	hand.visible = true
+	#var MagicAtk = Magic.instantiate()
+	#
+	#MagicAtk.play(animation_name)
+	#
+	#MagicAtk.position = global_position
+	#
+	#get_tree().current_scene.call_deferred("add_child", MagicAtk)
 
 func adjust_camera_for_lobby():
 	Camera.zoom = Vector2(4.0, 4.0)  

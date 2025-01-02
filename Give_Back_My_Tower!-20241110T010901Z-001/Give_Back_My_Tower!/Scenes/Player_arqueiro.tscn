@@ -1,18 +1,21 @@
-[gd_scene load_steps=63 format=3 uid="uid://btifn174aptc"]
+[gd_scene load_steps=77 format=3 uid="uid://btifn174aptc"]
 
 [ext_resource type="Script" path="res://Scripts/Player_arqueiro.gd" id="1_j4iwe"]
 [ext_resource type="Texture2D" uid="uid://d0tn5y6dbp7eq" path="res://Assets/Characters(100x100)/Archer/Archer with shadows/Archer-Death.png" id="2_hl2h3"]
-[ext_resource type="PackedScene" uid="uid://c3o0p1gek0peu" path="res://Scenes/magic_arqueiro.tscn" id="2_oocg1"]
+[ext_resource type="PackedScene" uid="uid://syvlqrkpsfgx" path="res://Scenes/magic_arqueiro.tscn" id="2_oocg1"]
 [ext_resource type="Texture2D" uid="uid://cvawb22sl24h7" path="res://Assets/Characters(100x100)/Archer/Archer with shadows/Archer-Hurt.png" id="3_ka6bo"]
-[ext_resource type="Texture2D" uid="uid://c6jpmj5bsfgft" path="res://Assets/Characters(100x100)/Archer/Archer_idle-Sheet.png" id="5_vi7fu"]
+[ext_resource type="Texture2D" path="res://Assets/Characters(100x100)/Archer/Archer_idle-Sheet.png" id="5_vi7fu"]
 [ext_resource type="Script" path="res://Scripts/Hand_arqueiro.gd" id="6_vll0q"]
-[ext_resource type="Texture2D" uid="uid://dojq1ke8pahky" path="res://Assets/Characters(100x100)/Archer/Archer_walk-Sheet.png" id="6_ydrik"]
+[ext_resource type="Texture2D" path="res://Assets/Characters(100x100)/Archer/Archer_walk-Sheet.png" id="6_ydrik"]
 [ext_resource type="AudioStream" uid="uid://drr7b7aoj3qq8" path="res://Musics/Retro Water Drop 01.wav" id="7_0mnh4"]
-[ext_resource type="Texture2D" uid="uid://b02ul1tb6v0b" path="res://Assets/Characters(100x100)/Archer/Bow_attack01-Sheet.png" id="8_43im2"]
-[ext_resource type="Texture2D" uid="uid://dqkv22pwfd423" path="res://Assets/Characters(100x100)/Archer/Bow_idle.png.png" id="8_al5ap"]
+[ext_resource type="Texture2D" uid="uid://b4mvgfuqy7bnq" path="res://Assets/Characters(100x100)/Archer/Attack03_pull-Sheet.png" id="7_l8w76"]
+[ext_resource type="Texture2D" path="res://Assets/Characters(100x100)/Archer/Bow_attack01-Sheet.png" id="8_43im2"]
+[ext_resource type="Texture2D" path="res://Assets/Characters(100x100)/Archer/Bow_idle.png.png" id="8_al5ap"]
 [ext_resource type="Texture2D" uid="uid://xvwrvqdg6jx2" path="res://Assets/ValueBar_128x16.png" id="8_b7npe"]
-[ext_resource type="Texture2D" uid="uid://d3sotdmogjvn6" path="res://Assets/Characters(100x100)/Archer/Bow_attack02-Sheet.png" id="9_1eefs"]
+[ext_resource type="Texture2D" uid="uid://buurl2ud2errb" path="res://Assets/Characters(100x100)/Archer/Attack03_hold-Sheet.png" id="8_xh1w0"]
+[ext_resource type="Texture2D" path="res://Assets/Characters(100x100)/Archer/Bow_attack02-Sheet.png" id="9_1eefs"]
 [ext_resource type="PackedScene" uid="uid://b7tb1tt62sqya" path="res://Scenes/spell_button.tscn" id="9_jxvps"]
+[ext_resource type="Texture2D" uid="uid://c2axpntpw7vj3" path="res://Assets/Characters(100x100)/Archer/Attack03_shot-Sheet.png" id="9_yugen"]
 [ext_resource type="Script" path="res://Scripts/SkillBar_arqueiro.gd" id="10_seok8"]
 [ext_resource type="AudioStream" uid="uid://cf4qg0xt7yclg" path="res://Musics/FireAtk.wav" id="12_j24la"]
 [ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://Scenes/hud.tscn" id="12_mvv8o"]
@@ -105,6 +108,50 @@ region = Rect2(600, 0, 100, 100)
 atlas = ExtResource("6_ydrik")
 region = Rect2(700, 0, 100, 100)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7wux"]
+atlas = ExtResource("7_l8w76")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43uhg"]
+atlas = ExtResource("7_l8w76")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3svh"]
+atlas = ExtResource("7_l8w76")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgan8"]
+atlas = ExtResource("7_l8w76")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tlkf"]
+atlas = ExtResource("8_xh1w0")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsp6w"]
+atlas = ExtResource("8_xh1w0")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nec0w"]
+atlas = ExtResource("8_xh1w0")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfyyu"]
+atlas = ExtResource("9_yugen")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd7af"]
+atlas = ExtResource("9_yugen")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayg4o"]
+atlas = ExtResource("9_yugen")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vibqk"]
+atlas = ExtResource("9_yugen")
+region = Rect2(300, 0, 100, 100)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_dn7g4"]
 animations = [{
 "frames": [{
@@ -191,6 +238,44 @@ animations = [{
 }],
 "loop": true,
 "name": &"Walking",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7wux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43uhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3svh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgan8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tlkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsp6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nec0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfyyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd7af")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayg4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vibqk")
+}],
+"loop": false,
+"name": &"attack_03",
 "speed": 8.0
 }]
 
@@ -376,10 +461,8 @@ script = ExtResource("6_vll0q")
 
 [node name="Bow" type="AnimatedSprite2D" parent="Hand"]
 texture_filter = 1
-position = Vector2(3, -1)
-scale = Vector2(0.72, 0.72)
 sprite_frames = SubResource("SpriteFrames_wehgr")
-animation = &"attack_02"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Timer" type="Timer" parent="Hand"]

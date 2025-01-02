@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c3o0p1gek0peu"]
+[gd_scene load_steps=24 format=3 uid="uid://syvlqrkpsfgx"]
 
 [ext_resource type="Script" path="res://Scripts/magic_arqueiro.gd" id="1_87i12"]
 [ext_resource type="Texture2D" uid="uid://bvb4g5dflu2d1" path="res://Assets/Characters(100x100)/Archer/Arrow(projectile)/Arrow02(32x32).png" id="2_pht5t"]
@@ -139,6 +139,11 @@ animations = [{
 "name": &"explosiveArrow",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"hailArrows",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7uudd")
@@ -159,7 +164,7 @@ script = ExtResource("1_87i12")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_sj4jv")
-animation = &"explosiveArrow"
+animation = &"hailArrows"
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(-8.9407e-08, -2.38419e-07)

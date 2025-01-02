@@ -30,7 +30,7 @@ func Spawn_Buff1():
 		buff_instantiate2.global_position = Buff2.global_position
 		add_child(buff_instantiate)
 		add_child(buff_instantiate2)
-		buff_spawned = true  # Atualiza o flag para evitar novos spawns
+		buff_spawned = true  
 #func _on_cursor_timer_timeout():
 	#cursor.visible = true
 

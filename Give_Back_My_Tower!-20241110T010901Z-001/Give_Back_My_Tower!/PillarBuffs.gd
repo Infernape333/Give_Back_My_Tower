@@ -34,14 +34,16 @@ func _ready():
 
 func spawn_buffs():
 	var chosen_rarity = select_rarity()
-	var filtered_animations = "" #aqui vai ser o item a ser escolhido
+	var filtered_animations = [] #aqui vai ser o item a ser escolhido
 	
 	# nesses ifs tem a escolha de qual vetor de bufs deve ser ecolhidos
 	if type == 0:
+		print(type)
 		filtered_animations = atks.filter(func(anim_name):
 			return anim_name.ends_with(chosen_rarity) or (chosen_rarity == "Common" and not anim_name.contains("_"))
 			)
 	elif type == 1:
+		print(type)
 		filtered_animations = atks_spds.filter(func(anim_name):
 			return anim_name.ends_with(chosen_rarity) or (chosen_rarity == "Common" and not anim_name.contains("_"))
 			)

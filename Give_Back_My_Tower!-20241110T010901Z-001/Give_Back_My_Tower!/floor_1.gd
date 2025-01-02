@@ -28,15 +28,17 @@ func Spawn_Buff1():
 		var buff_instantiate = PillarBuffs.instantiate()
 		var buff_instantiate2 = PillarBuffs.instantiate()
 		var buff_instantiate3 = PillarBuffs.instantiate()
+		print(buff_instantiate.type)
 		buff_instantiate.global_position = Buff1.global_position
 		buff_instantiate2.global_position = Buff2.global_position
 		buff_instantiate3.global_position = Buff3.global_position
-		add_child(buff_instantiate)
 		buff_instantiate.type = 0
-		add_child(buff_instantiate2)
+		add_child(buff_instantiate)
 		buff_instantiate2.type = 1
-		add_child(buff_instantiate3)
+		add_child(buff_instantiate2)
 		buff_instantiate3.type = 2
+		add_child(buff_instantiate3)
+		print(buff_instantiate3.type)
 		buff_spawned = true  # Atualiza o flag para evitar novos spawns
 #func _on_cursor_timer_timeout():
 	#cursor.visible = true

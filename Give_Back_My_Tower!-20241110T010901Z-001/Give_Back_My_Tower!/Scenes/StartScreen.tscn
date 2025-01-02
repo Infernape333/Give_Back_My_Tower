@@ -1,107 +1,90 @@
-[gd_scene load_steps=9 format=3 uid="uid://gdgbk1vib7um"]
+[gd_scene load_steps=13 format=3 uid="uid://c7xe2qtua8ewl"]
 
-[ext_resource type="Texture2D" uid="uid://dspkca4qhxrfb" path="res://imagem_2024-10-27_192206953-removebg-preview.png" id="1_xavfs"]
-[ext_resource type="FontFile" uid="uid://cfsuudelg6221" path="res://Assets/fontForGame-Regular.ttf" id="2_kuxe7"]
-[ext_resource type="Script" path="res://Scripts/Control_inicio.gd" id="2_pqsc4"]
-[ext_resource type="Texture2D" uid="uid://bh2pkbry02b5d" path="res://Assets/Fantasy Minimal Pixel Art GUI by eta-commercial-free/UI/Button_52x14.png" id="3_uc3fr"]
-[ext_resource type="AudioStream" uid="uid://dv7asqkv4x6ki" path="res://Musics/01 Invitation.mp3" id="5_ucw26"]
+[ext_resource type="Texture2D" uid="uid://dspkca4qhxrfb" path="res://imagem_2024-10-27_192206953-removebg-preview.png" id="1_nbqir"]
+[ext_resource type="Theme" uid="uid://djhcai4p6n8i1" path="res://Assets/tema_butaoha.tres" id="2_11i5v"]
+[ext_resource type="Script" path="res://Scripts/Control_inicio.gd" id="3_0egkc"]
+[ext_resource type="Texture2D" uid="uid://bifcxni46d04b" path="res://Sprites/spritesheet.png" id="4_s5grp"]
+[ext_resource type="AudioStream" uid="uid://dv7asqkv4x6ki" path="res://Musics/01 Invitation.mp3" id="5_nehed"]
+[ext_resource type="Texture2D" uid="uid://2losnyj13lmq" path="res://Sprites/Title.png" id="6_bh52q"]
+[ext_resource type="Texture2D" uid="uid://bvcmemknjwsgu" path="res://Sprites/Start_button.png" id="7_gfblv"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_owfkl"]
-texture = ExtResource("3_uc3fr")
+[sub_resource type="AtlasTexture" id="AtlasTexture_51dkw"]
+atlas = ExtResource("4_s5grp")
+region = Rect2(0, 0, 1280, 720)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_30bad"]
-texture = ExtResource("3_uc3fr")
+[sub_resource type="AtlasTexture" id="AtlasTexture_arohd"]
+atlas = ExtResource("4_s5grp")
+region = Rect2(1280, 0, 1280, 720)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ick6"]
-texture = ExtResource("3_uc3fr")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hqwl"]
+atlas = ExtResource("4_s5grp")
+region = Rect2(2560, 0, 1280, 720)
 
-[node name="StartScreen" type="ColorRect"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvmog"]
+atlas = ExtResource("4_s5grp")
+region = Rect2(3840, 0, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oddy3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51dkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arohd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hqwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvmog")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="ColorRect" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -252.5
+offset_right = 252.5
+offset_bottom = 494.0
+grow_horizontal = 2
+texture = ExtResource("1_nbqir")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -57.0
-offset_top = -36.0
-offset_right = 59.0
-offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.34902, 0.352941, 0.396078, 1)
+theme = ExtResource("2_11i5v")
+script = ExtResource("3_0egkc")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 328.0
-offset_top = 75.0
-offset_right = 830.0
-offset_bottom = 383.0
-scale = Vector2(1.48, 1.48)
-texture = ExtResource("1_xavfs")
-expand_mode = 1
-
-[node name="Control2" type="Control" parent="."]
-layout_mode = 1
-anchor_left = -0.065
-anchor_top = -0.141
-anchor_right = 1.138
-anchor_bottom = 1.007
-offset_left = -0.669991
-offset_top = 0.0170059
-offset_right = 641.484
-offset_bottom = 346.141
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.735326, 0.735326)
-script = ExtResource("2_pqsc4")
-
-[node name="start" type="Button" parent="Control2" groups=["btn"]]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
 texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -298.62
-offset_top = 229.102
-offset_right = 36.3804
-offset_bottom = 316.102
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_pressed_color = Color(0.534392, 0.291042, 0.150514, 1)
-theme_override_colors/font_hover_color = Color(0.819608, 0.694118, 0.529412, 1)
-theme_override_fonts/font = ExtResource("2_kuxe7")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxTexture_owfkl")
-theme_override_styles/hover = SubResource("StyleBoxTexture_30bad")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_2ick6")
-text = "Start"
+position = Vector2(684, 383)
+scale = Vector2(1.075, 1.075)
+sprite_frames = SubResource("SpriteFrames_oddy3")
+frame_progress = 0.634828
 
-[node name="quit" type="Button" parent="Control2" groups=["btn"]]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -298.62
-offset_top = 361.016
-offset_right = 36.3804
-offset_bottom = 448.016
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_pressed_color = Color(0.534392, 0.291042, 0.150514, 1)
-theme_override_colors/font_hover_color = Color(0.819608, 0.694118, 0.529412, 1)
-theme_override_fonts/font = ExtResource("2_kuxe7")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxTexture_owfkl")
-theme_override_styles/hover = SubResource("StyleBoxTexture_30bad")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_2ick6")
-text = "Quit"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_ucw26")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_nehed")
 volume_db = -10.0
-autoplay = true
 
-[connection signal="pressed" from="Control2/start" to="Control2" method="_on_start_pressed"]
-[connection signal="pressed" from="Control2/quit" to="Control2" method="_on_quit_pressed"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(677, 398)
+texture = ExtResource("6_bh52q")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(688, 517)
+texture = ExtResource("7_gfblv")
+
+[connection signal="finished" from="AudioStreamPlayer" to="Control" method="_on_audio_stream_player_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cdtmtuldlbcsk"]
+[gd_scene load_steps=34 format=3 uid="uid://cdtmtuldlbcsk"]
 
 [ext_resource type="Script" path="res://Grizzly.gd" id="1_7t2q7"]
 [ext_resource type="Texture2D" uid="uid://da7e7gfn478qq" path="res://Sprites/Grizzly-atk-Sheet.png" id="2_jb42f"]
@@ -9,7 +9,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_wia7w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eqnbf"]
-radius = 11.7647
+radius = 9.55883
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cr2es"]
+radius = 12.5216
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5vgln"]
 atlas = ExtResource("2_jb42f")
@@ -219,11 +222,9 @@ shape = SubResource("CircleShape2D_wia7w")
 position = Vector2(2.20588, 0.735294)
 shape = SubResource("CircleShape2D_eqnbf")
 
-[node name="Atk" type="CollisionPolygon2D" parent="Area2D"]
-visible = false
-position = Vector2(16.1765, -0.735294)
-scale = Vector2(1.5, 1.5)
-polygon = PackedVector2Array(-8.69566, -7.06522, -3.80435, -6.52174, -1.08696, -5.97827, 2.7174, -4.89131, 3.26087, -3.26087, 4.89131, -1.08696, 4.89131, 1.63044, 2.7174, 5.43479, 0.54348, 7.06522, -2.71739, 7.6087, -4.89131, 8.69566, -7.6087, 9.23914, -9.23914, 9.23914)
+[node name="Atk" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(11.0294, 0.735294)
+shape = SubResource("CircleShape2D_cr2es")
 
 [node name="GrizzlyAnm" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -232,4 +233,7 @@ animation = &"Attack"
 frame = 8
 frame_progress = 1.0
 
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="animation_finished" from="GrizzlyAnm" to="." method="_on_grizzly_anm_animation_finished"]

@@ -1,51 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv22bccsb6tir"]
+[gd_scene load_steps=3 format=3 uid="uid://bv22bccsb6tir"]
 
 [ext_resource type="Script" path="res://Scripts/pause_menur.gd" id="1_ry22r"]
+[ext_resource type="Theme" uid="uid://djhcai4p6n8i1" path="res://Assets/tema_butaoha.tres" id="2_epu08"]
 
 [node name="pause_menu" type="Node2D"]
 process_mode = 3
+position = Vector2(-3, 25)
 metadata/_edit_group_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
 script = ExtResource("1_ry22r")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 1148.0
-offset_bottom = 648.0
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 0.321)
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1147.0
-offset_bottom = 649.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_epu08")
 
 [node name="voltar" type="Button" parent="CanvasLayer/Control"]
+visible = false
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.327
-anchor_top = 0.3
-anchor_right = 0.633
-anchor_bottom = 0.424
-offset_left = 0.149994
-offset_right = -0.149994
-offset_bottom = 0.0399933
-text = "Voltar"
-
-[node name="sair" type="Button" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.329
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.635
-anchor_bottom = 0.628
-offset_left = 0.0499878
-offset_right = -1.25003
-offset_bottom = -0.12001
-text = "Sair
-"
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 282.0
+offset_top = -32.0
+offset_right = -276.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.953041, 0.95304, 0.953041, 1)
+theme_override_font_sizes/font_size = 50
+text = "Voltar"
+flat = true
 
 [connection signal="pressed" from="CanvasLayer/Control/voltar" to="CanvasLayer" method="_on_voltar_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/sair" to="CanvasLayer" method="_on_sair_pressed"]

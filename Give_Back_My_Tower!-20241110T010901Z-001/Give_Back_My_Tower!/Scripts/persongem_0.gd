@@ -40,3 +40,5 @@ func _on_selecionar_pressed():
 
 func _on_comprar_pressed():
 	pass
+
+

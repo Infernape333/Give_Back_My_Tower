@@ -10,11 +10,7 @@ func _unhandled_input(event):
 	if event.is_action("ui_cancel"):
 		self.visible = true
 		get_tree().paused = true
-		voltar.grab_focus()
 
 func _on_voltar_pressed():
 	get_tree().paused = false
 	self.visible = false
-
-func _on_sair_pressed():
-	get_tree().change_scene_to_file("res://Scenes/inicio.tscn")

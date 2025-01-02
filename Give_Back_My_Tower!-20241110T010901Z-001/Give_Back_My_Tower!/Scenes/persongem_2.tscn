@@ -1,62 +1,61 @@
-[gd_scene load_steps=26 format=3 uid="uid://evt8muun81pf"]
+[gd_scene load_steps=34 format=3 uid="uid://evt8muun81pf"]
 
 [ext_resource type="Script" path="res://Scripts/persongem_2.gd" id="1_s48xg"]
 [ext_resource type="Texture2D" uid="uid://c2ruagv1cx8u6" path="res://Assets/Characters(100x100)/Archer/Archer with shadows/Archer-Idle.png" id="2_2q8a2"]
-[ext_resource type="Texture2D" uid="uid://bh3m880tqf6sm" path="res://icon.svg" id="2_haqeq"]
+[ext_resource type="Texture2D" uid="uid://c6jpmj5bsfgft" path="res://Assets/Characters(100x100)/Archer/Archer_idle-Sheet.png" id="2_t3otw"]
 [ext_resource type="Texture2D" uid="uid://coxa5wkxkrcki" path="res://ui/UI/RectangleBox_96x96.png" id="3_7tkgo"]
 [ext_resource type="Theme" uid="uid://djhcai4p6n8i1" path="res://Assets/tema_butaoha.tres" id="3_x2v8i"]
 [ext_resource type="Texture2D" uid="uid://d1w2coi1kgw6j" path="res://ui/UI/Button_52x14.png" id="4_y33s0"]
 [ext_resource type="Texture2D" uid="uid://c4fpy0rwx2gcl" path="res://ui/UI/QuitIcon.png" id="5_6o56b"]
 [ext_resource type="Texture2D" uid="uid://qi7je4g33bvc" path="res://ui/UI/TitleBox_64x16.png" id="6_21e7l"]
 [ext_resource type="Texture2D" uid="uid://bmu78duf5lhgq" path="res://ui/UI/BlackBigCircleBoxWithBorder_27x27.png" id="7_ywqie"]
-[ext_resource type="Texture2D" uid="uid://qncodmth4jjg" path="res://ui/UI/BuffIcons(WithoutStroke)_16x16.png" id="8_nya2e"]
-[ext_resource type="Texture2D" uid="uid://dpg8fjch2583k" path="res://ui/UI/AttributesIcons_17x17.png" id="9_lb2sm"]
+[ext_resource type="Texture2D" uid="uid://bygck5p5e7fqh" path="res://Assets/[4] Full Spritesheet.png" id="8_lif7l"]
 [ext_resource type="Texture2D" uid="uid://dmh573k8gu1r0" path="res://ui/UI/CharacterBox_56x57.png" id="10_80u0w"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3bwv3"]
-atlas = ExtResource("2_2q8a2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfu71"]
+atlas = ExtResource("2_t3otw")
 region = Rect2(0, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ghxfl"]
-atlas = ExtResource("2_2q8a2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_86n7u"]
+atlas = ExtResource("2_t3otw")
 region = Rect2(100, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7p7a1"]
-atlas = ExtResource("2_2q8a2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwfx7"]
+atlas = ExtResource("2_t3otw")
 region = Rect2(200, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vigj7"]
-atlas = ExtResource("2_2q8a2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_noewd"]
+atlas = ExtResource("2_t3otw")
 region = Rect2(300, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3x7ah"]
-atlas = ExtResource("2_2q8a2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wejex"]
+atlas = ExtResource("2_t3otw")
 region = Rect2(400, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vlxyf"]
-atlas = ExtResource("2_2q8a2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlurx"]
+atlas = ExtResource("2_t3otw")
 region = Rect2(500, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n780a"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3bwv3")
+"texture": SubResource("AtlasTexture_xfu71")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ghxfl")
+"texture": SubResource("AtlasTexture_86n7u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7p7a1")
+"texture": SubResource("AtlasTexture_xwfx7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vigj7")
+"texture": SubResource("AtlasTexture_noewd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3x7ah")
+"texture": SubResource("AtlasTexture_wejex")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vlxyf")
+"texture": SubResource("AtlasTexture_hlurx")
 }],
 "loop": true,
 "name": &"default",
@@ -66,44 +65,104 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5ulj"]
 size = Vector2(29, 27)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfo3p"]
+atlas = ExtResource("8_lif7l")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7oxf"]
+atlas = ExtResource("8_lif7l")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mdpb"]
+atlas = ExtResource("8_lif7l")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3sar"]
+atlas = ExtResource("8_lif7l")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjh62"]
+atlas = ExtResource("8_lif7l")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqgc6"]
+atlas = ExtResource("8_lif7l")
+region = Rect2(80, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_tb20k"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_haqeq")
+"texture": SubResource("AtlasTexture_jfo3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7oxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mdpb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3sar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjh62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqgc6")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ejktl"]
-atlas = ExtResource("8_nya2e")
-region = Rect2(48, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2neab"]
+atlas = ExtResource("2_2q8a2")
+region = Rect2(0, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w3djn"]
-atlas = ExtResource("9_lb2sm")
-region = Rect2(17, 0, 17, 17)
+[sub_resource type="AtlasTexture" id="AtlasTexture_edjiy"]
+atlas = ExtResource("2_2q8a2")
+region = Rect2(100, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ie1lu"]
-atlas = ExtResource("8_nya2e")
-region = Rect2(32, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtpei"]
+atlas = ExtResource("2_2q8a2")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwvut"]
+atlas = ExtResource("2_2q8a2")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guh2y"]
+atlas = ExtResource("2_2q8a2")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsboq"]
+atlas = ExtResource("2_2q8a2")
+region = Rect2(500, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dd04r"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ejktl")
+"texture": SubResource("AtlasTexture_2neab")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w3djn")
+"texture": SubResource("AtlasTexture_edjiy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ie1lu")
+"texture": SubResource("AtlasTexture_xtpei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwvut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guh2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsboq")
 }],
 "loop": true,
 "name": &"default",
-"speed": 1.0
+"speed": 6.0
 }]
 
 [node name="persongem_2" type="Node2D"]
@@ -175,11 +234,11 @@ texture = ExtResource("4_y33s0")
 
 [node name="title" type="Label" parent="CanvasLayer/Control/ColorRect/TextureRect/box_name"]
 layout_mode = 0
-offset_left = 85.0
-offset_top = 22.0
-offset_right = 206.0
-offset_bottom = 45.0
-text = "Nome
+offset_left = 84.0
+offset_top = 26.0
+offset_right = 212.0
+offset_bottom = 49.0
+text = "Arqueiro
 "
 
 [node name="exit" type="TextureButton" parent="CanvasLayer/Control/ColorRect/TextureRect"]
@@ -197,8 +256,13 @@ offset_left = 164.0
 offset_top = 211.0
 offset_right = 391.0
 offset_bottom = 264.0
-text = "Comprar por R$ 100"
+text = "Comprar por 100"
 flat = true
+
+[node name="sprit_coins" type="AnimatedSprite2D" parent="CanvasLayer/Control/ColorRect/TextureRect/comprar"]
+position = Vector2(199, 24)
+sprite_frames = SubResource("SpriteFrames_tb20k")
+autoplay = "default"
 
 [node name="selecionar" type="Button" parent="CanvasLayer/Control/ColorRect/TextureRect"]
 layout_mode = 0
@@ -227,18 +291,18 @@ grow_vertical = 0
 texture = ExtResource("6_21e7l")
 
 [node name="sprit_coins" type="AnimatedSprite2D" parent="CanvasLayer/Control/ColorRect/TextureRect/box_coins"]
-position = Vector2(55, 34)
-scale = Vector2(0.25, 0.25)
+position = Vector2(49, 33)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_tb20k")
 autoplay = "default"
 
 [node name="label_coins" type="Label" parent="CanvasLayer/Control/ColorRect/TextureRect/box_coins"]
 layout_mode = 0
-offset_left = 79.0
-offset_top = 23.0
-offset_right = 119.0
-offset_bottom = 46.0
-text = "100"
+offset_left = 69.0
+offset_top = 26.0
+offset_right = 133.0
+offset_bottom = 49.0
+text = "00"
 
 [node name="box_icon" type="TextureRect" parent="CanvasLayer/Control/ColorRect/TextureRect"]
 texture_filter = 1
@@ -257,10 +321,11 @@ grow_vertical = 2
 texture = ExtResource("7_ywqie")
 
 [node name="icon" type="AnimatedSprite2D" parent="CanvasLayer/Control/ColorRect/TextureRect/box_icon"]
-position = Vector2(44, 45)
-scale = Vector2(3, 3)
+position = Vector2(42, 48)
+scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_dd04r")
 autoplay = "default"
+frame_progress = 0.400236
 
 [node name="box_melhorias" type="TextureRect" parent="CanvasLayer/Control/ColorRect/TextureRect"]
 texture_filter = 1

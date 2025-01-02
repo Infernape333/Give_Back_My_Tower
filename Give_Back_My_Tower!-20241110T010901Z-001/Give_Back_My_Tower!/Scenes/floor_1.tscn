@@ -1,15 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://dwc0l4b74wr5l"]
+[gd_scene load_steps=19 format=3 uid="uid://dwc0l4b74wr5l"]
 
 [ext_resource type="Script" path="res://floor_1.gd" id="1_18bga"]
 [ext_resource type="Texture2D" uid="uid://o2mlfxpq0p17" path="res://TileMaps/tf_darkdimension_sheet.png" id="1_beruv"]
 [ext_resource type="PackedScene" uid="uid://bbfs5xndgyrfd" path="res://Scenes/slime.tscn" id="2_eito8"]
 [ext_resource type="Script" path="res://Scripts/jogador_selecionar.gd" id="3_abbro"]
 [ext_resource type="PackedScene" uid="uid://yskwsnkr7bgu" path="res://Scenes/enemy_spawner.tscn" id="3_d7h16"]
+[ext_resource type="Texture2D" uid="uid://b4ghpmbbuvn0d" path="res://Assets/navigation_n.png" id="4_kbehu"]
 [ext_resource type="Script" path="res://Scripts/Spawn_Info.gd" id="5_xp7f5"]
 [ext_resource type="AudioStream" uid="uid://dg0j4bgd8j6m2" path="res://Musics/04 Hopeful Feeling.mp3" id="6_4fx5e"]
 [ext_resource type="Texture2D" uid="uid://ds66b0fc8mpcv" path="res://Assets/opp5_castle_tiles/environment/tiles/castle/tile_castle.png" id="7_mabs3"]
 [ext_resource type="PackedScene" uid="uid://blbh6y8gt3fn" path="res://Scenes/timer_on_screen.tscn" id="9_2ety1"]
 [ext_resource type="PackedScene" uid="uid://bhqldrfmuoirs" path="res://Scenes/door.tscn" id="10_vjn6d"]
+[ext_resource type="PackedScene" uid="uid://bv22bccsb6tir" path="res://TileMaps/Scenes/pause_menur.tscn" id="11_4pnky"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8p4ce"]
 texture = ExtResource("1_beruv")
@@ -2446,6 +2448,7 @@ size = Vector2(36, 10)
 
 [node name="Floor1" type="Node2D"]
 script = ExtResource("1_18bga")
+metadata/_edit_horizontal_guides_ = [82.0]
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -2461,13 +2464,21 @@ script = ExtResource("3_abbro")
 [node name="Marker2D" type="Marker2D" parent="jogador"]
 position = Vector2(395, 269)
 
+[node name="Cursor" type="Sprite2D" parent="jogador"]
+visible = false
+texture_filter = 1
+position = Vector2(388, 150)
+rotation = -1.58746
+scale = Vector2(0.234375, 0.234375)
+texture = ExtResource("4_kbehu")
+
 [node name="EnemySpawner" parent="." instance=ExtResource("3_d7h16")]
 spawns = Array[ExtResource("5_xp7f5")]([SubResource("Resource_hirng")])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(392, 269)
 stream = ExtResource("6_4fx5e")
-volume_db = -20.0
+volume_db = -10.0
 autoplay = true
 
 [node name="TileMap2" type="TileMap" parent="."]
@@ -2488,7 +2499,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 5.0
 autostart = true
 
 [node name="TimerOnScreen" parent="." instance=ExtResource("9_2ety1")]
@@ -2510,6 +2521,17 @@ disabled = true
 [node name="door" parent="." instance=ExtResource("10_vjn6d")]
 position = Vector2(400, 24)
 scale = Vector2(0.82, 0.82)
+
+[node name="pause_menu" parent="." instance=ExtResource("11_4pnky")]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(362, 255)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(432, 255)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(395, 270)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="CursorTimer" to="." method="_on_cursor_timer_timeout"]

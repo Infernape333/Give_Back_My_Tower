@@ -1,5 +1,8 @@
 extends Node2D
 
+#Choice
+var door_choice = 0
+
 
 #Player atual
 var playerDir = "res://Scenes/player.tscn"
@@ -19,7 +22,7 @@ var damage_upgrade_count = 0
 var speed_upgrade_count = 0
 
 
-var coins = 1000
+var coins = 500000
 var atk_spd = 3
 var dano = 5
 static var danoIce = 15
@@ -30,13 +33,14 @@ var enemy_slime_damage: int = 20
 var enemy_cobold_damage: int = 50
 var enemy_skeleton_damage: int = 25
 var enemy_Grizzly_damage: int = 100
+var enemy_Gemdillo_damage: int = 40
 var enemy_Orc_Rider_damage: int = 200
-var BossHp = 1000
-var Orc_Rider_hp = 1000
+var BossHp = 5000
 var enemy_slime_hp = 20
 var enemy_cobold_hp = 100
 var enemy_skeleton_hp = 50
 var enemy_Grizzly_hp = 250
+var enemy_Gemdillo_hp = 50
 
 var max_life = 100
 static var current_life: int = 100

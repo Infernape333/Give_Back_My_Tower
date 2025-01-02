@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var staff: Sprite2D = get_node("Staff")
+@onready var staff: AnimatedSprite2D = get_node("Staff")
 const PEW: PackedScene = preload("res://Scenes/pew.tscn")
 var is_in_initial_scene: bool = false
 @onready var timer: Timer = get_node("Timer")

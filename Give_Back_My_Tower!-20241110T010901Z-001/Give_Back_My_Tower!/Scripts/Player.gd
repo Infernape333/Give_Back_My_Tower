@@ -4,7 +4,9 @@ extends CharacterBody2D
 @export var speed: float = 42
 @onready var hand: Node2D = get_node("Hand")
 @onready var health: ProgressBar = get_node("CanvasLayer/HealthBar")
+@onready var Camera: Camera2D = get_node("Camera2D")
 @export var Magic : PackedScene
+
 var slime = preload("res://Scenes/slime.tscn")
 var cobold = preload("res://Scenes/cobold.tscn")
 var skeleton = preload("res://Scenes/skeleton.tscn")
@@ -18,8 +20,10 @@ func _ready():
 		is_inicial_scene = true
 		$CanvasLayer/SkillBar.visible = false
 		$Hand.visible = false
+		adjust_camera_for_lobby()
 	else: 
 		is_inicial_scene = false
+		adjust_camera_for_gameplay()
 
 func _physics_process(_delta: float) -> void:
 	if is_dead:
@@ -93,6 +97,8 @@ func single_shot(animation_name = "FireBolt"):
 		return
 	var MagicAtk = Magic.instantiate()
 	
+	$Hand/Staff.play("attack_01")
+	
 	MagicAtk.play(animation_name)
 	
 	MagicAtk.position = global_position
@@ -102,12 +108,27 @@ func single_shot(animation_name = "FireBolt"):
 	
 	
 func multi_shot(count: int = 3, delay: float = 0.3, animation_name = "DarkSkull"):
+	if is_inicial_scene:
+		return
+	
+	
+	$Hand/Staff.play("attack_03")
+	
 	for i in range(count):
-		single_shot(animation_name)
+		var MagicAtk = Magic.instantiate()
+		
+		MagicAtk.play(animation_name)
+	
+		MagicAtk.position = global_position
+		MagicAtk.direction = (get_global_mouse_position() - global_position).normalized()
+	
+		get_tree().current_scene.call_deferred("add_child",MagicAtk)
 		await get_tree().create_timer(delay).timeout
 	
 func angled_shot(angle, i):
 	var MagicAtk = Magic.instantiate()
+	
+	$Hand/Staff.play("attack_02")
 	
 	if i % 2 == 0:
 		MagicAtk.play("IceSpikes")
@@ -124,4 +145,9 @@ func radial(count):
 		return
 	for i in range(count):
 		angled_shot( (float(i) / count) * 2.0 * PI, i)
+		
+func adjust_camera_for_lobby():
+	Camera.zoom = Vector2(4.0, 4.0)  
 
+func adjust_camera_for_gameplay():
+	Camera.zoom = Vector2(6, 6)  

@@ -31,3 +31,4 @@ func _on_change_type_timeout():
 	is_working = true
 	await get_tree().create_timer(4).timeout
 	is_working = false
+

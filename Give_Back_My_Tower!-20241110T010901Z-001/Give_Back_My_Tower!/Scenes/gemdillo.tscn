@@ -1,16 +1,17 @@
-[gd_scene load_steps=39 format=3 uid="uid://cqay3shqorfbx"]
+[gd_scene load_steps=40 format=3 uid="uid://cqay3shqorfbx"]
 
 [ext_resource type="Script" path="res://Scenes/gemdillo.gd" id="1_xu6if"]
-[ext_resource type="Texture2D" path="res://Sprites/Gemdillo_attack-Sheet.png" id="2_71g4l"]
-[ext_resource type="Texture2D" path="res://Sprites/Gemdillo_death-Sheet.png" id="3_1vly7"]
-[ext_resource type="Texture2D" path="res://Sprites/Gemdillo_hurt-Sheet.png" id="4_53ki1"]
-[ext_resource type="Texture2D" path="res://Sprites/Gemdillo_walk-Sheet.png" id="5_5mks5"]
+[ext_resource type="Texture2D" uid="uid://tf5wd4rrbhhf" path="res://Sprites/Gemdillo_attack-Sheet.png" id="2_71g4l"]
+[ext_resource type="Texture2D" uid="uid://rctt2kc5f2c0" path="res://Sprites/Gemdillo_death-Sheet.png" id="3_1vly7"]
+[ext_resource type="Texture2D" uid="uid://sg8kyl0v17fo" path="res://Sprites/Gemdillo_hurt-Sheet.png" id="4_53ki1"]
+[ext_resource type="Texture2D" uid="uid://x3er7kqe7aoh" path="res://Sprites/Gemdillo_walk-Sheet.png" id="5_5mks5"]
+[ext_resource type="AudioStream" uid="uid://cywyf3iijj218" path="res://Musics/Rocks.WAV" id="6_8s1nw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6f4qm"]
-radius = 5.09902
+radius = 4.44444
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xkhx2"]
-radius = 8.06226
+radius = 9.05539
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b2sb2"]
 atlas = ExtResource("2_71g4l")
@@ -246,8 +247,8 @@ animations = [{
 }]
 
 [node name="Gemdillo" type="CharacterBody2D" groups=["enemies"]]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_xu6if")
 
 [node name="DamageS" type="CollisionShape2D" parent="."]
@@ -274,5 +275,9 @@ offset_top = -2.0
 offset_right = 87.0
 offset_bottom = 9.0
 color = Color(0.905882, 0.141176, 0.0980392, 0.686275)
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_8s1nw")
+volume_db = -15.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

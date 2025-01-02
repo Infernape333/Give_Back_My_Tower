@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
-@export var spd = 20.0
+@export var spd = 15.0
 @export var hp = VariaveisGlobais.enemy_Grizzly_hp
 @export var detection_range: float = 35.0
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var atk_collision = $Area2D/Atk
+@onready var animation = $GrizzlyAnm
 
 var coin_scene = preload("res://Scenes/coins.tscn") 
 var potion_scene = preload("res://Scenes/porcao.tscn")
@@ -13,6 +14,9 @@ var drop_chance = 0.75
 var pDrop_chance = 0.1
 var atk_trigged = false
 var warning_duration = 1.0
+var can_attack = true
+
+
 
 func _ready():
 	hp = VariaveisGlobais.enemy_Grizzly_hp
@@ -29,56 +33,95 @@ func _physics_process(_delta):
 		$GrizzlyAnm.flip_h = false
 	move_and_slide()
 	
-	if not atk_trigged and global_position.distance_to(player.global_position) <= detection_range:
-		spd = 0
-		$GrizzlyAnm.play("Attack")
-		atk_trigged = true
-		await get_tree().create_timer(.8).timeout
-		atk_collision.disabled = false
+	if can_attack and not atk_trigged and global_position.distance_to(player.global_position) <= detection_range:
+		start_atk()
+		print('oi')
 	
 	if hp <= 0:
-		$DamageS.disabled = true
-		$Area2D/CollisionShape2D.disabled = true
-		$Area2D/Atk.disabled = true
+		disable_all_collision()
 	
 	
 func get_direction() -> Vector2:
 	return global_position.direction_to(player.global_position)
 	
+func move_towards_player():
+	var direction = global_position.direction_to(player.global_position)
+	velocity = direction * spd
+	$GrizzlyAnm.play("Walking")
+	
+	if get_direction().x < 0:
+		$GrizzlyAnm.flip_h = true
+	elif get_direction().x > 0:
+		$GrizzlyAnm.flip_h = false
+	move_and_slide()
+
+func start_atk():
+	atk_trigged = true
+	can_attack = false
+	spd = 0
+	$GrizzlyAnm.play("Attack")
+	adjust_atk_directio()
+
+	
+func adjust_atk_directio():
+	var direction = global_position.direction_to(player.global_position).normalized()
+	$Area2D.position = direction * 10
+	$Area2D.rotation= direction.angle()
+	
+func trigger_atk_collision():
+	atk_collision.disabled = false
+	await get_tree().create_timer(0.8).timeout
+	atk_collision.disabled = true
+
+
+func end_atk():
+	spd = 15
+	atk_trigged = false
+	await get_tree().create_timer(5).timeout
+	can_attack = true
+
+func disable_all_collision():
+	$DamageS.disabled = true
+	atk_collision.disabled = true
+
 func hurt():
 	hp -= VariaveisGlobais.dano
 	print(hp)
 	$GrizzlyAnm.play("Hurt")
+	$Hit.play()
 	spd = 0
 	if hp <= 0:
 		death()
 	await get_tree().create_timer(.5).timeout
-	spd = 20
+	spd = 15
 
 func hurtIce():
 	hp -= VariaveisGlobais.danoIce
 	print(hp)
 	$GrizzlyAnm.play("Hurt")
+	$Hit.play()
 	spd = 0
 	if hp <= 0:
 		death()
 	await get_tree().create_timer(10).timeout
-	spd = 20
+	spd = 15
 	
 
 func hurtFire():
 	hp -= VariaveisGlobais.danoFire
 	print(hp)
 	$GrizzlyAnm.play("Hurt")
+	$Hit.play()
 	spd = 0
 	if hp <= 0:
 		death()
 	await get_tree().create_timer(1).timeout
-	spd = 20
+	spd = 15
 	
 func hurtDark():
 	hp -= VariaveisGlobais.danoDark
 	$GrizzlyAnm.play("Hurt")
+	$Hit.play()
 	if hp <= 0:
 		death()
 	await get_tree().create_timer(1).timeout
@@ -108,4 +151,6 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		body.hurt(VariaveisGlobais.enemy_Grizzly_damage)
 
-
+func _on_grizzly_anm_animation_finished(animation_name):
+	if animation_name == "Attack":
+		end_atk()

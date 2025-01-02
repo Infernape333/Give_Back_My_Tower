@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://dwc0l4b74wr5l"]
+[gd_scene load_steps=19 format=3 uid="uid://dwc0l4b74wr5l"]
 
 [ext_resource type="Script" path="res://floor_1.gd" id="1_18bga"]
 [ext_resource type="Texture2D" uid="uid://o2mlfxpq0p17" path="res://TileMaps/tf_darkdimension_sheet.png" id="1_beruv"]
 [ext_resource type="PackedScene" uid="uid://bbfs5xndgyrfd" path="res://Scenes/slime.tscn" id="2_eito8"]
 [ext_resource type="Script" path="res://Scripts/jogador_selecionar.gd" id="3_abbro"]
 [ext_resource type="PackedScene" uid="uid://yskwsnkr7bgu" path="res://Scenes/enemy_spawner.tscn" id="3_d7h16"]
+[ext_resource type="Texture2D" uid="uid://b4ghpmbbuvn0d" path="res://Assets/navigation_n.png" id="4_kbehu"]
 [ext_resource type="Script" path="res://Scripts/Spawn_Info.gd" id="5_xp7f5"]
 [ext_resource type="AudioStream" uid="uid://dg0j4bgd8j6m2" path="res://Musics/04 Hopeful Feeling.mp3" id="6_4fx5e"]
 [ext_resource type="Texture2D" uid="uid://ds66b0fc8mpcv" path="res://Assets/opp5_castle_tiles/environment/tiles/castle/tile_castle.png" id="7_mabs3"]
@@ -2462,6 +2463,14 @@ script = ExtResource("3_abbro")
 
 [node name="Marker2D" type="Marker2D" parent="jogador"]
 position = Vector2(395, 269)
+
+[node name="Cursor" type="Sprite2D" parent="jogador"]
+visible = false
+texture_filter = 1
+position = Vector2(388, 150)
+rotation = -1.58746
+scale = Vector2(0.234375, 0.234375)
+texture = ExtResource("4_kbehu")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_d7h16")]
 spawns = Array[ExtResource("5_xp7f5")]([SubResource("Resource_hirng")])

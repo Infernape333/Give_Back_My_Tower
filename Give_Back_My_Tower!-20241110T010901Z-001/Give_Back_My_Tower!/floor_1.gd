@@ -2,7 +2,7 @@ extends Node2D
 
 var choice = 0
 var PillarBuffs = preload("res://Scenes/pillar_buffs.tscn")
-#@onready var cursor = $Cursor
+@onready var cursor = $jogador/Cursor
 @onready var target = $Direction
 @onready var porta = $door
 @onready var Buff1 = $Marker2D

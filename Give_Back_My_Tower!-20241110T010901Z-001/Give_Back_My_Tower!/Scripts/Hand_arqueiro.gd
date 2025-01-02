@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var staff: Sprite2D = get_node("Staff")
+@onready var bow: AnimatedSprite2D = get_node("Bow")
 const ARROW: PackedScene = preload("res://Scenes/arrow.tscn")
 var is_in_initial_scene: bool = false
 @onready var timer: Timer = get_node("Timer")
@@ -14,9 +14,9 @@ func _ready():
 
 func animate(attack_direction: Vector2, direction: Vector2) -> void:
 	if attack_direction.x > 0:
-		staff.flip_v = false
+		bow.flip_v = false
 	if attack_direction.x < 0:
-		staff.flip_v = true
+		bow.flip_v = true
 	look_at(direction)
 
 func atk() -> void:

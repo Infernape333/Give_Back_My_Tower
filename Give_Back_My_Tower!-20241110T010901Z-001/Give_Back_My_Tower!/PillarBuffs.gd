@@ -11,7 +11,7 @@ extends Node2D
 	
 #Criei um vetor para cada tipo buff 
 var atks = ["Atk", "Atk_Incommun", "Atk_Rare", "Atk_Epic", "Atk_Legendary"]
-var atks_spds = ["Atk_Spd", "Atk_Spd_Incommun", "Atk_Spd_Rare", "Atk_Spd_Epic", "Atk_Spd_Legendary"]
+var atks_spds = ["AtkSpd", "AtkSpd_Incommun", "AtkSpd_Rare", "AtkSpd_Epic", "AtkSpd_Legendary"]
 var hps = ["Hp", "Hp_Incommun", "Hp_Rare", "Hp_Epic", "Hp_Legendary"]
 	
 @export var animation_duration: float = 1.5
@@ -45,7 +45,7 @@ func spawn_buffs():
 		filtered_animations = atks_spds.filter(func(anim_name):
 			return anim_name.ends_with(chosen_rarity) or (chosen_rarity == "Common" and not anim_name.contains("_"))
 			)
-	else:
+	elif type == 2:
 		filtered_animations = hps.filter(func(anim_name):
 			return anim_name.ends_with(chosen_rarity) or (chosen_rarity == "Common" and not anim_name.contains("_"))
 			)
@@ -54,6 +54,7 @@ func spawn_buffs():
 	if filtered_animations.size() > 0:
 		filtered_animations.shuffle()
 		var chosen_animations = filtered_animations[0]
+		print(chosen_animations)
 		
 		if buff_attack_scene:
 			var buff_instace = buff_attack_scene.instantiate()

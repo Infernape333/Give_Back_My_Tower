@@ -13,7 +13,7 @@ var buff_spawned = false
 
 func _ready():
 	pass
-	
+
 func _process(delta):
 	if VariaveisGlobais.door_choice == 1:
 		porta.can_open = true

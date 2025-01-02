@@ -37,15 +37,15 @@ func pegar_upd():
 			VariaveisGlobais.dano += 10
 		"Atk_Legendary":
 			VariaveisGlobais.dano += 15
-		"Atk_Spd":
+		"AtkSpd":
 			VariaveisGlobais.atk_spd -= 0.10
-		"Atk_Spd_Incommum":
+		"AtkSpd_Incommum":
 			VariaveisGlobais.atk_spd -= 0.20
-		"Atk_Spd_Rare":
+		"AtkSpd_Rare":
 			VariaveisGlobais.atk_spd -= 0.30
-		"Atk_Spd_Epic":
+		"AtkSpd_Epic":
 			VariaveisGlobais.atk_spd -= 0.40
-		"Atk_Spd_Epic":
+		"AtkSpd_Epic":
 			VariaveisGlobais.atk_spd -= 0.50
 		"Hp":
 			VariaveisGlobais.max_life += 5

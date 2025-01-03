@@ -151,13 +151,17 @@ func hail_arrows(animation_name = "hailArrows"):
 	speed = 42
 	is_attacking = false
 	hand.visible = true
+	
 	var MagicAtk = Magic.instantiate()
-	
 	MagicAtk.play(animation_name)
-	
 	MagicAtk.position = get_mouse_position()
+	MagicAtk.speed = 0
 	
 	get_tree().current_scene.call_deferred("add_child", MagicAtk)
+	
+	MagicAtk.habilitar_colisao()
+	await get_tree().create_timer(2).timeout
+	MagicAtk.destroir()
 
 func adjust_camera_for_lobby():
 	Camera.zoom = Vector2(4.0, 4.0)  

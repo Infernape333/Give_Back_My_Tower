@@ -16,8 +16,8 @@ func _physics_process(delta):
 	position += speed * direction * delta
 	
 	for inimigo in inimigos_na_area:
-		if inimigo.is_valid():  # Verifica se o inimigo ainda existe
-			inimigo.hurtDark()
+		#if inimigo.is_valid():  # Verifica se o inimigo ainda existe
+			inimigo.hurtFire()
 	 
 func play(animation_name = "triptychShot"):
 	$AnimatedSprite2D.play(animation_name)
@@ -47,10 +47,19 @@ func explosion():
 	$CollisionShape2D.disabled = false
 
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("enemies"):  # Verifica se é um inimigo
+	if body.is_in_group("enemies"):
 		inimigos_na_area.append(body)
 
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("enemies"):
 		inimigos_na_area.erase(body)
+
+func habilitar_colisao():
+	$area_attack_03/Area2D/Collision_attack_03.disabled = false
+	$CollisionShape2D.disabled = true
+
+func destroir():
+	$area_attack_03/Area2D/Collision_attack_03.disabled = true
+	$CollisionShape2D.disabled = false
+	#queue_free()

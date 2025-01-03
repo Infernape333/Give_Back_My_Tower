@@ -233,8 +233,6 @@ script = ExtResource("1_87i12")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_sj4jv")
 animation = &"hailArrows"
-frame = 8
-frame_progress = 1.0
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(-8.9407e-08, -2.38419e-07)
@@ -246,6 +244,8 @@ shape = SubResource("RectangleShape2D_57tkk")
 [node name="area_attack_03" type="Node2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="area_attack_03"]
+collision_layer = 6
+collision_mask = 6
 
 [node name="Collision_attack_03" type="CollisionShape2D" parent="area_attack_03/Area2D"]
 position = Vector2(-1, 65)

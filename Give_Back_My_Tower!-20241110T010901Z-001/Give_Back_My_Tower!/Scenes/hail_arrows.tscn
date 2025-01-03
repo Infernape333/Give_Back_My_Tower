@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=3 uid="uid://dm7ri2xr4352x"]
+
+[ext_resource type="Script" path="res://Scripts/hail_arrows_03.gd" id="1_qluk7"]
+[ext_resource type="Texture2D" uid="uid://5nt67egkt5dd" path="res://Assets/Characters(100x100)/Archer/Arrow_Rain-Sheet.png" id="2_y0au5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1rlj"]
+atlas = ExtResource("2_y0au5")
+region = Rect2(0, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3du5"]
+atlas = ExtResource("2_y0au5")
+region = Rect2(100, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al6wt"]
+atlas = ExtResource("2_y0au5")
+region = Rect2(200, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjhfk"]
+atlas = ExtResource("2_y0au5")
+region = Rect2(300, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5kri"]
+atlas = ExtResource("2_y0au5")
+region = Rect2(400, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt65t"]
+atlas = ExtResource("2_y0au5")
+region = Rect2(500, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrxrt"]
+atlas = ExtResource("2_y0au5")
+region = Rect2(600, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdxd8"]
+atlas = ExtResource("2_y0au5")
+region = Rect2(700, 0, 100, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbkq4"]
+atlas = ExtResource("2_y0au5")
+region = Rect2(800, 0, 100, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5hyd4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1rlj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3du5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_al6wt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjhfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5kri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wt65t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrxrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdxd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbkq4")
+}],
+"loop": false,
+"name": &"hailArrows",
+"speed": 9.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sov30"]
+radius = 33.1174
+height = 79.9177
+
+[node name="hailArrows" type="Area2D"]
+scale = Vector2(0.8, 0.8)
+collision_layer = 6
+collision_mask = 6
+script = ExtResource("1_qluk7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_5hyd4")
+animation = &"hailArrows"
+autoplay = "hailArrows"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 65)
+rotation = -1.5533
+shape = SubResource("CapsuleShape2D_sov30")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

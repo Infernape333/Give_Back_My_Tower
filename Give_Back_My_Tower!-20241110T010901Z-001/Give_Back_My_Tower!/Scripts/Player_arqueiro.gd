@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var health: ProgressBar = get_node("CanvasLayer/HealthBar")
 @onready var Camera: Camera2D = get_node("Camera2D")
 @export var Magic : PackedScene
+@export var Magic_03 : PackedScene
 var slime = preload("res://Scenes/slime.tscn")
 var cobold = preload("res://Scenes/cobold.tscn")
 var skeleton = preload("res://Scenes/skeleton.tscn")
@@ -152,15 +153,11 @@ func hail_arrows(animation_name = "hailArrows"):
 	is_attacking = false
 	hand.visible = true
 	
-	var MagicAtk = Magic.instantiate()
-	MagicAtk.play(animation_name)
-	MagicAtk.position = get_mouse_position()
-	MagicAtk.speed = 0
+	var MagicAtk = Magic_03.instantiate()
+	MagicAtk.position = get_mouse_position() - Vector2(0, 50)
 	
 	get_tree().current_scene.call_deferred("add_child", MagicAtk)
-	
-	MagicAtk.habilitar_colisao()
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1).timeout
 	MagicAtk.destroir()
 
 func adjust_camera_for_lobby():

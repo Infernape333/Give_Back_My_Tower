@@ -1,6 +1,7 @@
 extends Skill
 class_name hailArrows
 
+
 func _init(target):
 	cooldown = 5
 	animation_name = "hailArrows"

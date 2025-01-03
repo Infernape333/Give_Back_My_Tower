@@ -157,7 +157,7 @@ func hail_arrows(animation_name = "hailArrows"):
 	MagicAtk.position = get_mouse_position() - Vector2(0, 50)
 	
 	get_tree().current_scene.call_deferred("add_child", MagicAtk)
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(5).timeout
 	MagicAtk.destroir()
 
 func adjust_camera_for_lobby():

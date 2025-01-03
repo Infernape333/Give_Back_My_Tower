@@ -4,7 +4,7 @@ class_name triptychShot
 func _init(target):
 	cooldown = 5
 	animation_name = "triptychShot"
-	texture = preload("res://Sprites/skill_icons3.png")
+	texture = preload("res://Sprites/skill_icons55.png")
 	
 	super._init(target)
 	

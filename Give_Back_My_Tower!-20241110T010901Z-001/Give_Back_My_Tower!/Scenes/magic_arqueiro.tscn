@@ -1,8 +1,9 @@
-[gd_scene load_steps=34 format=3 uid="uid://syvlqrkpsfgx"]
+[gd_scene load_steps=35 format=3 uid="uid://syvlqrkpsfgx"]
 
 [ext_resource type="Script" path="res://Scripts/magic_arqueiro.gd" id="1_87i12"]
 [ext_resource type="Texture2D" uid="uid://bvb4g5dflu2d1" path="res://Assets/Characters(100x100)/Archer/Arrow(projectile)/Arrow02(32x32).png" id="2_pht5t"]
 [ext_resource type="Texture2D" uid="uid://gn8mpotfcd4o" path="res://Sprites/Explosion SpriteSheet.png" id="2_qn17j"]
+[ext_resource type="Texture2D" uid="uid://dnnqnlo46q01o" path="res://Assets/Characters(100x100)/Archer/Arrow04-Sheet.png" id="3_6x0vj"]
 [ext_resource type="Texture2D" uid="uid://5nt67egkt5dd" path="res://Assets/Characters(100x100)/Archer/Arrow_Rain-Sheet.png" id="4_11w6j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aa0di"]
@@ -69,8 +70,8 @@ region = Rect2(128, 192, 64, 64)
 atlas = ExtResource("2_qn17j")
 region = Rect2(192, 192, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ht1cr"]
-atlas = ExtResource("2_pht5t")
+[sub_resource type="AtlasTexture" id="AtlasTexture_j783t"]
+atlas = ExtResource("3_6x0vj")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_myxv7"]
@@ -170,7 +171,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ht1cr")
+"texture": SubResource("AtlasTexture_j783t")
 }],
 "loop": true,
 "name": &"explosiveArrow",
@@ -228,7 +229,7 @@ script = ExtResource("1_87i12")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_sj4jv")
-animation = &"hailArrows"
+animation = &"explosiveArrow"
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(-8.9407e-08, -2.38419e-07)

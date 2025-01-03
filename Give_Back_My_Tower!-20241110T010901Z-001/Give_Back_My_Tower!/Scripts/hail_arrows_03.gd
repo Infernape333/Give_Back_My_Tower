@@ -2,11 +2,20 @@ extends Area2D
 
 
 var inimigos_na_area: Array = []
+var dano_por_segundo: float = 1.0  # Tempo entre danos em segundos
 
-func _physics_process(delta):
+func _ready():
+	# Adiciona um Timer à cena
+	var timer = Timer.new()
+	timer.wait_time = dano_por_segundo
+	timer.autostart = true
+	timer.one_shot = false
+	timer.timeout.connect(_aplicar_dano)
+	add_child(timer)
+
+func _aplicar_dano():
 	for inimigo in inimigos_na_area:
-		#if inimigo.is_valid():  # Verifica se o inimigo ainda existe
-			inimigo.hurtFire()
+		inimigo.hurtFire()
 
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):

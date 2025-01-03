@@ -5,7 +5,7 @@ class_name hailArrows
 func _init(target):
 	cooldown = 5
 	animation_name = "hailArrows"
-	texture = preload("res://Sprites/skill_icons29.png")
+	texture = preload("res://Sprites/skill_icons57.png")
 	
 	super._init(target)
 	

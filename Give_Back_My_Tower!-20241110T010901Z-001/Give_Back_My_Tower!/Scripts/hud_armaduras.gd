@@ -1,14 +1,18 @@
 extends Control
 
 @onready var canvas = $".."
-
 @onready var armadura_button = $ColorRect/TextureRect/armadura
 @onready var price = $ColorRect/TextureRect/label_1
 @onready var label = $ColorRect/TextureRect/box_melhorias/Label
 @onready var label_coin = $ColorRect/TextureRect/box_coins/label_coins
+@onready var _items_grid_view: GridContainer = $ColorRect/TextureRect/box_melhorias/GridContainer
+
+var slot_scene = preload("res://Scenes/inventory_slot_item.tscn")
+
 
 func _ready():
 	update_labels()
+	_populate_inventory()
 	VariaveisGlobais.update_health_bar()
 
 func _process(delta):
@@ -49,3 +53,24 @@ func _on_armadura_pressed():
 
 func _on_exit_pressed():
 	canvas.visible = false
+	
+func _populate_inventory():
+	var inventory = Inventory.new()
+	
+	for item: InventoryItem in inventory.list_of_inventory_items:
+		var instance = slot_scene.instantiate()
+		
+		var image := Image.new()
+		image.load(item.get_picture())
+
+		var texture := ImageTexture.new()
+		texture.set_image(image)
+		
+		var icon = instance.find_child("Icon") as Sprite2D
+		icon.texture = texture
+
+		var label_price = instance.find_child("LabelPrice") as Label
+		label_price.text = str(item.get_coins())
+		
+		_items_grid_view.add_child(instance)
+	

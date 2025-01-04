@@ -250,7 +250,7 @@ grow_vertical = 2
 texture = ExtResource("5_mch2k")
 
 [node name="icon" type="AnimatedSprite2D" parent="Control/ColorRect/TextureRect/box_icon"]
-position = Vector2(44, 45)
+position = Vector2(48, 45)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_hroxa")
 autoplay = "default"
@@ -290,11 +290,11 @@ scale = Vector2(3, 3)
 texture = ExtResource("12_jtp8t")
 
 [node name="GridContainer" type="GridContainer" parent="Control/ColorRect/TextureRect/box_melhorias"]
+clip_contents = true
 layout_mode = 0
-offset_left = 5.0
-offset_top = 8.0
-offset_right = 535.0
-offset_bottom = 97.0
+offset_right = 48.0
+offset_bottom = 48.0
+mouse_filter = 2
 theme_override_constants/h_separation = 9
 theme_override_constants/v_separation = 9
 columns = 11

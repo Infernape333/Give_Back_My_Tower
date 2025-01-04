@@ -1,39 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://cma46j0p03dvt"]
+[gd_scene load_steps=4 format=3 uid="uid://cma46j0p03dvt"]
 
+[ext_resource type="Script" path="res://Scripts/inventory/inventory_slot_item.gd" id="1_jbwpg"]
 [ext_resource type="Texture2D" uid="uid://binpxgaspbum7" path="res://Sprites/skill_icons3.png" id="1_l08np"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yongc"]
-bg_color = Color(0.836961, 0.622861, 0.125556, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3yw3"]
+bg_color = Color(0.763422, 0.561703, 0.102176, 1)
 
 [node name="Slot" type="PanelContainer"]
-offset_right = 62.0
-offset_bottom = 64.0
+offset_right = 82.0
+offset_bottom = 85.0
+script = ExtResource("1_jbwpg")
 
-[node name="Icon" type="TextureRect" parent="."]
+[node name="TextureButton" type="TextureButton" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("1_l08np")
+texture_normal = ExtResource("1_l08np")
+stretch_mode = 0
 
-[node name="LabelPrice" type="Label" parent="Icon"]
+[node name="LabelPrice" type="Label" parent="."]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -21.0
-offset_top = -17.0
-grow_horizontal = 0
-grow_vertical = 0
+layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_yongc")
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_f3yw3")
 text = "100"
 horizontal_alignment = 1
 vertical_alignment = 3
+
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

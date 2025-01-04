@@ -61,17 +61,30 @@ func _populate_inventory():
 	for item: InventoryItem in inventory.list_of_inventory_items:
 		var instance = slot_scene.instantiate()
 		
+		var slot_root = instance as SlotRoot
+		slot_root.set_item(item)
+		slot_root.on_item_clicked.connect(_on_inventory_item_clicked)
+		slot_root.on_mouse_hover.connect(_on_inventory_item_hover)
+		
 		var image := Image.new()
 		image.load(item.get_picture())
 
 		var texture := ImageTexture.new()
 		texture.set_image(image)
 		
-		var icon = instance.find_child("Icon") as TextureRect
-		icon.texture = texture
+		var button:TextureButton = instance.find_child("TextureButton") as TextureButton
+		button.texture_normal = texture
 
 		var label_price = instance.find_child("LabelPrice") as Label
 		label_price.text = str(item.get_coins())
 		
 		_items_grid_view.add_child(instance)
+
+func _on_inventory_item_clicked(inventory_item: InventoryItem):
+	print("clicked:" + str(inventory_item.get_name()))
 	
+func _on_inventory_item_hover(inventory_item: InventoryItem, entered: bool):
+	if entered:
+		print(str(inventory_item._description))
+	else:
+		print("Saiu: " + str(inventory_item._description))

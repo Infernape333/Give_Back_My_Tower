@@ -272,6 +272,7 @@ grow_vertical = 2
 texture = ExtResource("7_hins0")
 
 [node name="Label" type="Label" parent="Control/ColorRect/TextureRect/box_melhorias"]
+visible = false
 layout_mode = 0
 offset_left = 44.0
 offset_top = 29.0
@@ -282,9 +283,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/ColorRect/TextureRect/box_melhorias"]
+visible = false
 position = Vector2(93, 79)
 scale = Vector2(3, 3)
 texture = ExtResource("12_jtp8t")
+
+[node name="GridContainer" type="GridContainer" parent="Control/ColorRect/TextureRect/box_melhorias"]
+clip_contents = true
+layout_mode = 0
+offset_left = 5.0
+offset_top = 8.0
+offset_right = 535.0
+offset_bottom = 97.0
+theme_override_constants/h_separation = 9
+theme_override_constants/v_separation = 9
+columns = 11
 
 [connection signal="pressed" from="Control/ColorRect/TextureRect/armadura" to="Control" method="_on_armadura_pressed"]
 [connection signal="pressed" from="Control/ColorRect/TextureRect/exit" to="Control" method="_on_exit_pressed"]

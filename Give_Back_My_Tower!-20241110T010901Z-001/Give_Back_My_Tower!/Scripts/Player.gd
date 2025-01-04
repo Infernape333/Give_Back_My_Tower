@@ -14,6 +14,7 @@ var is_inicial_scene: bool = false
 var hp = VariaveisGlobais.current_life
 var is_dead = false
 var is_hurt = false
+var items: Array[PlayerItem] = []
 
 func _ready():
 	if get_tree().current_scene.name == "Node2D":
@@ -151,3 +152,9 @@ func adjust_camera_for_lobby():
 
 func adjust_camera_for_gameplay():
 	Camera.zoom = Vector2(6, 6)  
+
+func push_inventory_item(inventory_item: InventoryItem, amount: int):
+	inventory_item.decrease(amount)
+	VariaveisGlobais.coins -= inventory_item.get_coins()
+	items.push_back(PlayerItem.new(inventory_item, amount))
+	

@@ -1,30 +1,24 @@
 [gd_scene load_steps=3 format=3 uid="uid://cma46j0p03dvt"]
 
-[ext_resource type="Texture2D" uid="uid://bsmp6d7w3u08r" path="res://Sprites/skill_icons19.png" id="1_26d76"]
+[ext_resource type="Texture2D" uid="uid://binpxgaspbum7" path="res://Sprites/skill_icons3.png" id="1_l08np"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x87yy"]
-bg_color = Color(0.787104, 0.577392, 0.275199, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yongc"]
+bg_color = Color(0.836961, 0.622861, 0.125556, 1)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
 [node name="Slot" type="PanelContainer"]
-offset_right = 45.0
-offset_bottom = 48.0
+offset_right = 62.0
+offset_bottom = 64.0
 
-[node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-expand_mode = 1
-
-[node name="Icon" type="Sprite2D" parent="TextureRect"]
+[node name="Icon" type="TextureRect" parent="."]
 unique_name_in_owner = true
-position = Vector2(22.25, 24)
-scale = Vector2(0.90625, 0.958333)
-texture = ExtResource("1_26d76")
+layout_mode = 2
+texture = ExtResource("1_l08np")
 
-[node name="LabelPrice" type="Label" parent="TextureRect"]
+[node name="LabelPrice" type="Label" parent="Icon"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
@@ -32,12 +26,14 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -10.0
-offset_top = -12.0
+offset_left = -21.0
+offset_top = -17.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_x87yy")
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_yongc")
 text = "100"
-horizontal_alignment = 2
-vertical_alignment = 2
+horizontal_alignment = 1
+vertical_alignment = 3

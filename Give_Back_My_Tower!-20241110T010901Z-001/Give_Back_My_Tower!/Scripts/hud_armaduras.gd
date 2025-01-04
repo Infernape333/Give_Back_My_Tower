@@ -55,6 +55,7 @@ func _on_exit_pressed():
 	canvas.visible = false
 	
 func _populate_inventory():
+	$ColorRect/TextureRect/box_melhorias/GridContainer/SlotTest.visible = false
 	var inventory = Inventory.new()
 	
 	for item: InventoryItem in inventory.list_of_inventory_items:
@@ -66,7 +67,7 @@ func _populate_inventory():
 		var texture := ImageTexture.new()
 		texture.set_image(image)
 		
-		var icon = instance.find_child("Icon") as Sprite2D
+		var icon = instance.find_child("Icon") as TextureRect
 		icon.texture = texture
 
 		var label_price = instance.find_child("LabelPrice") as Label

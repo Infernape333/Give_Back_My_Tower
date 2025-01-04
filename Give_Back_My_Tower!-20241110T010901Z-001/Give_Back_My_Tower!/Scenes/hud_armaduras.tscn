@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b2lqup7mox2ux"]
+[gd_scene load_steps=25 format=3 uid="uid://b2lqup7mox2ux"]
 
 [ext_resource type="Script" path="res://Scripts/hud_armaduras.gd" id="1_n40bl"]
 [ext_resource type="Texture2D" uid="uid://coxa5wkxkrcki" path="res://ui/UI/RectangleBox_96x96.png" id="1_u23a4"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bygck5p5e7fqh" path="res://Assets/[4] Full Spritesheet.png" id="8_62sj4"]
 [ext_resource type="Texture2D" uid="uid://dpg8fjch2583k" path="res://ui/UI/AttributesIcons_17x17.png" id="9_f5f76"]
 [ext_resource type="Texture2D" uid="uid://b0b6lhbdunirn" path="res://ui/UI/HeartIcons_32x32.png" id="12_jtp8t"]
+[ext_resource type="PackedScene" uid="uid://cma46j0p03dvt" path="res://Scenes/inventory_slot_item.tscn" id="13_xjyyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hk1ap"]
 atlas = ExtResource("8_62sj4")
@@ -289,7 +290,6 @@ scale = Vector2(3, 3)
 texture = ExtResource("12_jtp8t")
 
 [node name="GridContainer" type="GridContainer" parent="Control/ColorRect/TextureRect/box_melhorias"]
-clip_contents = true
 layout_mode = 0
 offset_left = 5.0
 offset_top = 8.0
@@ -298,6 +298,9 @@ offset_bottom = 97.0
 theme_override_constants/h_separation = 9
 theme_override_constants/v_separation = 9
 columns = 11
+
+[node name="SlotTest" parent="Control/ColorRect/TextureRect/box_melhorias/GridContainer" instance=ExtResource("13_xjyyn")]
+layout_mode = 2
 
 [connection signal="pressed" from="Control/ColorRect/TextureRect/armadura" to="Control" method="_on_armadura_pressed"]
 [connection signal="pressed" from="Control/ColorRect/TextureRect/exit" to="Control" method="_on_exit_pressed"]

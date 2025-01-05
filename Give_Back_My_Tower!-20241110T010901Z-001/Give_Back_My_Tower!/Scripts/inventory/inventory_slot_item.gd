@@ -1,24 +1,28 @@
 class_name SlotRoot
 extends PanelContainer
 
-
-signal on_mouse_hover(InventoryItem, bool)
 signal on_item_clicked(InventoryItem)
 
-var _item: InventoryItem
+@onready var button: TextureButton = %TextureButton
 
+var _item: InventoryItem
+var _tooltip = ""
+
+func _ready():
+	button.tooltip_text = _tooltip
+	button.pressed.connect(_on_item_clicked)
 
 func set_item(inventory_item: InventoryItem):
-	self._item = inventory_item
+	_item = inventory_item
+	
+	_tooltip = _item.get_name() + ":\n"
+	_tooltip += _item.get_description() + "\n\n"
+	_tooltip += "Defesa: " + str(_item.get_defense()) + "\n"
+	_tooltip += "Ataque: " + str(_item.get_attack())
+	
 
 func get_item() -> InventoryItem:
-	return self._item
-	
-func _on_texture_button_mouse_entered():
-	on_mouse_hover.emit(self._item, true)
+	return _item
 
-func _on_texture_button_mouse_exited():
-	on_mouse_hover.emit(self._item, false)
-
-func _on_texture_button_pressed():
-	on_item_clicked.emit(self._item)
+func _on_item_clicked():
+	on_item_clicked.emit(_item)

@@ -60,7 +60,6 @@ func _populate_inventory():
 		var slot_root = instance as SlotRoot
 		slot_root.set_item(item)
 		slot_root.on_item_clicked.connect(_on_inventory_item_clicked)
-		slot_root.on_mouse_hover.connect(_on_inventory_item_hover)
 		
 		var image := Image.new()
 		image.load(item.get_picture())
@@ -78,9 +77,3 @@ func _populate_inventory():
 
 func _on_inventory_item_clicked(inventory_item: InventoryItem):
 	print("clicked:" + str(inventory_item.get_name()))
-	
-func _on_inventory_item_hover(inventory_item: InventoryItem, entered: bool):
-	if entered:
-		print(str(inventory_item._description))
-	else:
-		print("Saiu: " + str(inventory_item._description))

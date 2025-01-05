@@ -7,14 +7,18 @@
 bg_color = Color(0.763422, 0.561703, 0.102176, 1)
 
 [node name="Slot" type="PanelContainer"]
-offset_right = 82.0
+clip_contents = true
+custom_minimum_size = Vector2(85, 85)
+offset_right = 85.0
 offset_bottom = 85.0
 script = ExtResource("1_jbwpg")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 texture_normal = ExtResource("1_l08np")
+ignore_texture_size = true
 stretch_mode = 0
 
 [node name="LabelPrice" type="Label" parent="."]

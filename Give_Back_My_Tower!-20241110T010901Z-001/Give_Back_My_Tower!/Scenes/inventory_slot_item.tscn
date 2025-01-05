@@ -15,6 +15,7 @@ script = ExtResource("1_jbwpg")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 unique_name_in_owner = true
+clip_contents = true
 custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 texture_normal = ExtResource("1_l08np")
@@ -31,7 +32,3 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_f3yw3")
 text = "100"
 horizontal_alignment = 1
 vertical_alignment = 3
-
-[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
-[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

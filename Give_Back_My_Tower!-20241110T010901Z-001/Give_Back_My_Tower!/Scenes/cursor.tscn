@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw7g4b2u8n7ks"]
+
+[ext_resource type="Texture2D" uid="uid://b4ghpmbbuvn0d" path="res://Assets/navigation_n.png" id="1_sly34"]
+
+[node name="Cursor" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_sly34")

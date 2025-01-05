@@ -8,7 +8,7 @@ var _global_amount: int = 1
 var _description = ""
 
 
-func _init(name: String, picture_path: String, description: String, global_amount: int, coins: int):
+func _init(name: String, picture_path: String, description: String, defense: int, attack: int, global_amount: int, coins: int):
 	self._name = name
 	self._picture_path = picture_path
 	self._description = description

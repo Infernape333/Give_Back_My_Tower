@@ -292,8 +292,8 @@ texture = ExtResource("12_jtp8t")
 [node name="GridContainer" type="GridContainer" parent="Control/ColorRect/TextureRect/box_melhorias"]
 clip_contents = true
 layout_mode = 0
-offset_right = 48.0
-offset_bottom = 48.0
+offset_right = 85.0
+offset_bottom = 85.0
 mouse_filter = 2
 theme_override_constants/h_separation = 9
 theme_override_constants/v_separation = 9

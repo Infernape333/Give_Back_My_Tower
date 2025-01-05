@@ -27,10 +27,6 @@ func _unhandled_input(event):
 
 func update_labels():
 	label_coin.text = str(floor(VariaveisGlobais.coins))
-	price.text = str(floor(VariaveisGlobais.armadura_upgrade_price))
-	label.text = "Vida: " + str(VariaveisGlobais.max_life)
-	# Desativar o botão se o limite de upgrades for atingido
-	armadura_button.disabled = VariaveisGlobais.armadura_upgrade_count >= VariaveisGlobais.max_upgrades
 
 # Função para melhorar o dano de ataque
 func upgrade_armadura():

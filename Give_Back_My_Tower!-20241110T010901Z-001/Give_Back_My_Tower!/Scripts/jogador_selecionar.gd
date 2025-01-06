@@ -16,6 +16,7 @@ func load_player():
 	if player_scene and player_scene is PackedScene:
 		player_ship = player_scene.instantiate()
 		player_ship.global_position = position_player.position
+		VariaveisGlobais.player_instance = player_ship
 		add_child(player_ship)
 	else:
 		print("Erro ao carregar o personagem. Verifique o caminho em PlayerGlobal.playerDir.")

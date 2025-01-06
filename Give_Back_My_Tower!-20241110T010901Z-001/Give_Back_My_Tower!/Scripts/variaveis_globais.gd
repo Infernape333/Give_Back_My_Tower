@@ -7,6 +7,7 @@ var door_choice = 0
 #Player atual
 var playerDir = "res://Scenes/player.tscn"
 var has_archer = false
+var player_instance: PlayerBase
 
 #armadura
 var armadura_upgrade_price = 10

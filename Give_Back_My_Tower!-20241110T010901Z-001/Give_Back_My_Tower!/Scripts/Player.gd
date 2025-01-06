@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends PlayerBase
 
 
 @export var speed: float = 42

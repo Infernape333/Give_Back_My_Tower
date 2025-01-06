@@ -1,7 +1,6 @@
 extends Control
 
 @onready var canvas = $".."
-@onready var armadura_button = $ColorRect/TextureRect/armadura
 @onready var price = $ColorRect/TextureRect/label_1
 @onready var label = $ColorRect/TextureRect/box_melhorias/Label
 @onready var label_coin = $ColorRect/TextureRect/box_coins/label_coins
@@ -17,12 +16,6 @@ func _ready():
 
 func _process(delta):
 	label_coin.text = str(floor(VariaveisGlobais.coins))
-
-func _unhandled_input(event):
-	if event.is_action_pressed("ui_up"):
-		armadura_button.grab_focus()
-	elif event.is_action_pressed("ui_down"):
-		armadura_button.grab_focus()
 
 
 func update_labels():

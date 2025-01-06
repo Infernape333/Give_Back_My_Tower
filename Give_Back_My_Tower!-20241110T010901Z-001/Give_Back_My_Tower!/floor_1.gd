@@ -20,7 +20,6 @@ func _process(delta):
 		$Door/CollisionShape2D.disabled = false
 
 func _on_timer_timeout():
-	VariaveisGlobais.remove_enemys()
 	Spawn_Buff1()
 
 func Spawn_Buff1():

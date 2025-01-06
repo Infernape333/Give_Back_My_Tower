@@ -69,4 +69,5 @@ func _populate_inventory():
 		_items_grid_view.add_child(instance)
 
 func _on_inventory_item_clicked(inventory_item: InventoryItem):
-	print("clicked:" + str(inventory_item.get_name()))
+	if VariaveisGlobais.player_instance:
+		VariaveisGlobais.player_instance.add_inventory_item(inventory_item)

@@ -33,6 +33,7 @@ func _on_item_clicked():
 	on_item_clicked.emit(self)
 
 func _repositionate_tooltip_to_root():
+	canvas_tooltip.visible = false
 	remove_child(canvas_tooltip)
 	get_tree().root.add_child(canvas_tooltip)
 	
@@ -45,11 +46,13 @@ func _on_texture_button_mouse_exited():
 	on_item_hover.emit(self, false)
 	
 func _show_tooltip():
+	canvas_tooltip.visible = true
 	label_tooltip.position = get_global_mouse_position() + Vector2(40, 10)
 	label_tooltip.text = _tooltip
 	label_tooltip.visible = true
 	label_tooltip.call_deferred("show_tooltip", _tooltip, self.get_global_transform().origin)
 
 func _hide_tooltip():
+	canvas_tooltip.visible = false
 	label_tooltip.visible = false
 	

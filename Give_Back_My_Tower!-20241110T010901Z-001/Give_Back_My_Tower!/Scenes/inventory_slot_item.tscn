@@ -9,6 +9,10 @@ shader = ExtResource("2_ljjms")
 shader_parameter/button_state = null
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3yw3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
 bg_color = Color(0.763422, 0.561703, 0.102176, 1)
 
 [node name="Slot" type="PanelContainer"]

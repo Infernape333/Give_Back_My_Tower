@@ -67,6 +67,7 @@ func _populate_inventory():
 		slot.set_item(item)
 		slot.label.text = str(item.get_coins())
 		slot.on_item_clicked.connect(_on_inventory_item_clicked)
+		slot.on_item_hover.connect(_on_inventory_item_hover)
 		_udpate_slot_state(slot)
 
 func _refresh_slots_states():			
@@ -89,21 +90,27 @@ func _udpate_slot_state(slot: SlotRoot):
 		elif not player.can_buy_inventory_item(inventory_item):
 			slot.button.disabled = true
 
-func _on_inventory_item_clicked(slot: SlotRoot, inventory_item: InventoryItem):	
-	_click_effect(slot.button)
-	if player.can_buy_inventory_item(inventory_item):
-		player.add_inventory_item(inventory_item)
+func _on_inventory_item_clicked(slot: SlotRoot):	
+	if player.can_buy_inventory_item(slot.get_item()):
+		player.add_inventory_item(slot.get_item())
 		_refresh_slots_states()
 
+func _on_inventory_item_hover(slot: SlotRoot, is_over: bool):
+	if is_over and not player.has_inventory_item(slot.get_item()):
+		_hover_effect(slot.button)
+	else:
+		_remove_over_effect(slot.button)
 
 func _disabled_effect(button: TextureButton):
 	if button.material is ShaderMaterial:
 		button.material = button.material.duplicate()
 		button.material.set("shader_param/button_state", 2)
 		
-func _click_effect(button: TextureButton):
+func _hover_effect(button: TextureButton):
 	if button.material is ShaderMaterial:
 		button.material = button.material.duplicate()
 		button.material.set("shader_param/button_state", 1)
-		await get_tree().create_timer(0.2).timeout
+		
+func _remove_over_effect(button: TextureButton):
+	if button.material is ShaderMaterial:
 		button.material.set("shader_param/button_state", 0)

@@ -22,7 +22,10 @@ var max_upgrades_spd = 29
 var damage_upgrade_count = 0
 var speed_upgrade_count = 0
 
-var coins = 5
+var coins: int :
+	get: return player_instance.get_coins()
+	set(value): player_instance.set_coins(value)
+	
 var atk_spd = 3
 var dano : int :
 	get: return player_instance.get_attack() 

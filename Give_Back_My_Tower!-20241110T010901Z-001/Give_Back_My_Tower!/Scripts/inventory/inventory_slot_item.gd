@@ -4,6 +4,7 @@ extends PanelContainer
 signal on_item_clicked(SlotRoot, InventoryItem)
 
 @onready var button: TextureButton = %TextureButton
+@onready var label: Label = %LabelPrice
 
 var _item: InventoryItem
 var _tooltip = ""

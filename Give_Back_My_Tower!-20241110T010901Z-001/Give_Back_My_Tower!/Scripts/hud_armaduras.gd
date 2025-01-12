@@ -79,7 +79,7 @@ func _udpate_slot_state(slot: SlotRoot):
 	var inventory_item = slot.get_item()
 	if inventory_item:
 		if player.has_inventory_item(inventory_item):
-			#_disabled_effect(slot.button)							
+			_disabled_effect(slot.button)							
 			slot.button.disabled = true
 			slot.label.text = "Aquired"
 			
@@ -96,7 +96,10 @@ func _on_inventory_item_clicked(slot: SlotRoot):
 		_refresh_slots_states()
 
 func _on_inventory_item_hover(slot: SlotRoot, is_over: bool):
-	if is_over and not player.has_inventory_item(slot.get_item()):
+	if player.has_inventory_item(slot.get_item()):
+		return
+		
+	if is_over:
 		_hover_effect(slot.button)
 	else:
 		_remove_over_effect(slot.button)

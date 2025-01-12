@@ -5,7 +5,7 @@ const MAX_LIFE = 100
 const _INITIAL_ATTACK = 5
 const _INITIAL_DEFENSE = 0
 const _DEFAULT_HEAL = 10
-const _INITIAL_COINS = 5
+const _INITIAL_COINS = 7
 
 # Do not change this variables directly
 var _attack = _INITIAL_ATTACK
@@ -63,4 +63,11 @@ func _is_item_already_added(item: InventoryItem):
 		if i.get_id() == item.get_id():
 			return true
 	return false
+	
+func copy_state_from(other_player: PlayerBase):
+	_attack = other_player._attack
+	_defense = other_player._defense
+	_curr_coins = other_player._curr_coins
+	_current_life = other_player._current_life
+	_inventory_items = other_player._inventory_items
 	

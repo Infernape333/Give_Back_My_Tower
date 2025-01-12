@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dmh573k8gu1r0" path="res://ui/UI/CharacterBox_56x57.png" id="7_hins0"]
 [ext_resource type="Texture2D" uid="uid://bygck5p5e7fqh" path="res://Assets/[4] Full Spritesheet.png" id="8_62sj4"]
 [ext_resource type="Texture2D" uid="uid://dpg8fjch2583k" path="res://ui/UI/AttributesIcons_17x17.png" id="9_f5f76"]
-[ext_resource type="PackedScene" uid="uid://cma46j0p03dvt" path="res://Scenes/inventory_slot_item.tscn" id="13_xjyyn"]
+[ext_resource type="PackedScene" uid="uid://c4vw61dd13vnu" path="res://Scenes/inventory_slot_item.tscn" id="13_xjyyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hk1ap"]
 atlas = ExtResource("8_62sj4")

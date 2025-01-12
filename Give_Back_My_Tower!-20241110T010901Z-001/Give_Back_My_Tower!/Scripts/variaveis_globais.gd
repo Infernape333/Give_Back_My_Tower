@@ -7,6 +7,7 @@ var door_choice = 0
 #Player atual
 var playerDir = "res://Scenes/player.tscn"
 var has_archer = false
+var player_instance: PlayerBase
 
 #armadura
 var armadura_upgrade_price = 10
@@ -21,10 +22,19 @@ var max_upgrades_spd = 29
 var damage_upgrade_count = 0
 var speed_upgrade_count = 0
 
+var coins: int :
+	get: 
+		if player_instance != null:
+			return player_instance.get_coins()
+		else:
+			return PlayerBase._INITIAL_COINS
 
-var coins = 500000
+	set(value): player_instance.set_coins(value)
+	
 var atk_spd = 3
-var dano = 5
+var dano : int :
+	get: return player_instance.get_attack() 
+		
 static var danoIce = 15
 static var danoFire = 25
 static var danoDark = 10
@@ -42,8 +52,12 @@ var enemy_skeleton_hp = 50
 var enemy_Grizzly_hp = 250
 var enemy_Gemdillo_hp = 50
 
-var max_life = 100
-static var current_life: int = 100
+var max_life: int : 
+	get: return PlayerBase.MAX_LIFE
+	
+var current_life: int :
+	get:
+		return player_instance.get_curr_life()
 
 func update_health_bar():
 	var health_bar = get_tree().get_first_node_in_group("healthbar")
@@ -52,18 +66,24 @@ func update_health_bar():
 		health_bar.value = VariaveisGlobais.current_life
 
 func heal():
-	if current_life >= max_life:
-		current_life = max_life
-	else:
-		current_life += 10
+	player_instance.heal()
 	emit_signal("life_changed")
 
 func game_over():
-	current_life = max_life
+	player_instance.reset_states()
 	emit_signal("life_changed")
+	remove_player_from_scene()
 	get_tree().change_scene_to_file("res://Scenes/inicio.tscn")
 	
 func remove_enemys():
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
 		enemy.queue_free()
+		
+"""
+This method prevents global player_instance to be cleared from memory 
+when changing scenes.
+"""
+func remove_player_from_scene(): 
+	if player_instance != null and player_instance.get_parent() != null:
+		player_instance.get_parent().remove_child(player_instance)

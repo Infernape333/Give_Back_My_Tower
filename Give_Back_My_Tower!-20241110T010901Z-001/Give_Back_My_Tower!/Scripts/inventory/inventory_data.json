@@ -1,0 +1,38 @@
+[
+	{
+		"name": "Anel", 
+		"picture_path" : "res://Sprites/turtle_shell_ring.png", 
+		"description":  "Anel valioso que pode causar até 200 de dano!",
+		"defense": 3,
+		"attack": 3,
+		"global_amount":  10, 
+		"coins": 1
+	},
+	{
+		"name": "Espada flamejante", 
+		"picture_path" : "res://Sprites/sword_yellow.png", 
+		"description":  "Essa espada pode causar +10 de dano!",
+		"defense": 0,
+		"attack": 100,
+		"global_amount":  10,
+		"coins": 1
+	},
+	{
+		"name": "Espada do ancião", 
+		"picture_path" : "res://Sprites/sword_blue.png", 
+		"description":  "Esse poder aqui é muito bom. Voce vai ver!",
+		"defense": 2,
+		"attack": 5,
+		"global_amount":  10,
+		"coins": 1
+	},
+	{
+		"name": "Defesa total", 
+		"picture_path" : "res://Sprites/defense.png", 
+		"description":  "Com esse item seu personagem fica muito mais resistente a ataques.",
+		"defense": 7,
+		"attack": 0,
+		"global_amount":  1,
+		"coins": 1
+	},
+]

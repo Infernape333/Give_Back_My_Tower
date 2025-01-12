@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends PlayerBase
 
 
 @export var speed: float = 42
@@ -11,11 +11,13 @@ var slime = preload("res://Scenes/slime.tscn")
 var cobold = preload("res://Scenes/cobold.tscn")
 var skeleton = preload("res://Scenes/skeleton.tscn")
 var is_inicial_scene: bool = false
-var hp = VariaveisGlobais.current_life
+var hp: int:
+	get: return get_curr_life()
+	
 var is_dead = false
 var is_hurt = false
 
-func _ready():
+func _ready():	
 	if get_tree().current_scene.name == "Node2D":
 		is_inicial_scene = true
 		$CanvasLayer/SkillBar.visible = false
@@ -60,22 +62,13 @@ func get_mouse_position() -> Vector2:
 func hurt(damage: int):
 	is_hurt = true
 	$PlayerAnm.play("Hurt")
-	VariaveisGlobais.current_life -= damage
-	hp = VariaveisGlobais.current_life
+	set_life_damage(damage)
 	health.value = hp
 	print(hp)
 	VariaveisGlobais.update_health_bar()
 	await get_tree().create_timer(0.5).timeout
 	is_hurt = false
 	die()
-
-
-func heal(amout: int):
-	VariaveisGlobais.current_life += amout
-	if VariaveisGlobais.current_life > VariaveisGlobais.max_life:
-		VariaveisGlobais.current_life = VariaveisGlobais.max_life
-	health.value = VariaveisGlobais.current_life
-	VariaveisGlobais.update_health_bar()
 
 func die():
 	if VariaveisGlobais.current_life <= 0:
@@ -151,3 +144,8 @@ func adjust_camera_for_lobby():
 
 func adjust_camera_for_gameplay():
 	Camera.zoom = Vector2(6, 6)  
+
+func push_inventory_item(inventory_item: InventoryItem, amount: int):
+	inventory_item.decrease(amount)
+	VariaveisGlobais.coins -= inventory_item.get_coins()
+	

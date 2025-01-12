@@ -81,7 +81,7 @@ func _udpate_slot_state(slot: SlotRoot):
 		if player.has_inventory_item(inventory_item):
 			_disabled_effect(slot.button)							
 			slot.button.disabled = true
-			slot.label.text = "Aquired"
+			slot.label.text = "Ativo"
 			
 			var styleBox = StyleBoxFlat.new()
 			styleBox.bg_color = Color.DARK_GREEN

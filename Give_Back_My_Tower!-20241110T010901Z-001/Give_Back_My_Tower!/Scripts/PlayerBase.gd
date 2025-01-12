@@ -45,9 +45,9 @@ func can_buy_inventory_item(item: InventoryItem) -> bool:
 	
 func reset_states():
 	_current_life = MAX_LIFE
-	_attack = _INITIAL_ATTACK
-	_defense = _INITIAL_DEFENSE
-	_inventory_items.clear()
+	#_attack = _INITIAL_ATTACK
+	#_defense = _INITIAL_DEFENSE
+	#_inventory_items.clear()
 	
 func get_attack(): 
 	return _attack

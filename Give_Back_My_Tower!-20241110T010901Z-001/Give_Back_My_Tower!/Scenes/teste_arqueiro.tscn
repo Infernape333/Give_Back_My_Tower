@@ -5,3 +5,4 @@
 [node name="teste_arqueiro" type="Node2D"]
 
 [node name="Player_arqueiro" parent="." instance=ExtResource("1_81dtl")]
+speed = null

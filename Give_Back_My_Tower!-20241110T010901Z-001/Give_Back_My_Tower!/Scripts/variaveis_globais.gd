@@ -72,9 +72,18 @@ func heal():
 func game_over():
 	player_instance.reset_states()
 	emit_signal("life_changed")
+	remove_player_from_scene()
 	get_tree().change_scene_to_file("res://Scenes/inicio.tscn")
 	
 func remove_enemys():
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
 		enemy.queue_free()
+		
+"""
+This method prevents global player_instance to be cleared from memory 
+when changing scenes.
+"""
+func remove_player_from_scene(): 
+	if player_instance != null and player_instance.get_parent() != null:
+		player_instance.get_parent().remove_child(player_instance)

@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends PlayerBase
 
 @export var speed: float = 42
 @onready var hand: Node2D = get_node("Hand")

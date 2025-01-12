@@ -441,6 +441,7 @@ bg_color = Color(1, 1, 1, 1)
 collision_layer = 13
 collision_mask = 13
 script = ExtResource("1_j4iwe")
+speed = null
 Magic = ExtResource("2_oocg1")
 
 [node name="PlayerAnm" type="AnimatedSprite2D" parent="."]

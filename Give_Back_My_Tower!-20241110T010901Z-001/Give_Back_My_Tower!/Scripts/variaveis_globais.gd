@@ -23,7 +23,12 @@ var damage_upgrade_count = 0
 var speed_upgrade_count = 0
 
 var coins: int :
-	get: return player_instance.get_coins()
+	get: 
+		if player_instance != null:
+			return player_instance.get_coins()
+		else:
+			return PlayerBase._INITIAL_COINS
+
 	set(value): player_instance.set_coins(value)
 	
 var atk_spd = 3

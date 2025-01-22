@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://btifn174aptc"]
+[gd_scene load_steps=79 format=3 uid="uid://btifn174aptc"]
 
 [ext_resource type="Script" path="res://Scripts/Player_arqueiro.gd" id="1_j4iwe"]
 [ext_resource type="Texture2D" uid="uid://d0tn5y6dbp7eq" path="res://Assets/Characters(100x100)/Archer/Archer with shadows/Archer-Death.png" id="2_hl2h3"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://Scripts/SkillBar_arqueiro.gd" id="10_seok8"]
 [ext_resource type="AudioStream" uid="uid://cf4qg0xt7yclg" path="res://Musics/FireAtk.wav" id="12_j24la"]
 [ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://Scenes/hud.tscn" id="12_mvv8o"]
+[ext_resource type="Script" path="res://Scenes/ProgressBar.gd" id="16_656c3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wngj2"]
 atlas = ExtResource("2_hl2h3")
@@ -487,6 +488,7 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_34pb8")
 theme_override_styles/fill = SubResource("StyleBoxFlat_qa5em")
 value = 100.0
 show_percentage = false
+script = ExtResource("16_656c3")
 metadata/_edit_use_anchors_ = true
 
 [node name="DamageBar" type="ProgressBar" parent="CanvasLayer/HealthBar"]

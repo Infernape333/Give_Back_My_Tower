@@ -92,12 +92,43 @@ func remove_enemys():
 	for enemy in enemies:
 		enemy.queue_free()
 	
-func single_shot(animation_name = "FireBolt"):
+
+func cone_shot(animation_name = "triptychShot"):
 	if is_inicial_scene:
 		return
+	
+	$Hand/Sword.play("attack_01")
+	await get_tree().create_timer(.5).timeout
+	
+	var base_direction = (get_global_mouse_position() - global_position).normalized()
+	var radians_offset = deg_to_rad(15)
+		
+	for i in range(3):
+		var MagicAtk = Magic.instantiate()
+		MagicAtk.play(animation_name)
+		   
+		# Posicionar a flecha na posição inicial do arqueiro
+		MagicAtk.position = global_position
+		
+		# Calcular a direção da flecha com base no desvio angular
+		if i == 0:
+			MagicAtk.direction = base_direction.rotated(-radians_offset)  # Flecha esquerda
+		elif i == 1:
+			MagicAtk.direction = base_direction  # Flecha central
+		elif i == 2:
+			MagicAtk.direction = base_direction.rotated(radians_offset)  # Flecha direita
+
+		# Adicionar a flecha à cena
+		get_tree().current_scene.call_deferred("add_child", MagicAtk)
+
+func explosive_arrow(count: int = 3, delay: float = 0.3, animation_name = "explosiveArrow"):
+	if is_inicial_scene:
+		return
+		
 	var MagicAtk = Magic.instantiate()
 	
-	$Hand/Staff.play("attack_01")
+	$Hand/Bow.play("attack_02")
+	await get_tree().create_timer(.2).timeout
 	
 	MagicAtk.play(animation_name)
 	
@@ -105,26 +136,9 @@ func single_shot(animation_name = "FireBolt"):
 	MagicAtk.direction = (get_global_mouse_position() - global_position).normalized()
 	
 	get_tree().current_scene.call_deferred("add_child",MagicAtk)
-	
-	
-func multi_shot(count: int = 3, delay: float = 0.3, animation_name = "DarkSkull"):
-	if is_inicial_scene:
-		return
-	
-	
-	$Hand/Staff.play("attack_03")
-	
-	for i in range(count):
-		var MagicAtk = Magic.instantiate()
-		
-		MagicAtk.play(animation_name)
-	
-		MagicAtk.position = global_position
-		MagicAtk.direction = (get_global_mouse_position() - global_position).normalized()
-	
-		get_tree().current_scene.call_deferred("add_child",MagicAtk)
-		await get_tree().create_timer(delay).timeout
-	
+
+
+
 func angled_shot(angle, i):
 	var MagicAtk = Magic.instantiate()
 	

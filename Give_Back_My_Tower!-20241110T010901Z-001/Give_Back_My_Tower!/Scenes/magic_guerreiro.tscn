@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcsddli4nr7sd"]
+
+[ext_resource type="Script" path="res://Scripts/magic_guerreiro.gd" id="1_ttmq7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0pj5s"]
+
+[node name="magic_guerreiro" type="Area2D"]
+script = ExtResource("1_ttmq7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0pj5s")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

@@ -7,9 +7,6 @@ extends CharacterBody2D
 @onready var Camera: Camera2D = get_node("Camera2D")
 @export var Magic : PackedScene
 
-var slime = preload("res://Scenes/slime.tscn")
-var cobold = preload("res://Scenes/cobold.tscn")
-var skeleton = preload("res://Scenes/skeleton.tscn")
 var is_inicial_scene: bool = false
 var hp = VariaveisGlobais.current_life
 var is_dead = false

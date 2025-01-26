@@ -11,14 +11,19 @@ func _ready():
 	else: 
 		is_in_initial_scene = false
 	timer.wait_time = VariaveisGlobais.atk_spd
+	
+#func animate(attack_direction: Vector2, direction: Vector2) -> void:
+	#if attack_direction.x > 0:
+		#staff.flip_v = false
+	#if attack_direction.x < 0:
+		#staff.flip_v = true
+	#look_at(direction)
 
 func atk() -> void:
 	$"..".is_attacking = true
-	$CollisionPolygon2D.disabled = false
 	attack.stop()
 	attack.play("attack")
 	await attack.animation_finished
-	$CollisionPolygon2D.disabled = true
 	$"..".is_attacking = false
 
 func _on_timer_timeout():

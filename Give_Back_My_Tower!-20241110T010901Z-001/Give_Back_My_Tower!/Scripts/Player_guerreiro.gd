@@ -12,6 +12,8 @@ var hp = VariaveisGlobais.current_life
 var is_dead = false
 var is_hurt = false
 
+var is_attacking: bool = false
+
 func _ready():
 	if get_tree().current_scene.name == "Node2D":
 		is_inicial_scene = true
@@ -27,17 +29,19 @@ func _physics_process(_delta: float) -> void:
 		return
 	if is_hurt:
 		return
-	move()
-	hand.animate(get_direction(),get_mouse_position())
-	if velocity.length() > 0:
-		$PlayerAnm.play("Walking")
-	else:
-		$PlayerAnm.play("Idle")
+		
+	if not is_attacking:
+		move()
+		#hand.animate(get_direction(),get_mouse_position())
+		if velocity.length() > 0:
+			$PlayerAnm.play("Walking")
+		else:
+			$PlayerAnm.play("Idle")
 
-	if get_direction().x < 0:
-		$PlayerAnm.flip_h = true
-	elif get_direction().x > 0:
-		$PlayerAnm.flip_h = false
+		if get_direction().x < 0:
+			$PlayerAnm.flip_h = true
+		elif get_direction().x > 0:
+			$PlayerAnm.flip_h = false
 		
 func move():
 	var direction: Vector2 = Vector2(

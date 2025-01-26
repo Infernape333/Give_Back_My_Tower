@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/magic_arqueiro.gd" id="1_87i12"]
 [ext_resource type="Texture2D" uid="uid://bvb4g5dflu2d1" path="res://Assets/Characters(100x100)/Archer/Arrow(projectile)/Arrow02(32x32).png" id="2_pht5t"]
 [ext_resource type="Texture2D" uid="uid://gn8mpotfcd4o" path="res://Sprites/Explosion SpriteSheet.png" id="2_qn17j"]
-[ext_resource type="Texture2D" uid="uid://dnnqnlo46q01o" path="res://Assets/Characters(100x100)/Archer/Arrow04-Sheet.png" id="3_6x0vj"]
-[ext_resource type="Texture2D" uid="uid://5nt67egkt5dd" path="res://Assets/Characters(100x100)/Archer/Arrow_Rain-Sheet.png" id="4_11w6j"]
+[ext_resource type="Texture2D" path="res://Assets/Characters(100x100)/Archer/Arrow04-Sheet.png" id="3_6x0vj"]
+[ext_resource type="Texture2D" path="res://Assets/Characters(100x100)/Archer/Arrow_Rain-Sheet.png" id="4_11w6j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aa0di"]
 atlas = ExtResource("2_qn17j")

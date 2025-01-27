@@ -30,18 +30,18 @@ func _physics_process(_delta: float) -> void:
 	if is_hurt:
 		return
 	
-	move()
-	hand.animate(get_direction(),get_mouse_position())
 	if not is_attacking:
+		hand.colision_update(get_direction(),get_mouse_position())
+		move()
 		if velocity.length() > 0:
 			$PlayerAnm.play("Walking")
 		else:
 			$PlayerAnm.play("Idle")
 
-	if get_direction().x < 0:
-		$PlayerAnm.flip_h = true
-	elif get_direction().x > 0:
-		$PlayerAnm.flip_h = false
+		if get_direction().x < 0:
+			$PlayerAnm.flip_h = true
+		elif get_direction().x > 0:
+			$PlayerAnm.flip_h = false
 		
 func move():
 	var direction: Vector2 = Vector2(

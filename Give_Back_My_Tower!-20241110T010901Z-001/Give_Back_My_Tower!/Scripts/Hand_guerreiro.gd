@@ -19,7 +19,7 @@ func _ready():
 	collision_polygon.disabled = true
 	
 	
-func animate(attack_direction: Vector2, direction: Vector2) -> void:
+func colision_update(attack_direction: Vector2, direction: Vector2) -> void:
 	# Ajusta o flip e posição da colisão (CollisionShape2D)
 	flip_collision_polygon(collision_polygon, attack_direction)
 		

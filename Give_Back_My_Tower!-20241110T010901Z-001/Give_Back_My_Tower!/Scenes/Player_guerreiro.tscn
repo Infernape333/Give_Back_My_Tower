@@ -292,6 +292,11 @@ limit_left = -10000009
 [node name="Hand" type="Node2D" parent="."]
 script = ExtResource("7_qp1w0")
 
+[node name="Area2D" type="Area2D" parent="Hand"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hand/Area2D"]
+polygon = PackedVector2Array(-4, -25, 0, -25, 5, -24, 12, -21, 20, -14, 24, -7, 24, 4, 22, 9, 18, 14, 11, 19, 3, 20, -1, 17, -1, 13, 0, 11, 4, 6, 7, 5, 11, -2, 11, -8, 8, -15, 3, -21, -2, -23)
+
 [node name="Timer" type="Timer" parent="Hand"]
 wait_time = 1.5
 autostart = true

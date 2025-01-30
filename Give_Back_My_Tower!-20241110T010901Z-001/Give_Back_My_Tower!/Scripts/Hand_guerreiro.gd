@@ -34,13 +34,19 @@ func flip_collision_polygon(collision_polygon: CollisionPolygon2D, attack_direct
 
 
 func atk() -> void:
-	$"..".is_attacking = true
-	collision_polygon.disabled = false
-	attack.stop()
-	attack.play("attack")
-	await attack.animation_finished
-	collision_polygon.disabled = true
-	$"..".is_attacking = false
+	if not $"..".is_skill:
+		$"..".is_attacking = true
+		collision_polygon.disabled = false
+		attack.play("attack")
+		await attack.animation_finished
+		collision_polygon.disabled = true
+		$"..".is_attacking = false
 
 func _on_timer_timeout():
-	atk()
+	if not $"..".is_inicial_scene:
+		atk()
+
+
+func _on_area_2d_body_exited(body):
+	if body.is_in_group("enemies"):
+		body.hurt()

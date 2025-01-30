@@ -11,7 +11,7 @@ func _ready():
 	$BlacksmithS.play("Working")
 
 func _on_body_entered(body):
-	if body.get_name() == "Player" or body.get_name() == "Player_arqueiro":
+	if body.is_in_group("player"):
 		play_in_area = true
 		key_e.visible = true
 

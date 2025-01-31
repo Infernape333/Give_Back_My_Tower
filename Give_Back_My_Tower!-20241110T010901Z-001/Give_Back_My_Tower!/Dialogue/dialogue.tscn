@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bun00wwbip2cl"]
+
+[ext_resource type="Script" path="res://Dialogue.gd" id="1_ldd3h"]
+[ext_resource type="Texture2D" uid="uid://bvkvl4lvxftb0" path="res://Dialogue/GUI_talk-Sheet.png" id="2_ufx1d"]
+[ext_resource type="FontFile" uid="uid://b2j5ngmijfock" path="res://Dialogue/ThaleahFat.ttf" id="3_awlvd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qt10d"]
+font = ExtResource("3_awlvd")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[node name="Dialogue" type="CanvasLayer"]
+process_mode = 1
+script = ExtResource("1_ldd3h")
+scene_text_file = "res://Dialogue/Dennis.json"
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 13.0
+offset_top = 498.0
+offset_right = 1352.0
+offset_bottom = 770.0
+texture = ExtResource("2_ufx1d")
+
+[node name="TextLabel" type="Label" parent="."]
+offset_left = 121.0
+offset_top = 553.0
+offset_right = 1256.0
+offset_bottom = 701.0
+label_settings = SubResource("LabelSettings_qt10d")

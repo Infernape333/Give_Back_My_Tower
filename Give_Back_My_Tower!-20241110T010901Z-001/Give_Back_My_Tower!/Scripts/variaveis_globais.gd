@@ -1,8 +1,8 @@
 extends Node2D
 
-#Choice
+#Counters
 var door_choice = 0
-
+var count_tutorial = 0
 
 #Player atual
 var playerDir = "res://Scenes/player.tscn"

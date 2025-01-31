@@ -42,7 +42,9 @@ func _physics_process(_delta: float) -> void:
 	elif get_direction().x > 0:
 		$PlayerAnm.flip_h = false
 		
-func move():
+
+
+func move():	
 	var direction: Vector2 = Vector2(
 		Input.get_axis("A", "D"),
 		Input.get_axis("W", "S")

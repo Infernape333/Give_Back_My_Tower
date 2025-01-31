@@ -1,6 +1,5 @@
 extends Area2D
 
-
 @onready var melhorias = $hud_melhorias
 @onready var key_e = $KeyE
 

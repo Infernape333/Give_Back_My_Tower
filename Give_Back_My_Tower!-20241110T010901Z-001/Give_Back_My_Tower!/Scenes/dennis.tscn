@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://cvo2be6iiafo3"]
+
+[ext_resource type="Script" path="res://Scenes/dennis.gd" id="1_wynkx"]
+[ext_resource type="Texture2D" uid="uid://b00sbbhd7sqcy" path="res://Sprites/Librarian-Sheet.png" id="2_sgpy8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ekyqs"]
+radius = 13.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fda5x"]
+size = Vector2(17, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvf81"]
+atlas = ExtResource("2_sgpy8")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jh3j"]
+atlas = ExtResource("2_sgpy8")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghvlc"]
+atlas = ExtResource("2_sgpy8")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3u3b"]
+atlas = ExtResource("2_sgpy8")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5wkq"]
+atlas = ExtResource("2_sgpy8")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtciw"]
+atlas = ExtResource("2_sgpy8")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dcg6l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvf81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jh3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghvlc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3u3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5wkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtciw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[node name="Dennis" type="Area2D"]
+script = ExtResource("1_wynkx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ekyqs")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_fda5x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_dcg6l")
+animation = &"idle"
+frame_progress = 0.248785
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

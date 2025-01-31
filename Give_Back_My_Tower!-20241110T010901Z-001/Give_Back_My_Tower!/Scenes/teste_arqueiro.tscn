@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnegy1h1w7f1g"]
+
+[ext_resource type="PackedScene" uid="uid://btifn174aptc" path="res://Scenes/Player_arqueiro.tscn" id="1_81dtl"]
+
+[node name="teste_arqueiro" type="Node2D"]
+
+[node name="Player_arqueiro" parent="." instance=ExtResource("1_81dtl")]

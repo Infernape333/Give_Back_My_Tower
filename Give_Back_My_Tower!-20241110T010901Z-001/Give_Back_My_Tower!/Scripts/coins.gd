@@ -17,7 +17,7 @@ func _process(delta):
 			position += direction * move_speed * delta
 
 func _on_body_entered(body):
-	if body.get_name() == "Player":
+	if body.is_in_group("player"):
 		VariaveisGlobais.coins += 1
 		$AudioStreamPlayer2D.play()
 		$Coin.visible = false

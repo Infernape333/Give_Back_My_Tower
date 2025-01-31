@@ -2,7 +2,7 @@ extends Node2D
 
 var choice = 0
 var PillarBuffs = preload("res://Scenes/pillar_buffs.tscn")
-#@onready var cursor = $Cursor
+@onready var cursor = $jogador/Cursor
 @onready var target = $Direction
 @onready var porta = $door
 @onready var Buff1 = $Marker2D
@@ -13,14 +13,13 @@ var buff_spawned = false
 
 func _ready():
 	pass
-	
+
 func _process(delta):
 	if VariaveisGlobais.door_choice == 1:
 		porta.can_open = true
 		$Door/CollisionShape2D.disabled = false
 
 func _on_timer_timeout():
-	VariaveisGlobais.remove_enemys()
 	Spawn_Buff1()
 
 func Spawn_Buff1():
@@ -28,7 +27,6 @@ func Spawn_Buff1():
 		var buff_instantiate = PillarBuffs.instantiate()
 		var buff_instantiate2 = PillarBuffs.instantiate()
 		var buff_instantiate3 = PillarBuffs.instantiate()
-		print(buff_instantiate.type)
 		buff_instantiate.global_position = Buff1.global_position
 		buff_instantiate2.global_position = Buff2.global_position
 		buff_instantiate3.global_position = Buff3.global_position
@@ -38,7 +36,6 @@ func Spawn_Buff1():
 		add_child(buff_instantiate2)
 		buff_instantiate3.type = 2
 		add_child(buff_instantiate3)
-		print(buff_instantiate3.type)
 		buff_spawned = true  # Atualiza o flag para evitar novos spawns
 #func _on_cursor_timer_timeout():
 	#cursor.visible = true

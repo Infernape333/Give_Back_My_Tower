@@ -48,8 +48,8 @@ func atualizar_rud():
 		btn_selecionar.disabled = true
 
 func _on_comprar_pressed():
-	if VariaveisGlobais.coins >= 100:
-		VariaveisGlobais.coins -= 100
+	if VariaveisGlobais.coins >= 10:
+		VariaveisGlobais.coins -= 10
 		VariaveisGlobais.has_archer = true
 		atualizar_rud()
 		coin_preco.visible = false

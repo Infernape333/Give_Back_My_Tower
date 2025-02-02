@@ -129,6 +129,18 @@ func flaming_blade(animation_name = "flamingBlade"):
 	await $PlayerAnm.animation_finished
 	is_attacking = false
 	is_skill = false
+	
+	if is_inicial_scene:
+		return
+		
+	var MagicAtk = Magic.instantiate()
+	
+	MagicAtk.play(animation_name)
+	
+	MagicAtk.position = global_position
+	MagicAtk.direction = (get_global_mouse_position() - global_position).normalized()
+	
+	get_tree().current_scene.call_deferred("add_child",MagicAtk)
 
 func adjust_camera_for_lobby():
 	Camera.zoom = Vector2(4.0, 4.0)  

@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed: float = 200
+var speed: float = 100
 var MagicType: String = "triptychShot"
 @onready var Exp_collision = $ExpDmg
 
@@ -21,17 +21,8 @@ func _on_visible_on_screen_enabler_2d_screen_exited():
 
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):
-		if $AnimatedSprite2D.animation == "triptychShot":
-			body.hurtFire()
-			queue_free()
-		elif $AnimatedSprite2D.animation == "explosiveArrow":
-			explosion()
-			body.hurtIce()
-		else:
-			body.hurt()
-		
-		$CollisionShape2D.disabled = true
-		speed = 0
+		body.hurtFire()
+		queue_free()
 
 func explosion():
 	$AnimatedSprite2D.play("FireBoltExp")

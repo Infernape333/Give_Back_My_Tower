@@ -1,18 +1,64 @@
-[gd_scene load_steps=3 format=3 uid="uid://boawhe6g1usc0"]
+[gd_scene load_steps=9 format=3 uid="uid://boawhe6g1usc0"]
 
 [ext_resource type="Script" path="res://Scripts/magic_guerreiro.gd" id="1_ttmq7"]
+[ext_resource type="Texture2D" uid="uid://b61jtdsn3rxc3" path="res://Assets/Characters(100x100)/guerreiro/Knight_Attack03_effect-Sheet.png" id="2_xoir2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1eun"]
+atlas = ExtResource("2_xoir2")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3560c"]
+atlas = ExtResource("2_xoir2")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3pl1"]
+atlas = ExtResource("2_xoir2")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8herk"]
+atlas = ExtResource("2_xoir2")
+region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0pj5s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1eun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3560c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3pl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8herk")
+}],
+"loop": true,
+"name": &"flamingBlade",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jq12u"]
+radius = 18.2483
 
 [node name="magic_guerreiro" type="Area2D"]
+scale = Vector2(0.7, 0.7)
+collision_layer = 6
+collision_mask = 6
 script = ExtResource("1_ttmq7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_0pj5s")
+animation = &"flamingBlade"
+frame_progress = 0.000701592
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, -5)
+shape = SubResource("CircleShape2D_jq12u")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

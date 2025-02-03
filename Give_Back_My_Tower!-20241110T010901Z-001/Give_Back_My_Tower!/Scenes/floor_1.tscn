@@ -396,6 +396,7 @@ spawn_animation = ExtResource("7_xderg")
 enemy = ExtResource("2_eito8")
 enemy_num = 6
 enemy_spawn_delay = 6
+qtd_max_spawn = 10
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l358a"]
 texture = ExtResource("7_mabs3")

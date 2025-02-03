@@ -2737,6 +2737,7 @@ spawn_animation = ExtResource("9_h3bpu")
 enemy = ExtResource("6_pn4s6")
 enemy_num = 7
 enemy_spawn_delay = 5
+qtd_max_spawn = -1
 
 [sub_resource type="Resource" id="Resource_ecp4j"]
 script = ExtResource("7_ei6wy")
@@ -2746,6 +2747,7 @@ spawn_animation = ExtResource("9_h3bpu")
 enemy = ExtResource("8_6b466")
 enemy_num = 8
 enemy_spawn_delay = 4
+qtd_max_spawn = -1
 
 [sub_resource type="Resource" id="Resource_jycts"]
 script = ExtResource("7_ei6wy")
@@ -2755,6 +2757,7 @@ spawn_animation = ExtResource("9_h3bpu")
 enemy = ExtResource("10_u4388")
 enemy_num = 1
 enemy_spawn_delay = 0
+qtd_max_spawn = -1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7j25"]
 size = Vector2(42.5, 11)

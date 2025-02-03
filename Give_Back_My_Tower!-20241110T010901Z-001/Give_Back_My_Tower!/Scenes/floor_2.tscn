@@ -396,6 +396,7 @@ spawn_animation = ExtResource("7_v6hc0")
 enemy = ExtResource("6_vm5ax")
 enemy_num = 6
 enemy_spawn_delay = 6
+qtd_max_spawn = -1
 
 [sub_resource type="Resource" id="Resource_wv8fh"]
 script = ExtResource("7_ofkn7")
@@ -405,6 +406,7 @@ spawn_animation = ExtResource("7_v6hc0")
 enemy = ExtResource("7_7fcnu")
 enemy_num = 2
 enemy_spawn_delay = 0
+qtd_max_spawn = -1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pcokq"]
 texture = ExtResource("9_fg4hx")

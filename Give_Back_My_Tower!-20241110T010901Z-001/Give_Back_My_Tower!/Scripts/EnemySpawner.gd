@@ -14,7 +14,6 @@ class_name EnemySpawner
 @export var far_size: Vector2 = Vector2(200, 200)
 
 var quad_tree: QuadTree
-var late_spawn: Dictionary = {}
 
 func _ready():
 	var tile_map: TileMap = tile_map
@@ -24,6 +23,9 @@ func _ready():
 	
 	for id in used_cells_ids:
 		used_cells.append(Rect2(Vector2(id.x * tile_size.x, id.y * tile_size.y), tile_size))
+	
+	for spawner in spawns:
+		spawner.parent = self
 	
 	quad_tree = QuadTree.create_tree(used_cells, tile_size, 5)
 
@@ -45,13 +47,8 @@ func spawn(spawn_info: Spawn_Info, surrounding_cells: Dictionary):
 			var counter = 0
 			
 			while  counter < spawn_info.enemy_num:
-				var animation_spawn: Node2D = animation.instantiate()
-				
-				animation_spawn.global_position = get_random_position(surrounding_cells)
-				animation_spawn.z_index = global_position.y
-				late_spawn[animation_spawn] = spawn_info
-				animation_spawn.connect("Transitioned", on_state_machine_transition)
-				call_deferred("add_child", animation_spawn)
+				var spawn_position:Vector2 = get_random_position(surrounding_cells)
+				spawn_info.spawning(spawn_position, self)
 				
 				counter += 1
 
@@ -68,19 +65,28 @@ func get_surrounding_cells() -> Dictionary:
 	return surrounding_cells_far
 
 func get_random_position(cells: Dictionary) -> Vector2:
-	var random_key: Rect2 = cells.keys().pick_random()
+	var valid_position: bool = false
+	var random_key: Rect2
 	
-	# Don't spawn two enemies in exactly the same place, they will go off the map
-	cells.erase(random_key)
+	# Only spawn if there is no StaticBody2D in the place 
+	while (!valid_position):
+		random_key = cells.keys().pick_random()
+		var space_state: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
+		var query := PhysicsPointQueryParameters2D.new()
+		
+		query.position = random_key.get_center()
+		var results: Array[Dictionary] = space_state.intersect_point(query)
+		
+		var is_static_body = false
+		for result in results:
+			if result.collider is StaticBody2D:
+				is_static_body = true
+		
+		if (!is_static_body):
+			valid_position = true
+		
+		# Don't spawn two enemies in exactly the same place, they will go off the map
+		cells.erase(random_key)
 	
 	return random_key.get_center()
 
-func on_state_machine_transition (state_machine: StateMachine, new_state_name: String):
-	if (new_state_name == "LEAVING"):
-		var new_enemy = late_spawn[state_machine].enemy
-		var enemy_spawn = new_enemy.instantiate()
-		
-		enemy_spawn.global_position = state_machine.global_position
-		
-		call_deferred("add_child", enemy_spawn)
-		state_machine.disconnect("Transitioned", on_state_machine_transition)

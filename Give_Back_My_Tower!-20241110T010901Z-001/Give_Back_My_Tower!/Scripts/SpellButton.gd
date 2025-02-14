@@ -16,7 +16,7 @@ var change_key = "":
 		var input_key = InputEventKey.new()
 		input_key.keycode = value.unicode_at(0)
 		
-		shortcut.events= [input_key]
+		shortcut.events = [input_key]
 		
 func _ready():
 	change_key = "1"
@@ -28,11 +28,9 @@ func _process(delta):
 	time.text = "%3.1f" % timer.time_left
 	cooldown.value = timer.time_left
 
-
 func _on_pressed():
 	if skill != null:
 		skill.cast_spell(owner)
-		
 		timer.start()
 		disabled = true
 		set_process(true)
@@ -44,4 +42,8 @@ func _on_timer_timeout():
 	cooldown.value = 0
 	set_process(false)
 	
+func add_controller_button(button_code):
+	var input_button = InputEventJoypadButton.new()
+	input_button.button_index = button_code
+	shortcut.events.append(input_button) 
 

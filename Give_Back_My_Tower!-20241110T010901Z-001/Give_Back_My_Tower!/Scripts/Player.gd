@@ -22,7 +22,7 @@ func _ready():
 		is_inicial_scene = false
 		adjust_camera_for_gameplay()
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta) -> void:
 	if is_dead:
 		return
 	if is_hurt:
@@ -39,6 +39,24 @@ func _physics_process(_delta: float) -> void:
 	elif get_direction().x > 0:
 		$PlayerAnm.flip_h = false
 		
+# Aplica zona morta para evitar drift no analógico
+	var move_x = 0.0 if abs(x_axis) < deadzone else x_axis
+	var move_y = 0.0 if abs(y_axis) < deadzone else y_axis
+
+	# Se houver movimento, atualiza a posição do mouse
+	if move_x != 0.0 or move_y != 0.0:
+		var mouse_pos = get_viewport().get_mouse_position()
+		var new_mouse_pos = mouse_pos + Vector2(move_x, move_y) * mouse_sensitivity * delta * 60  # Fator de ajuste
+		Input.warp_mouse(new_mouse_pos)
+
+func _input(event):
+	if event is InputEventJoypadMotion:
+		if event.axis == 2:  # Analógico direito - eixo X
+			x_axis = event.axis_value
+		elif event.axis == 3:  # Analógico direito - eixo Y
+			y_axis = event.axis_value
+	
+
 func move():
 	var direction: Vector2 = Vector2(
 		Input.get_axis("A", "D"),

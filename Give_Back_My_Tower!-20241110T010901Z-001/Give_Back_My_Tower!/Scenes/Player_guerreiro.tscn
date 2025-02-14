@@ -1,7 +1,7 @@
-[gd_scene load_steps=81 format=3 uid="uid://3k30kgvuvb5c"]
+[gd_scene load_steps=81 format=3 uid="uid://c4j57fo6ys30c"]
 
 [ext_resource type="Script" path="res://Scripts/Player_guerreiro.gd" id="1_e2ycu"]
-[ext_resource type="PackedScene" uid="uid://boawhe6g1usc0" path="res://Scenes/magic_guerreiro.tscn" id="2_sowbm"]
+[ext_resource type="PackedScene" path="res://Scenes/magic_guerreiro.tscn" id="2_sowbm"]
 [ext_resource type="Texture2D" uid="uid://c7my43qqfnwdq" path="res://Sprites/Wizard-DEATH.png" id="3_fuidm"]
 [ext_resource type="Texture2D" uid="uid://dddrig3kshpo4" path="res://Sprites/Wizard-Hurt_1 (4).png" id="4_esut1"]
 [ext_resource type="Texture2D" uid="uid://jauh03k1uju2" path="res://Assets/Characters(100x100)/guerreiro/Knight_idle-Sheet.png" id="5_fes0p"]

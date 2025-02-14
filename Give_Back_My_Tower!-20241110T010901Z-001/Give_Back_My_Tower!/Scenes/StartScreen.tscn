@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://dspkca4qhxrfb" path="res://imagem_2024-10-27_192206953-removebg-preview.png" id="1_nbqir"]
 [ext_resource type="Theme" uid="uid://djhcai4p6n8i1" path="res://Assets/tema_butaoha.tres" id="2_11i5v"]
 [ext_resource type="Script" path="res://Scripts/Control_inicio.gd" id="3_0egkc"]
-[ext_resource type="Texture2D" uid="uid://bifcxni46d04b" path="res://Sprites/spritesheet.png" id="4_s5grp"]
+[ext_resource type="Texture2D" path="res://Sprites/spritesheet.png" id="4_s5grp"]
 [ext_resource type="AudioStream" uid="uid://dv7asqkv4x6ki" path="res://Musics/01 Invitation.mp3" id="5_nehed"]
-[ext_resource type="Texture2D" uid="uid://2losnyj13lmq" path="res://Sprites/Title.png" id="6_bh52q"]
-[ext_resource type="Texture2D" uid="uid://bvcmemknjwsgu" path="res://Sprites/Start_button.png" id="7_gfblv"]
+[ext_resource type="Texture2D" path="res://Sprites/Title.png" id="6_bh52q"]
+[ext_resource type="Texture2D" path="res://Sprites/Start_button.png" id="7_gfblv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_51dkw"]
 atlas = ExtResource("4_s5grp")

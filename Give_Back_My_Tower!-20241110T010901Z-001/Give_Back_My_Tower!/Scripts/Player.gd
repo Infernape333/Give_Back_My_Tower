@@ -64,8 +64,8 @@ func _input(event):
 
 func move():
 	var direction: Vector2 = Vector2(
-		Input.get_axis("left", "right"),
-		Input.get_axis("up", "dawn")
+		Input.get_axis("A", "D"),
+		Input.get_axis("W", "S")
 	).normalized()
 	
 	velocity = direction * speed

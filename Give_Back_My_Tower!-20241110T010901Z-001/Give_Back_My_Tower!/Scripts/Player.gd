@@ -12,10 +12,10 @@ var hp = VariaveisGlobais.current_life
 var is_dead = false
 var is_hurt = false
 
-var mouse_sensitivity := 45.0
-var x_axis
-var y_axis
-var deadzone := 1.0
+var mouse_sensitivity := 45.0  # Ajuste de velocidade do mouse
+var deadzone := 1  # Evita movimentação involuntária
+var x_axis := 0.0
+var y_axis := 0.0
 
 func _ready():
 	if get_tree().current_scene.name == "Node2D":

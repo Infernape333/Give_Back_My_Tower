@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://c4j57fo6ys30c"]
+[gd_scene load_steps=81 format=3 uid="uid://dcym5jairsgmm"]
 
 [ext_resource type="Script" path="res://Scripts/Player_guerreiro.gd" id="1_e2ycu"]
 [ext_resource type="PackedScene" path="res://Scenes/magic_guerreiro.tscn" id="2_sowbm"]

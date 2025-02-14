@@ -3,10 +3,10 @@ extends Control
 
 @onready var audio = $"../AudioStreamPlayer"
 
-var mouse_sensitivity := 45.0
-var x_axis
-var y_axis
-var deadzone := 1.0
+var mouse_sensitivity := 45.0  # Ajuste de velocidade do mouse
+var deadzone := 1  # Evita movimentação involuntária
+var x_axis := 0.0
+var y_axis := 0.0
 
 func _ready():
 	audio.play()
@@ -25,7 +25,7 @@ func _process(delta):
 
 
 func _input(event):
-	if Input.is_action_just_pressed("Enter"):
+	if Input.is_action_just_pressed("Enter") or Input.is_action_just_pressed("start_pauser"):
 		TransitionManager.fade_to_scene("res://Scenes/inicio.tscn")
 	if event is InputEventJoypadMotion:
 		if event.axis == 2:  # Analógico direito - eixo X

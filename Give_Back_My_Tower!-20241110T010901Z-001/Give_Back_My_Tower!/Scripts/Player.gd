@@ -6,11 +6,6 @@ extends CharacterBody2D
 @onready var health: ProgressBar = get_node("CanvasLayer/HealthBar")
 @export var Magic : PackedScene
 
-var mouse_sensitivity := 45.0  # Ajuste de velocidade do mouse
-var deadzone := 1  # Evita movimentação involuntária
-var x_axis := 0.0
-var y_axis := 0.0
-
 var slime = preload("res://Scenes/slime.tscn")
 var cobold = preload("res://Scenes/cobold.tscn")
 var skeleton = preload("res://Scenes/skeleton.tscn")
@@ -27,7 +22,29 @@ func _ready():
 	else: 
 		is_inicial_scene = false
 
+
+var mouse_sensitivity := 65.0
+var deadzone := 0.2  # Define uma zona morta
+var x_axis := 0.0
+var y_axis := 0.0
+
 func _physics_process(delta) -> void:
+	# Aplica zona morta para evitar drift no analógico
+	#var move_x = 0.0 if abs(x_axis) < deadzone else x_axis
+	#var move_y = 0.0 if abs(y_axis) < deadzone else y_axis
+#
+	## Se houver movimento, atualiza a posição do mouse
+	#if move_x != 0.0 or move_y != 0.0:
+		#var mouse_pos = get_viewport().get_mouse_position()
+		#var new_mouse_pos = mouse_pos + Vector2(x_axis, y_axis) * mouse_sensitivity * delta * 60
+		#Input.warp_mouse(new_mouse_pos)
+		#print(x_axis, y_axis)
+	
+	if x_axis != 0.0 or y_axis != 0.0:
+		var mouse_pos = get_viewport().get_mouse_position()
+		var new_mouse_pos = mouse_pos + Vector2(x_axis, y_axis) * mouse_sensitivity
+		Input.warp_mouse(new_mouse_pos)
+	
 	if is_dead:
 		return
 	if is_hurt:
@@ -43,16 +60,7 @@ func _physics_process(delta) -> void:
 		$PlayerAnm.flip_h = true
 	elif get_direction().x > 0:
 		$PlayerAnm.flip_h = false
-		
-# Aplica zona morta para evitar drift no analógico
-	var move_x = 0.0 if abs(x_axis) < deadzone else x_axis
-	var move_y = 0.0 if abs(y_axis) < deadzone else y_axis
 
-	# Se houver movimento, atualiza a posição do mouse
-	if move_x != 0.0 or move_y != 0.0:
-		var mouse_pos = get_viewport().get_mouse_position()
-		var new_mouse_pos = mouse_pos + Vector2(move_x, move_y) * mouse_sensitivity * delta * 60  # Fator de ajuste
-		Input.warp_mouse(new_mouse_pos)
 
 func _input(event):
 	if event is InputEventJoypadMotion:
@@ -60,7 +68,6 @@ func _input(event):
 			x_axis = event.axis_value
 		elif event.axis == 3:  # Analógico direito - eixo Y
 			y_axis = event.axis_value
-	
 
 func move():
 	var direction: Vector2 = Vector2(

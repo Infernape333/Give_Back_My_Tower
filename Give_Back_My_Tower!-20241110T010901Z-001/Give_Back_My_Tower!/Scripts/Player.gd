@@ -12,6 +12,10 @@ var hp = VariaveisGlobais.current_life
 var is_dead = false
 var is_hurt = false
 
+var dash_speed = 50.0
+var dash_duration = .1
+var is_dashing = false
+
 var mouse_sensitivity := 45.0  # Ajuste de velocidade do mouse
 var deadzone := 1  # Evita movimentação involuntária
 var x_axis := 0.0
@@ -28,11 +32,25 @@ func _ready():
 		adjust_camera_for_gameplay()
 
 func _physics_process(delta) -> void:
+	if Input.is_action_just_pressed("dash"):
+		is_dashing = true
+		#set_collision_mask_value(enemy_layer, false)
+		var target_position = get_global_mouse_position()
+		var direction = (target_position - global_position).normalized()
+		var dash_distance = dash_speed * dash_duration
+		var new_position = global_position + (direction * dash_distance)
+		
+		global_position = new_position
+		await get_tree().create_timer(dash_duration).timeout
+		is_dashing = false
+		
 	if is_dead:
 		return
 	if is_hurt:
 		return
-	move()
+	if not is_dashing:
+		move()
+		
 	hand.animate(get_direction(),get_mouse_position())
 	if velocity.length() > 0:
 		$PlayerAnm.play("Walking")
@@ -111,6 +129,8 @@ func remove_enemys():
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
 		enemy.queue_free()
+
+
 	
 func single_shot(animation_name = "FireBolt"):
 	if is_inicial_scene:

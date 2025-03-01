@@ -22,7 +22,7 @@ func _process(delta):
 	if target and cursor_instance and cursor_instance.visible:
 		cursor_instance.look_at(target.global_position)
 		cursor_instance.rotation += deg_to_rad(90)
-
+   
 func _on_timer_timeout():
 	#VariaveisGlobais.remove_enemys()
 	$Door/CollisionShape2D.disabled = false

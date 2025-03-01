@@ -2,7 +2,7 @@ extends Node2D
 
 
 #Player atual
-var playerDir = "res://Scenes/Player_guerreiro.tscn"
+var playerDir = "res://Scenes/player.tscn"
 var has_archer = false
 
 #armadura

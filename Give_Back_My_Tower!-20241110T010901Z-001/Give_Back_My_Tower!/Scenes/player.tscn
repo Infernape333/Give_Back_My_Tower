@@ -1,9 +1,10 @@
-[gd_scene load_steps=66 format=3 uid="uid://bl8tosgr2u7ao"]
+[gd_scene load_steps=76 format=3 uid="uid://bl8tosgr2u7ao"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_vqmbd"]
 [ext_resource type="Texture2D" uid="uid://c7my43qqfnwdq" path="res://Sprites/Wizard-DEATH.png" id="2_4uvpd"]
 [ext_resource type="PackedScene" uid="uid://dka6u4it6qggo" path="res://Scenes/magic.tscn" id="2_djqkr"]
 [ext_resource type="Texture2D" uid="uid://dddrig3kshpo4" path="res://Sprites/Wizard-Hurt_1 (4).png" id="3_6sw6l"]
+[ext_resource type="Texture2D" uid="uid://d5oxcn5k7a50" path="res://Assets/Characters(100x100)/Wizard_Dash-Sheet.webp" id="3_p3vbf"]
 [ext_resource type="Script" path="res://Scripts/Hand_Staff.gd" id="4_clasn"]
 [ext_resource type="Texture2D" uid="uid://xmxmfa7pb02n" path="res://Assets/Characters(100x100)/Wizard_idle-Sheet.png" id="5_vvpuj"]
 [ext_resource type="Texture2D" uid="uid://e6oh0qbhpgh" path="res://Assets/Characters(100x100)/Wizard_walk-Sheet.png" id="6_mpl28"]
@@ -17,6 +18,42 @@
 [ext_resource type="Script" path="res://Scenes/HBoxContainer.gd" id="12_vno5a"]
 [ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://Scenes/hud.tscn" id="14_bacac"]
 [ext_resource type="AudioStream" uid="uid://cf4qg0xt7yclg" path="res://Musics/FireAtk.wav" id="16_umj5q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6th7w"]
+atlas = ExtResource("3_p3vbf")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab51t"]
+atlas = ExtResource("3_p3vbf")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lnyh"]
+atlas = ExtResource("3_p3vbf")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0fcd"]
+atlas = ExtResource("3_p3vbf")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asgt7"]
+atlas = ExtResource("3_p3vbf")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijl65"]
+atlas = ExtResource("3_p3vbf")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di3et"]
+atlas = ExtResource("3_p3vbf")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xub8d"]
+atlas = ExtResource("3_p3vbf")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6sd4"]
+atlas = ExtResource("3_p3vbf")
+region = Rect2(800, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qwaty"]
 atlas = ExtResource("2_4uvpd")
@@ -108,6 +145,38 @@ region = Rect2(700, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6r366"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6th7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab51t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lnyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0fcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asgt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijl65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_di3et")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xub8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6sd4")
+}],
+"loop": false,
+"name": &"Dash",
+"speed": 18.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qwaty")
@@ -390,7 +459,9 @@ Magic = ExtResource("2_djqkr")
 [node name="PlayerAnm" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_6r366")
-animation = &"Idle"
+animation = &"Dash"
+frame = 8
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -405,8 +476,7 @@ script = ExtResource("4_clasn")
 
 [node name="Staff" type="AnimatedSprite2D" parent="Hand"]
 texture_filter = 1
-position = Vector2(1, 1)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.98, 0.98)
 sprite_frames = SubResource("SpriteFrames_kheyw")
 animation = &"attack_01"
 autoplay = "idle"

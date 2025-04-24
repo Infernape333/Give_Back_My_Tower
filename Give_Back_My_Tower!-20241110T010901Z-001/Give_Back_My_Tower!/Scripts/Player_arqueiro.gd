@@ -12,6 +12,10 @@ var hp = VariaveisGlobais.current_life
 var is_dead = false
 var is_hurt = false
 
+var dash_speed = 100.0
+var dash_duration = 1.0
+var is_dashing = false
+
 var is_attacking: bool = false
 
 var mouse_sensitivity := 45.0  # Ajuste de velocidade do mouse
@@ -30,16 +34,25 @@ func _ready():
 		adjust_camera_for_gameplay()
 
 func _physics_process(delta) -> void:
-	if is_dead:
+	if is_dead or is_hurt:
 		return
-	if is_hurt:
+		
+	if is_dashing:
+		move_and_slide()  # Continua o movimento do dash
 		return
 	
-	if not is_attacking:
+	if Input.is_action_just_pressed("dash") and not is_attacking:
+		dash()
+	else:
 		move()
+		
+	if not is_attacking:
 		hand.animate(get_direction(),get_mouse_position())
 		if velocity.length() > 0:
-			$PlayerAnm.play("Walking")
+			if not is_dashing:
+				$PlayerAnm.play("Walking")
+			else: 
+				$PlayerAnm.play("Dash")
 		else:
 			$PlayerAnm.play("Idle")
 
@@ -79,6 +92,20 @@ func get_direction() -> Vector2:
 
 func get_mouse_position() -> Vector2:
 	return get_global_mouse_position()
+	
+
+func dash():
+	hand.visible = false
+	is_dashing = true
+	var target_position = get_global_mouse_position()
+	var direction = (target_position - global_position).normalized()
+	velocity = direction * dash_speed  # Usa velocity para respeitar física do jogo
+	await $PlayerAnm.animation_finished
+	#await get_tree().create_timer(dash_duration).timeout
+
+	velocity = Vector2.ZERO 
+	is_dashing = false
+	hand.visible = true
 
 func hurt(damage: int):
 	is_hurt = true

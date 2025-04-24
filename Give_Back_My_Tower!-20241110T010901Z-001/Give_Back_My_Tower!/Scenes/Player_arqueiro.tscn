@@ -1,10 +1,11 @@
-[gd_scene load_steps=79 format=3 uid="uid://btifn174aptc"]
+[gd_scene load_steps=87 format=3 uid="uid://btifn174aptc"]
 
 [ext_resource type="Script" path="res://Scripts/Player_arqueiro.gd" id="1_j4iwe"]
 [ext_resource type="Texture2D" uid="uid://d0tn5y6dbp7eq" path="res://Assets/Characters(100x100)/Archer/Archer with shadows/Archer-Death.png" id="2_hl2h3"]
 [ext_resource type="PackedScene" uid="uid://syvlqrkpsfgx" path="res://Scenes/magic_arqueiro.tscn" id="2_oocg1"]
 [ext_resource type="PackedScene" uid="uid://dm7ri2xr4352x" path="res://Scenes/hail_arrows.tscn" id="3_f5arh"]
 [ext_resource type="Texture2D" uid="uid://cvawb22sl24h7" path="res://Assets/Characters(100x100)/Archer/Archer with shadows/Archer-Hurt.png" id="3_ka6bo"]
+[ext_resource type="Texture2D" uid="uid://cs1nyp1cgmjt4" path="res://Assets/Characters(100x100)/Archer/Archer_Dash-Sheet.png" id="4_hgqr2"]
 [ext_resource type="Texture2D" uid="uid://c6jpmj5bsfgft" path="res://Assets/Characters(100x100)/Archer/Archer_idle-Sheet.png" id="5_vi7fu"]
 [ext_resource type="Script" path="res://Scripts/Hand_arqueiro.gd" id="6_vll0q"]
 [ext_resource type="Texture2D" uid="uid://dojq1ke8pahky" path="res://Assets/Characters(100x100)/Archer/Archer_walk-Sheet.png" id="6_ydrik"]
@@ -21,6 +22,34 @@
 [ext_resource type="AudioStream" uid="uid://cf4qg0xt7yclg" path="res://Musics/FireAtk.wav" id="12_j24la"]
 [ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://Scenes/hud.tscn" id="12_mvv8o"]
 [ext_resource type="Script" path="res://Scenes/ProgressBar.gd" id="16_656c3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajlnt"]
+atlas = ExtResource("4_hgqr2")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vikn5"]
+atlas = ExtResource("4_hgqr2")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogxv4"]
+atlas = ExtResource("4_hgqr2")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_woyic"]
+atlas = ExtResource("4_hgqr2")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw2ha"]
+atlas = ExtResource("4_hgqr2")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2oms"]
+atlas = ExtResource("4_hgqr2")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia4ek"]
+atlas = ExtResource("4_hgqr2")
+region = Rect2(600, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wngj2"]
 atlas = ExtResource("2_hl2h3")
@@ -158,6 +187,32 @@ region = Rect2(300, 0, 100, 100)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ajlnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vikn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogxv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_woyic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw2ha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2oms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ia4ek")
+}],
+"loop": false,
+"name": &"Dash",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wngj2")
 }, {
 "duration": 1.0,
@@ -279,6 +334,11 @@ animations = [{
 "loop": false,
 "name": &"attack_03",
 "speed": 8.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_00ahi"]
@@ -449,7 +509,9 @@ Magic_03 = ExtResource("3_f5arh")
 [node name="PlayerAnm" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_dn7g4")
-animation = &"Idle"
+animation = &"Dash"
+frame = 6
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=81 format=3 uid="uid://dcym5jairsgmm"]
+[gd_scene load_steps=90 format=3 uid="uid://dcym5jairsgmm"]
 
 [ext_resource type="Script" path="res://Scripts/Player_guerreiro.gd" id="1_e2ycu"]
 [ext_resource type="PackedScene" uid="uid://boawhe6g1usc0" path="res://Scenes/magic_guerreiro.tscn" id="2_sowbm"]
 [ext_resource type="Texture2D" uid="uid://c7my43qqfnwdq" path="res://Sprites/Wizard-DEATH.png" id="3_fuidm"]
+[ext_resource type="Texture2D" uid="uid://b1jjyg1mqfxpd" path="res://Assets/Characters(100x100)/guerreiro/Knight_Dsh-Sheet.png" id="3_m87g4"]
 [ext_resource type="Texture2D" uid="uid://dddrig3kshpo4" path="res://Sprites/Wizard-Hurt_1 (4).png" id="4_esut1"]
 [ext_resource type="Texture2D" uid="uid://jauh03k1uju2" path="res://Assets/Characters(100x100)/guerreiro/Knight_idle-Sheet.png" id="5_fes0p"]
 [ext_resource type="Texture2D" uid="uid://7tnf1nrgsysv" path="res://Assets/Characters(100x100)/guerreiro/Knight_walk-Sheet.png" id="6_n02jd"]
@@ -18,6 +19,38 @@
 [ext_resource type="PackedScene" uid="uid://b7tb1tt62sqya" path="res://Scenes/spell_button.tscn" id="15_i7m7w"]
 [ext_resource type="PackedScene" uid="uid://brw5nh33e052d" path="res://Scenes/hud.tscn" id="16_bogny"]
 [ext_resource type="AudioStream" uid="uid://cf4qg0xt7yclg" path="res://Musics/FireAtk.wav" id="17_657tv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxjp3"]
+atlas = ExtResource("3_m87g4")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gya1"]
+atlas = ExtResource("3_m87g4")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syqpg"]
+atlas = ExtResource("3_m87g4")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqt2q"]
+atlas = ExtResource("3_m87g4")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kumir"]
+atlas = ExtResource("3_m87g4")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okvdb"]
+atlas = ExtResource("3_m87g4")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8s26"]
+atlas = ExtResource("3_m87g4")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0y0nr"]
+atlas = ExtResource("3_m87g4")
+region = Rect2(700, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qwaty"]
 atlas = ExtResource("3_fuidm")
@@ -245,6 +278,35 @@ region = Rect2(900, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6r366"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxjp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gya1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syqpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqt2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kumir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okvdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8s26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0y0nr")
+}],
+"loop": false,
+"name": &"Dash",
+"speed": 16.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qwaty")
@@ -484,7 +546,9 @@ Magic = ExtResource("2_sowbm")
 [node name="PlayerAnm" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_6r366")
-animation = &"flamingBlade"
+animation = &"Dash"
+frame = 7
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

@@ -8,11 +8,9 @@ var PillarBuffs = preload("res://Scenes/pillar_buffs.tscn")
 @onready var Buff1 = $Marker2D
 @onready var Buff2 = $Marker2D2
 @onready var Buff3 = $Marker2D3
+
 var buff_spawned = false 
 
-
-func _ready():
-	pass
 
 func _process(delta):
 	if VariaveisGlobais.door_choice == 1:

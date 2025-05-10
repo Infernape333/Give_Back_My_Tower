@@ -5,9 +5,8 @@ class_name EnemySpawner
 @export var tile_map: TileMap
 @export var spawns: Array[Spawn_Info] = []
 
-@onready var player = get_tree().get_first_node_in_group("player")
+@onready var player = VariaveisGlobais.player_instance
 @onready var player_camera = player.get_node("Camera2D")
-
 @export var time = 0
 
 @export var near_size: Vector2 = Vector2(80, 80)
